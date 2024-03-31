@@ -1,0 +1,4 @@
+order_id;date_created;paid_amount;currency_id;buyer_id;item_id;coupon_id
+1;2022-03-30 10:15:00;150.00;USD;101;201;NULL
+2;2022-03-31 14:20:00;200.00;EUR;102;202;301
+3;2022-04-01 09:45:00;100.50;GBP;103;203;NULL

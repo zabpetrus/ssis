@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\vstudio2024\\Elim_Integration_Services\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A3F3BCB8-3778-40EB-9DBA-2593FFE89BEC}|Elim_Integration_Services\\Elim_Integration_Services.dtproj|F:\\vstudio2024\\Elim_Integration_Services\\Elim_Integration_Services\\ETLA.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{A3F3BCB8-3778-40EB-9DBA-2593FFE89BEC}|Elim_Integration_Services\\Elim_Integration_Services.dtproj|solutionrelative:Elim_Integration_Services\\ETLA.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F9D210-8BB8-4F27-82FF-9ABE3815949A}|Itens de Solu\u00E7\u00E3o{82F9D210-8BB8-4F27-82FF-9ABE3815949A}|F:\\vstudio2024\\Elim_Integration_Services\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{82F9D210-8BB8-4F27-82FF-9ABE3815949A}|Itens de Solu\u00E7\u00E3o{82F9D210-8BB8-4F27-82FF-9ABE3815949A}|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".env",
+              "DocumentMoniker": "F:\\vstudio2024\\Elim_Integration_Services\\.env",
+              "RelativeDocumentMoniker": ".env",
+              "ToolTip": "F:\\vstudio2024\\Elim_Integration_Services\\.env",
+              "RelativeToolTip": ".env",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ5SURBVDhPjVM7TFRBFD3zWd4u7C5fMSwQSRYJWrBGY8COhsLKmNjZk2iCrYUa1NgbK2pjqaWFjRESCAloTNZGPgY1QFTYDbA82feZGe4MCyFI4Unm3Xvn3Tlz58wdhhrGZ772T63tvd1TyEOr2uy/4Ik6mODvhNc1eG9qGBF/sbjoPZxZvg/hTdfXybxWCtoAMX2stbDGxsrQXBzDCHk7LH9rAWOMl0uJDoA9paDVLqYcNCUl\u002Blvq0UpW04QnuItzDR79pwRtmCpOXuodG/O43YExBEZr6yIkO9zVhJfXL2C0kIMfaQx1ZA/igRxCRXlaZczWxpvGwOtyBCdBhBD0GWhLIyU5Lp/NuJgfKUY5lGLtqQSckreD2C22pecbk6iEys0fg1PodAIa5WqM7ztV3Ohtc2L\u002BrFQhjpdQw6kEtlxBuR9/V3DrfDt\u002BEFEQayT\u002Bh8CWubobYO5XBbPr25ihMbm6hc9/dvFl0z95DLDx2ZUebXSRrjQzt76DEnUS2EEP2A0VObYid2CCYLSnCmE\u002BffDVXqlwWAHngkRVMXVMCE5WqAgsjiB1DEY\u002BpyHIt4tdXg3swfRiXgjxfrlYbF5ZWMoq6gPbLAkpXLkR3bukRrIIIyI7PEJQ9ZWKClJKbFCLjizMz7\u002BSdd6gfQeaSEZvjqBc8ZFOJVHaruBiTyeev34HvxoQCRHWzsSfDPXtPLvWuyRkgtsOsv14prkRfd05tGQzSCU9pOtT6G5vQ/\u002B5TsSKVh4T8sAzhl29\u002B3iehLii6XzZhhSa0w0kDHMiSs4R0iPS5K9tluH00sZXOi4cUQ3eeTQKJieM0dxqYB/RSdhkTmSuAkcQF/YBDTghY7iSr6AAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-03-30T15:16:17.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ETLA.dtsx [Design]",
+              "DocumentMoniker": "F:\\vstudio2024\\Elim_Integration_Services\\Elim_Integration_Services\\ETLA.dtsx",
+              "RelativeDocumentMoniker": "Elim_Integration_Services\\ETLA.dtsx",
+              "ToolTip": "F:\\vstudio2024\\Elim_Integration_Services\\Elim_Integration_Services\\ETLA.dtsx [Design]",
+              "RelativeToolTip": "Elim_Integration_Services\\ETLA.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-03-30T15:07:54.21Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

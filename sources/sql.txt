@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS utilitario.estados;
+CREATE TABLE IF NOT EXISTS utilitario.estados(
+Estados VARCHAR(50) NOT NULL,
+Siglas VARCHAR(3) NOT NULL
+)
