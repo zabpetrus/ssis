@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\vstudio2024\\Elim\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4C57BC9A-BDB1-4800-ACF6-573F222400BD}|Elim\\Elim.API.csproj|f:\\vstudio2024\\elim\\elim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C57BC9A-BDB1-4800-ACF6-573F222400BD}|Elim\\Elim.API.csproj|solutionrelative:elim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C57BC9A-BDB1-4800-ACF6-573F222400BD}|Elim\\Elim.API.csproj|f:\\vstudio2024\\elim\\elim\\elim.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4C57BC9A-BDB1-4800-ACF6-573F222400BD}|Elim\\Elim.API.csproj|solutionrelative:elim\\elim.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648F8B17-DE72-4824-BBF8-4D13DD97244F}|Elim.Domain\\Elim.Domain.csproj|f:\\vstudio2024\\elim\\elim.domain\\contexts\\clientecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{648F8B17-DE72-4824-BBF8-4D13DD97244F}|Elim.Domain\\Elim.Domain.csproj|solutionrelative:elim.domain\\contexts\\clientecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{648F8B17-DE72-4824-BBF8-4D13DD97244F}|Elim.Domain\\Elim.Domain.csproj|f:\\vstudio2024\\elim\\elim.domain\\elim.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{648F8B17-DE72-4824-BBF8-4D13DD97244F}|Elim.Domain\\Elim.Domain.csproj|solutionrelative:elim.domain\\elim.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClienteContext.cs",
+              "DocumentMoniker": "F:\\vstudio2024\\Elim\\Elim.Domain\\Contexts\\ClienteContext.cs",
+              "RelativeDocumentMoniker": "Elim.Domain\\Contexts\\ClienteContext.cs",
+              "ToolTip": "F:\\vstudio2024\\Elim\\Elim.Domain\\Contexts\\ClienteContext.cs",
+              "RelativeToolTip": "Elim.Domain\\Contexts\\ClienteContext.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:57:40.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Elim.Domain",
+              "DocumentMoniker": "F:\\vstudio2024\\Elim\\Elim.Domain\\Elim.Domain.csproj",
+              "RelativeDocumentMoniker": "Elim.Domain\\Elim.Domain.csproj",
+              "ToolTip": "F:\\vstudio2024\\Elim\\Elim.Domain\\Elim.Domain.csproj",
+              "RelativeToolTip": "Elim.Domain\\Elim.Domain.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-01T20:51:17.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\vstudio2024\\Elim\\Elim\\Program.cs",
+              "RelativeDocumentMoniker": "Elim\\Program.cs",
+              "ToolTip": "F:\\vstudio2024\\Elim\\Elim\\Program.cs*",
+              "RelativeToolTip": "Elim\\Program.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T20:41:49.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Elim.API",
+              "DocumentMoniker": "F:\\vstudio2024\\Elim\\Elim\\Elim.API.csproj",
+              "RelativeDocumentMoniker": "Elim\\Elim.API.csproj",
+              "ToolTip": "F:\\vstudio2024\\Elim\\Elim\\Elim.API.csproj",
+              "RelativeToolTip": "Elim\\Elim.API.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-01T20:34:42.856Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

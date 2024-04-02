@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Elim_Integration_Services", "Elim_Integration_Services\Elim_Integration_Services.dtproj", "{A3F3BCB8-3778-40EB-9DBA-2593FFE89BEC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{82F9D210-8BB8-4F27-82FF-9ABE3815949A}"
-	ProjectSection(SolutionItems) = preProject
-		.env = .env
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
