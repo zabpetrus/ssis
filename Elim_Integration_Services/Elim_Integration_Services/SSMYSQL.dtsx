@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="SSMYSQL"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{F304F853-1B3A-40B7-9C91-28792B0BC768}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{F9DF62F4-7854-485A-9A5D-234DCDB49E64}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ1g8O5LPv0K/NUBLy2212wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACKxw5HJ+hTbWN0gxlaOhKtrsGBZTsyREErOGEywzLVTwAAAAAOgAAAAAIAACAAAAA8JXngzlaM+BnxxNwjl1yIlf8nwZrV98ZvDkeoYPmLdBAAAABOPSkypXfSwr77JBQUPKx3QAAAACdjdfdRGjR/rJfYwqwSHoZzwpl7zMd4IjAVI3B8HDm6QdIdNRm8/3gy6yVJ7z2Nl3e9OWJEclG4fuf1RaQyv0M</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ1g8O5LPv0K/NUBLy2212wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADzXTtoF0fo1K1udPq7JZxkAV0azkpVX5nG78t6gQz2DAAAAAAOgAAAAAIAACAAAAAGobwCuEgxM69Lu1+M/sIgao5mIc6fVc+qye9F0wyupxAAAACWZRi6LPt3ISyOUztHzl7EQAAAAHuVTCRV/vwRp+qJaX34HBrfmp8XUVwbOYq0hMuT6xcK5qiJmTMxDbvrN7oLr2wuWqc0wmk6lAlMRWA1My/lQPs</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -607,25 +607,25 @@
         <NodeLayout
           Size="201,42"
           Id="Package\Conversor 1\Tarefa CSV para MySQL"
-          TopLeft="9,78" />
+          TopLeft="9,87" />
         <NodeLayout
           Size="212,42"
           Id="Package\Conversor 1\Tarefa SQLServer pra CSV"
-          TopLeft="7,7" />
+          TopLeft="7,12" />
         <EdgeLayout
           Id="Package\Conversor 1.PrecedenceConstraints[Restrição]"
-          TopLeft="111.25,49">
+          TopLeft="111.25,54">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,21.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -637,8 +637,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="224,169"
-          Size="224,212"
+          PanelSize="224,184"
+          Size="224,227"
           Id="Package\Conversor 1"
           TopLeft="69,32" />
       </GraphLayout>

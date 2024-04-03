@@ -1,0 +1,8 @@
+Product ID (SKU),Locale; Title; Description,Auto Fill Prices,Price,IAP Type
+com.test.iap1,en_US; Fire map 1; Gives you the Fire map and 1000 Bonus Gears!; ja_JP; JP_title;  JP_description;,TRUE,USD; 1990000,Entitlement
+com.test.iap2,en_US; Fire map 2; Gives you the Fire map and 1000 Bonus Gears!; ja_JP; JP_title;  JP_description;,TRUE,BRL; 2990000,Consumable
+com.test.iap3,en_US; Fire map 3; Gives you the Fire map and 1000 Bonus Gears!; ja_JP; JP_title;  JP_description;,TRUE,AUD; 4990000,Entitlement
+com.test.iap4,en_US; Fire map 4; Gives you the Fire map and 1000 Bonus Gears!; ja_JP; JP_title;  JP_description;,TRUE,MXN; 76800000,Entitlement
+com.test.iap5,en_US; Fire map 5; Gives you the Fire map and 5000 Bonus Gears!;,FALSE,US; 3840000; FR; 4000000; ES; 990000; IT; 890000; DE; 790000; GB; 690000; JP; 90000000; CA; 4000000; BR; 5000000; AU; 5000000; MX; 76800000; IN; 20000000; CN; 1000000,Entitlement,
+com.test.iap6,en_US; Fire Map 6; Gives you the Fire map and 1000 Bonus Gears!;,FALSE,US; 3840000; FR; 4000000; ES; 990000; IT; 890000; DE; 790000; GB; 690000; JP; 90000000; CA; 4000000; BR; 5000000; AU; 5000000; MX; 76800000; IN; 20000000; CN; 1000000,Entitlement
+com.test.iap7,en_US; Fire map 7; Gives you the Fire map and 1000 Bonus Gears!; ja_JP; JP_title;  JP_description;,FALSE,US; 3840000; FR; 4000000; ES; 990000; IT; 890000; DE; 790000; GB; 690000; JP; 90000000; CA; 4000000; BR; 5000000; AU; 5000000; MX; 76800000; IN; 20000000; CN; 1000000,Consumable
