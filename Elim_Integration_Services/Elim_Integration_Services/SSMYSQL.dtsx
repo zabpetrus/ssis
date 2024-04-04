@@ -11,26 +11,11 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="SSMYSQL"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{F9DF62F4-7854-485A-9A5D-234DCDB49E64}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{EB55467A-5031-43C0-A25F-F4DC3EA1785E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[127.0.0.1.utilitario.root]"
-      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{D9F918F1-BB5B-4D2C-94BD-9E50B509CF92}"
-      DTS:ObjectName="127.0.0.1.utilitario.root">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="server=127.0.0.1;uid=root;Dsn=MYSQL24_CONN_COOKIE;description=Mysql cookie;database=utilitario;port=3306;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ1g8O5LPv0K/NUBLy2212wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADzXTtoF0fo1K1udPq7JZxkAV0azkpVX5nG78t6gQz2DAAAAAAOgAAAAAIAACAAAAAGobwCuEgxM69Lu1+M/sIgao5mIc6fVc+qye9F0wyupxAAAACWZRi6LPt3ISyOUztHzl7EQAAAAHuVTCRV/vwRp+qJaX34HBrfmp8XUVwbOYq0hMuT6xcK5qiJmTMxDbvrN7oLr2wuWqc0wmk6lAlMRWA1My/lQPs</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
       DTS:CreationName="OLEDB"
@@ -41,6 +26,21 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.utilitario.root]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{613A4ABE-FC50-466C-9943-3E51C77948F6}"
+      DTS:ObjectName="localhost.utilitario.root">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=root;database=utilitario;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ1g8O5LPv0K/NUBLy2212wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACcluuEs75/QDra0PYkxquP1MccIDTqXz+YQ2cj0ugpBQAAAAAOgAAAAAIAACAAAAC5X1j8TO1jNC/xK/BHjwbl7YUjpnYa1yqQ7yuUA/ysyxAAAADixPYSkbepByn/YmKNx6h1QAAAAGXasTIiZsKBuy7Yee+eXDwO37szhjKsw8aeEu6X2wvAdJXuzPNUdhBxVWGG7beNZMZwm/CflfOPzaVY24HPb2s</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -91,6 +91,8 @@
       DTS:Description="Contêiner da Sequência"
       DTS:DTSID="{14B708E3-AA29-4D1E-81BD-F8D0D603E9A2}"
       DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:ExecValue=""
+      DTS:ExecValueType="8"
       DTS:LocaleID="-1"
       DTS:ObjectName="Conversor 1">
       <DTS:Variables />
@@ -123,12 +125,12 @@
                       description="O nome da tabela de banco de dados de Destino."
                       expressionType="Notify"
                       name="TableOrViewName"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">estados</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Estados</property>
                     <property
                       dataType="System.Int32"
                       description="Especifique o número de linhas por lote. O padrão é 0, que usa o mesmo tamanho que o buffer interno SSIS. "
                       expressionType="Notify"
-                      name="BatchSize">25000</property>
+                      name="BatchSize">1000</property>
                     <property
                       dataType="System.Int32"
                       description="O número de segundos antes de o tempo limite de um comando ser alcançado. Um valor de 0 indica um tempo limite infinito. "
@@ -138,7 +140,7 @@
                       dataType="System.Boolean"
                       description="Especifica se a interface SqlBulkCopy deve ser usada para melhorar o desempenho de operações de inserção em massa. Somente determinados provedores oferecem suporte a essa interface."
                       expressionType="Notify"
-                      name="UseBulkInsertWhenPossible">false</property>
+                      name="UseBulkInsertWhenPossible">true</property>
                     <property
                       dataType="System.String"
                       name="UserComponentTypeName">Microsoft.ADONETDestination</property>
@@ -146,8 +148,8 @@
                   <connections>
                     <connection
                       refId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Connections[IDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[127.0.0.1.utilitario.root]"
-                      connectionManagerRefId="Package.ConnectionManagers[127.0.0.1.utilitario.root]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.utilitario.root]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.utilitario.root]"
                       description="Gerenciador de conexões gerenciadas"
                       name="IDbConnection" />
                   </connections>
@@ -164,7 +166,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Estado"
-                          externalMetadataColumnId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Estados]"
+                          externalMetadataColumnId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Estado]"
                           lineageId="Package\Conversor 1\Tarefa CSV para MySQL\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Estado]" />
                         <inputColumn
                           refId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].Columns[Sigla]"
@@ -172,21 +174,21 @@
                           cachedDataType="str"
                           cachedLength="3"
                           cachedName="Sigla"
-                          externalMetadataColumnId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Siglas]"
+                          externalMetadataColumnId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Sigla]"
                           lineageId="Package\Conversor 1\Tarefa CSV para MySQL\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Sigla]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Estados]"
+                          refId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Estado]"
                           dataType="wstr"
-                          length="100"
-                          name="Estados" />
+                          length="50"
+                          name="Estado" />
                         <externalMetadataColumn
-                          refId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Siglas]"
+                          refId="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET.Inputs[Entrada de Destino ADO NET].ExternalColumns[Sigla]"
                           dataType="wstr"
-                          length="6"
-                          name="Siglas" />
+                          length="3"
+                          name="Sigla" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -648,7 +650,7 @@
     design-time-name="Package\Conversor 1\Tarefa CSV para MySQL">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="213,42"
           Id="Package\Conversor 1\Tarefa CSV para MySQL\Origem de Arquivo Simples"
@@ -656,27 +658,29 @@
         <NodeLayout
           Size="183,42"
           Id="Package\Conversor 1\Tarefa CSV para MySQL\Destino do ADO NET"
-          TopLeft="171,164" />
+          TopLeft="168.5,147.5" />
         <EdgeLayout
           Id="Package\Conversor 1\Tarefa CSV para MySQL.Paths[Saída de Origem de Arquivo Simples]"
-          TopLeft="259.5,86">
+          TopLeft="258.25,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78"
+              EndConnector="0,61.5"
               Start="0,0"
-              End="0,70.5">
+              End="0,54">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.5" />
+                    End="0,54" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -694,7 +698,7 @@
     design-time-name="Package\Conversor 1\Tarefa SQLServer pra CSV">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158,42"
           Id="Package\Conversor 1\Tarefa SQLServer pra CSV\Origem OLE DB"
@@ -734,7 +738,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

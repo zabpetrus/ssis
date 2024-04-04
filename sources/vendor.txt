@@ -1,1 +1,0 @@
-id;date_created;paid_amount;currency_id;buyer_id;orders_id;coupons;

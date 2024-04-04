@@ -1,0 +1,1 @@
+codigoPedido;dataPedido;sku;upc;nomeProduto;qte;valor;frete;email;nomeComprador;endereco;cep;uf;pais;ErrorCode;ErrorColumn
