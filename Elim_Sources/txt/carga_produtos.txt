@@ -1,0 +1,2 @@
+nomeProduto;sku;upc;qte;valor
+Edredon Solteiro Mikasa estampado;SKU0249;733009782484;3;120.99

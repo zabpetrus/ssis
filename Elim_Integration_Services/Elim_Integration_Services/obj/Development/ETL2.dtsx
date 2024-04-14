@@ -1,43 +1,38 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="4/4/2024 4:02:57 PM"
+  DTS:CreationDate="4/12/2024 11:11:35 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-NSQ6C33"
   DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
-  DTS:DTSID="{63BA01DF-9F40-46F7-A076-089DBC0428EB}"
+  DTS:DTSID="{9B8E33A0-D4A0-477A-9D67-1439C9A5AA8A}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1046"
   DTS:ObjectName="ETL2"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{6910C912-0D80-4EC1-8E5F-29C9540FE583}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{FC69EEE9-8879-4209-9602-3CBEFEAD7ACE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.starrail.admin]"
+      DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D4BF70D5-34FA-46C1-8822-C98FF6B2F6D5}"
-      DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.starrail.admin">
+      DTS:DTSID="{99C79498-A8C7-4C24-BC86-32B16F9C0B54}"
+      DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.Utilitario">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=admin;Initial Catalog=starrail;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ1g8O5LPv0K/NUBLy2212wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAah9a70C0umsZw3kasajOLPKZHdQbOytw+HJy6GzWvSwAAAAAOgAAAAAIAACAAAAAdzDXRImHDNgyLaGMbn6WYHlRJ4vkaboFSeSdImi2IjxAAAABz9x0Zx4EsoMEmlrQn7p/EQAAAAAE/E28+gMzcqxPWYpbGlYxQawFZ/0hWk0zLjYLEJNkukVl85t3Hsvv2tjF6WGi4bAJOgXEnkIQ6ntGvLBKSadM</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Trust Server Certificate=True;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-ETL2-{99C79498-A8C7-4C24-BC86-32B16F9C0B54}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[inputcsv]"
+      DTS:refId="Package.ConnectionManagers[readfiletxt]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{15C80E46-51C3-4DFA-A1C5-D2F4775417B0}"
-      DTS:ObjectName="inputcsv">
+      DTS:DTSID="{803CF9A6-EE51-4352-BA1A-19D7AED38D10}"
+      DTS:ObjectName="readfiletxt">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -47,7 +42,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="F:\vstudio2024\Elim_Sources\txt\teste.txt">
+          DTS:ConnectionString="F:\vstudio2024\Elim_Sources\txt\carga_um.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -55,8 +50,17 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="codigoPedido"
-              DTS:DTSID="{DDBAAA1A-64C1-4E8C-B416-52C78A2DAC21}"
+              DTS:ObjectName="CodigoPedido"
+              DTS:DTSID="{8C396BC1-6259-4928-9728-0696A96F3CC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DataPedido"
+              DTS:DTSID="{38BC0C22-D39B-4ABD-9ADD-727A2D1D41F5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,8 +68,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="dataPedido"
-              DTS:DTSID="{4846E2F4-3A5E-40E0-AA92-383AF7C710E1}"
+              DTS:ObjectName="SKU"
+              DTS:DTSID="{8D173533-6D80-495C-8356-ECC6469A60A1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,17 +77,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="sku"
-              DTS:DTSID="{4320BC19-2B68-41D4-9BF0-5102D34AE241}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="upc"
-              DTS:DTSID="{4FD60C0C-DF7D-47AC-9C2E-AD4201D7052F}"
+              DTS:ObjectName="UPC"
+              DTS:DTSID="{C4DE1C46-6F03-4917-AC02-BC1DF723DC3D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -91,44 +86,8 @@
               DTS:MaximumWidth="150"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="nomeProduto"
-              DTS:DTSID="{F3D4CA3A-BA9D-4FB9-947D-763706EAE3B0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="qte"
-              DTS:DTSID="{50E52804-B163-4C44-8788-DE9E2668C6E4}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="valor"
-              DTS:DTSID="{2A71B492-08AE-4907-9AD4-D787455BF35F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="frete"
-              DTS:DTSID="{9432AC12-F5C2-404F-B41E-4E27F519F1D8}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="email"
-              DTS:DTSID="{62D8C479-A794-45AB-A5EE-66EED9753B01}"
+              DTS:ObjectName="NomeProduto"
+              DTS:DTSID="{2C02C33B-AA9B-4BE5-B709-0511106F2942}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -136,17 +95,34 @@
               DTS:MaximumWidth="150"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="nomeComprador"
-              DTS:DTSID="{2C2C465E-4D5F-489B-876D-F8E397729590}"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{B1EFCB37-BEB5-4889-ACEE-85BBE11B344F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="150"
-              DTS:DataType="129"
+              DTS:DataType="3"
               DTS:TextQualified="True"
-              DTS:ObjectName="endereco"
-              DTS:DTSID="{DC876C2A-B462-4EA8-8CE6-B747D670372A}"
+              DTS:ObjectName="Quantidade"
+              DTS:DTSID="{DD0806FB-A853-4A35-AFFF-CE97C8710629}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="14"
+              DTS:DataScale="10"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{672E1A58-AE52-46F7-81DC-18166E36C248}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="14"
+              DTS:DataScale="10"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Frete"
+              DTS:DTSID="{08613014-9A05-4DBB-BC9B-848175C5C2DA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -154,8 +130,35 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="cep"
-              DTS:DTSID="{38636CEE-226D-45ED-AF31-4844928DF080}"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{DD2A8849-336C-41DC-870B-9E3989401F00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CPF"
+              DTS:DTSID="{FD35C6F7-5621-4AF2-A543-A2B7B57BFC49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeComprador"
+              DTS:DTSID="{896CD772-1F64-49E0-A4A0-3906072BFCDC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnderecoEntrega"
+              DTS:DTSID="{B2AB3911-1928-4410-B344-7D7CD051752D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -163,75 +166,26 @@
               DTS:MaximumWidth="10"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="uf"
-              DTS:DTSID="{1C9DA60B-9F7E-4DA7-BB12-3AB6447055AD}"
+              DTS:ObjectName="CEP"
+              DTS:DTSID="{A1BBFA54-95D4-476A-BBF7-436DE5D60648}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="pais"
-              DTS:DTSID="{DF63BFCC-548A-47D6-8A70-A10AAE70DEEF}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[jrtryhf]"
-      DTS:CreationName="ADO.NET:SQL"
-      DTS:DTSID="{CEA06155-73AE-4DC6-B542-D379A2C8F3A8}"
-      DTS:ObjectName="jrtryhf">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=admin;Connect Timeout=30;">
-          <DTS:Password
-            DTS:Name="PWD"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ1g8O5LPv0K/NUBLy2212wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAbOATLQ8aqoj8AXndoFpGZoqRjyqj0zXDvhAkmntgoFQAAAAAOgAAAAAIAACAAAAAvRRa0tGxcHKO9CHxaeJ/dTjLGdb6rFvAIRh41+/kEUxAAAACTqsp2IHD6ndVZezgwi/BwQAAAAKS0UOCun5j1W2ORQwYikx59F0i7b5csFFSshGHrrDbKpx6MGPkzH460jxBxByesilY4E3ISjLyV4Plm2FWtFvE</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Writerror]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{4CAAB0E4-3370-4AEB-A290-473C8D0A363E}"
-      DTS:ObjectName="Writerror">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1046"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="F:\vstudio2024\Elim_Sources\debug\debug.txt">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="302"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Coluna de Saída de Erro de Origem de Arquivo Simples"
-              DTS:DTSID="{56031109-5984-455B-B60D-A48526BF96EF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ErrorCode"
-              DTS:DTSID="{116D4DE4-0A36-409D-98B4-025F747F46DE}"
+              DTS:ObjectName="UF"
+              DTS:DTSID="{62C7239F-00B4-44C7-B89F-FE1A05AF28DA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="3"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="ErrorColumn"
-              DTS:DTSID="{FCA23A5D-6E29-46C3-8368-D3C8280E7ACF}"
+              DTS:ObjectName="Pais"
+              DTS:DTSID="{400FD3F3-BB57-496F-B291-68D29E6E3C28}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -241,69 +195,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Criando tabelas Cliente, Produtos e Pedidos"
-      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
-      DTS:Description="Tarefa Executar Instrução T-SQL"
-      DTS:DTSID="{1D2A47BE-12B2-4EDE-8095-9A81CD55A9D5}"
-      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Criando tabelas Cliente, Produtos e Pedidos"
-      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{CEA06155-73AE-4DC6-B542-D379A2C8F3A8}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('Clientes', 'U') IS NULL&#xA;BEGIN&#xA;&#x9;CREATE TABLE Clientes (&#xA;&#x9;&#x9;[nomeComprador] varchar(150) not null,&#xA;&#x9;&#x9;[endereco] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[email] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cep] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[uf] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[pais] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;END&#xA;IF OBJECT_ID('Produtos', 'U') IS NULL&#xA;BEGIN&#xA;DROP TABLE IF EXISTS Produtos;&#xA;&#x9;CREATE TABLE Produtos (&#xA;&#x9;&#x9;[nomeProduto] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[sku] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[upc] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[qte] INT NOT NULL,&#xA;&#x9;&#x9;[valor] DECIMAL(10,2) NOT NULL&#x9;&#xA;&#x9;);&#xA;END&#xA;IF OBJECT_ID('Pedidos', 'U') IS NULL&#xA;BEGIN&#xA;DROP TABLE IF EXISTS Pedidos;&#xA;&#x9;CREATE TABLE Pedidos(&#xA;&#x9;&#x9;[codigoPedido] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[dataPedido] VARCHAR(50) NOT NULL,&#xA;&#x9;);&#xA;END"
-          SQLTask:ServerVersion="9"
-          SQLTask:ExtendedLogging="True"
-          SQLTask:LocalConnectionForLogging=""
-          SQLTask:TaskName=""
-          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Dropando tabla PClientes;"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarefa Executar SQL"
-      DTS:DTSID="{C59A1E3A-420F-4255-894A-7A191CD56266}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Dropando tabla PClientes;"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{D4BF70D5-34FA-46C1-8822-C98FF6B2F6D5}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS PClientes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Ler arquivo e criar tabela PClientes"
+      DTS:refId="Package\Tarefa Fluxo de Dados"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarefa Fluxo de Dados"
-      DTS:DTSID="{319F941B-6E1C-4312-8FE7-19A9A2402596}"
+      DTS:DTSID="{68817C6F-A8D7-495A-A956-B2FFC50734A4}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:MaxErrorCount="2"
-      DTS:ObjectName="Ler arquivo e criar tabela PClientes"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Populando tabelas Cliente Produtos e Pedidos"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tarefa Fluxo de Dados"
-      DTS:DTSID="{0FBE089D-4127-46DC-AE07-5B6C6A0FF8CD}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Populando tabelas Cliente Produtos e Pedidos"
+      DTS:ObjectName="Tarefa Fluxo de Dados"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -311,82 +209,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
-              description="Destino de Arquivo Simples"
-              localeId="1046"
-              name="Destino de Arquivo Simples"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
-                  expressionType="Notify"
-                  name="Header" />
-                <property
-                  dataType="System.Boolean"
-                  description="Quando o qualificador de texto está habilitado, ele especifica se o qualificador de texto nos dados gravados no arquivo de destino serão de saída ou não."
-                  name="EscapeQualifier">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Writerror]"
-                  connectionManagerRefId="Package.ConnectionManagers[Writerror]"
-                  name="FlatFileConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
-                  hasSideEffects="true"
-                  name="Entrada de Destino de Arquivo Simples">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
-                      cachedCodepage="1252"
-                      cachedDataType="text"
-                      cachedName="Coluna de Saída de Erro de Origem de Arquivo Simples"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorCode]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorColumn]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
-                      codePage="1252"
-                      dataType="text"
-                      name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorCode]"
-                      dataType="i4"
-                      name="ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[ErrorColumn]"
-                      dataType="i4"
-                      name="ErrorColumn" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-            </component>
-            <component
-              refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server"
+              refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server"
               componentClassID="Microsoft.SQLServerDestination"
               contactInfo="Destino do SQL Server;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;5"
               description="Destino do SQL Server"
@@ -405,7 +228,7 @@
                   dataType="System.String"
                   description="O nome do objeto de banco de dados no qual copiar dados."
                   expressionType="Notify"
-                  name="BulkInsertTableName">[PClientes]</property>
+                  name="BulkInsertTableName">[dbo].[Carga]</property>
                 <property
                   dataType="System.Boolean"
                   description="Especifica que qualquer restrição no objeto de destino será verificada durante a operação de cópia de dados. Corresponde a opção de inserção em massa CHECK_CONSTRAINTS."
@@ -422,11 +245,11 @@
                 <property
                   dataType="System.Boolean"
                   description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Corresponde à opção de inserção em massa KEEPIDENTITY."
-                  name="BulkInsertKeepIdentity">false</property>
+                  name="BulkInsertKeepIdentity">true</property>
                 <property
                   dataType="System.Boolean"
                   description="Indica se as colunas que contêm null terão null copiado no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável somente se o carregamento rápido estiver ativado."
-                  name="BulkInsertKeepNulls">false</property>
+                  name="BulkInsertKeepNulls">true</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica o número da última linha a ser copiada. Corresponde à opção de inserção em massa LASTROW."
@@ -435,7 +258,7 @@
                 <property
                   dataType="System.Int32"
                   description="Especifica o número máximo de erros de sintaxe e erros de compilação que podem ocorrer antes do cancelamento da operação de cópia de dados. Cada linha que não puder ser copiada será ignorada e contada como um erro. Corresponde à opção de inserção em massa MAXERRORS."
-                  name="BulkInsertMaxErrors">-1</property>
+                  name="BulkInsertMaxErrors">65536</property>
                 <property
                   dataType="System.String"
                   description="Especifica como os dados a serem copiados estão classificados. Corresponde à opção de inserção em massa ORDER."
@@ -457,223 +280,247 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.starrail.admin]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.starrail.admin]"
+                  refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
                   description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+                  refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
                   hasSideEffects="true"
                   name="Entrada de Destino do SQL Server">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[codigoPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[CodigoPedido]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="codigoPedido"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]" />
+                      cachedName="CodigoPedido"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CodigoPedido]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[dataPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[DataPedido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="DataPedido"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[DataPedido]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[SKU]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="dataPedido"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]" />
+                      cachedName="SKU"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[SKU]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[sku]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[UPC]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="sku"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]" />
+                      cachedName="UPC"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[UPC]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[upc]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="upc"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeProduto]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[NomeProduto]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
-                      cachedName="nomeProduto"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]" />
+                      cachedName="NomeProduto"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[NomeProduto]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[qte]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="qte"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[valor]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="valor"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[frete]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="frete"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="email"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]" />
-                    <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeComprador]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[Descricao]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
-                      cachedName="nomeComprador"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]" />
+                      cachedName="Descricao"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[Descricao]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Descricao]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[endereco]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="150"
-                      cachedName="endereco"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[endereco]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[endereco]" />
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[Valor]"
+                      cachedDataType="decimal"
+                      cachedName="Valor"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cep]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[Frete]"
+                      cachedDataType="decimal"
+                      cachedName="Frete"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Frete]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[Email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="cep"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]" />
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Email]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[uf]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[CPF]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="CPF"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CPF]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[NomeComprador]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NomeComprador"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[NomeComprador]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[EnderecoEntrega]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="EnderecoEntrega"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[EnderecoEntrega]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[CEP]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
-                      cachedName="uf"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]" />
+                      cachedName="CEP"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CEP]" />
                     <inputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[pais]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[UF]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="pais"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]" />
+                      cachedLength="2"
+                      cachedName="UF"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[UF]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[Pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Pais"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Pais]" />
+                    <inputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[Quantidade]"
+                      cachedDataType="i4"
+                      cachedName="Quantidade"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Quantidade]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="codigoPedido" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="30"
                       name="dataPedido" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="sku" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="upc" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="nomeProduto" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
+                      dataType="i4"
                       name="qte" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="valor" />
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
+                      dataType="numeric"
+                      name="valor"
+                      precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="frete" />
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
+                      dataType="numeric"
+                      name="frete"
+                      precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="email" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cpf" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="nomeComprador" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[endereco]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
                       codePage="1252"
                       dataType="str"
                       length="150"
-                      name="endereco" />
+                      name="enderecoEntrega" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="cep" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="uf" />
+                      name="cep" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="2"
+                      name="uf" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
                       name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[Descricao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Descricao" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[tempDataPedido]"
+                      dataType="dbTimeStamp"
+                      name="tempDataPedido" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
             </component>
             <component
-              refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples"
+              refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
               description="Origem de Arquivo Simples"
@@ -685,7 +532,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Especifica se colunas de comprimento zero são tratadas como nulas."
-                  name="RetainNulls">true</property>
+                  name="RetainNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Especifica o nome de uma coluna de saída que contém o nome do arquivo. Se nenhum nome for especificado, nenhuma coluna de saída contendo o nome de arquivo será gerada."
@@ -693,26 +540,26 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[inputcsv]"
-                  connectionManagerRefId="Package.ConnectionManagers[inputcsv]"
+                  refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[readfiletxt]"
+                  connectionManagerRefId="Package.ConnectionManagers[readfiletxt]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
+                  refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
                   name="Saída de Origem de Arquivo Simples">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CodigoPedido]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[CodigoPedido]"
                       length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
-                      name="codigoPedido"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CodigoPedido]"
+                      name="CodigoPedido"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -726,15 +573,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[DataPedido]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
-                      length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
-                      name="dataPedido"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[DataPedido]"
+                      length="30"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[DataPedido]"
+                      name="DataPedido"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -748,15 +595,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[SKU]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[SKU]"
                       length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
-                      name="sku"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[SKU]"
+                      name="SKU"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -770,15 +617,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[UPC]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[UPC]"
                       length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
-                      name="upc"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[UPC]"
+                      name="UPC"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -792,15 +639,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[NomeProduto]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[NomeProduto]"
                       length="150"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
-                      name="nomeProduto"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[NomeProduto]"
+                      name="NomeProduto"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -814,103 +661,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Descricao]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
-                      length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
-                      name="qte"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se os dados estão em formato binário."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
-                      length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
-                      name="valor"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se os dados estão em formato binário."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
-                      length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
-                      name="frete"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se os dados estão em formato binário."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
-                      length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
-                      name="email"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica se os dados estão em formato binário."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Descricao]"
                       length="150"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
-                      name="nomeComprador"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Descricao]"
+                      name="Descricao"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -924,15 +683,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[endereco]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Quantidade]"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[endereco]"
-                      length="150"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[endereco]"
-                      name="endereco"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Quantidade]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Quantidade]"
+                      name="Quantidade"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -946,15 +703,57 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Valor]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Valor]"
+                      name="Valor"
+                      scale="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Frete]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Frete]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Frete]"
+                      name="Frete"
+                      scale="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Email]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Email]"
                       length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
-                      name="cep"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Email]"
+                      name="Email"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -968,15 +767,81 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CPF]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[CPF]"
+                      length="30"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CPF]"
+                      name="CPF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[NomeComprador]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[NomeComprador]"
+                      length="150"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[NomeComprador]"
+                      name="NomeComprador"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[EnderecoEntrega]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[EnderecoEntrega]"
+                      length="150"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[EnderecoEntrega]"
+                      name="EnderecoEntrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CEP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[CEP]"
                       length="10"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
-                      name="uf"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[CEP]"
+                      name="CEP"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -990,15 +855,37 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[UF]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
-                      errorRowDisposition="RedirectRow"
-                      externalMetadataColumnId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
-                      length="50"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
-                      name="pais"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[UF]"
+                      length="2"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[UF]"
+                      name="UF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica se os dados estão em formato binário."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Pais]"
+                      length="30"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[Pais]"
+                      name="Pais"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1015,113 +902,121 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[CodigoPedido]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="codigoPedido" />
+                      name="CodigoPedido" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[DataPedido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DataPedido" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[SKU]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="dataPedido" />
+                      name="SKU" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[UPC]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="sku" />
+                      name="UPC" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="upc" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[NomeProduto]"
                       codePage="1252"
                       dataType="str"
                       length="150"
-                      name="nomeProduto" />
+                      name="NomeProduto" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="qte" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="valor" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="frete" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="email" />
-                    <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Descricao]"
                       codePage="1252"
                       dataType="str"
                       length="150"
-                      name="nomeComprador" />
+                      name="Descricao" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[endereco]"
-                      codePage="1252"
-                      dataType="str"
-                      length="150"
-                      name="endereco" />
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Quantidade]"
+                      dataType="i4"
+                      name="Quantidade" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Valor]"
+                      dataType="decimal"
+                      name="Valor"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Frete]"
+                      dataType="decimal"
+                      name="Frete"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Email]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="cep" />
+                      name="Email" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[CPF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="CPF" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[NomeComprador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="NomeComprador" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[EnderecoEntrega]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="EnderecoEntrega" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[CEP]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="uf" />
+                      name="CEP" />
                     <externalMetadataColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[UF]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
-                      name="pais" />
+                      length="2"
+                      name="UF" />
+                    <externalMetadataColumn
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Pais" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                  refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
                   isErrorOut="true"
                   name="Saída de Erro de Origem de Arquivo Simples">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
-                      codePage="1252"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      codePage="65001"
                       dataType="text"
                       description="Coluna de Saída de Erro de Origem de Arquivo Simples"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
                       name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      refId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      lineageId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1132,46 +1027,15 @@
           </components>
           <paths>
             <path
-              refId="Package\Populando tabelas Cliente Produtos e Pedidos.Paths[Saída de Erro de Origem de Arquivo Simples]"
-              endId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples.Inputs[Entrada de Destino de Arquivo Simples]"
-              name="Saída de Erro de Origem de Arquivo Simples"
-              startId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]" />
-            <path
-              refId="Package\Populando tabelas Cliente Produtos e Pedidos.Paths[Saída de Origem de Arquivo Simples]"
-              endId="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+              refId="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem de Arquivo Simples]"
+              endId="Package\Tarefa Fluxo de Dados\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
               name="Saída de Origem de Arquivo Simples"
-              startId="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
+              startId="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restrição]"
-      DTS:CreationName=""
-      DTS:DTSID="{2F638025-96A2-43F6-AEB6-A1F487F175D1}"
-      DTS:From="Package\Ler arquivo e criar tabela PClientes"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restrição"
-      DTS:To="Package\Criando tabelas Cliente, Produtos e Pedidos" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restrição 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{75E35019-C77F-4297-A998-8B90548F33DE}"
-      DTS:From="Package\Criando tabelas Cliente, Produtos e Pedidos"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restrição 1"
-      DTS:To="Package\Populando tabelas Cliente Produtos e Pedidos" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restrição 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{294FB09B-9E36-4483-BEB7-B3BB811C6C0E}"
-      DTS:From="Package\Populando tabelas Cliente Produtos e Pedidos"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restrição 2"
-      DTS:To="Package\Dropando tabla PClientes;" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
 <!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
@@ -1183,184 +1047,54 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="295,42"
-          Id="Package\Criando tabelas Cliente, Produtos e Pedidos"
-          TopLeft="108,132" />
-        <NodeLayout
-          Size="207,42"
-          Id="Package\Dropando tabla PClientes;"
-          TopLeft="160,311" />
-        <NodeLayout
-          Size="250,42"
-          Id="Package\Ler arquivo e criar tabela PClientes"
-          TopLeft="129,30" />
-        <NodeLayout
-          Size="306,42"
-          Id="Package\Populando tabelas Cliente Produtos e Pedidos"
-          TopLeft="106,224" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restrição]"
-          TopLeft="254.75,72">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restrição 1]"
-          TopLeft="257.25,174">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50"
-              Start="0,0"
-              End="0,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restrição 2]"
-          TopLeft="261.25,266">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="191,42"
+          Id="Package\Tarefa Fluxo de Dados"
+          TopLeft="119.5,77.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Populando tabelas Cliente Produtos e Pedidos">
+    design-time-name="Package\Tarefa Fluxo de Dados">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="213,42"
-          Id="Package\Populando tabelas Cliente Produtos e Pedidos\Origem de Arquivo Simples"
-          TopLeft="238,41" />
-        <NodeLayout
-          Size="214,42"
-          Id="Package\Populando tabelas Cliente Produtos e Pedidos\Destino de Arquivo Simples"
-          TopLeft="386,233" />
+          Id="Package\Tarefa Fluxo de Dados\Origem de Arquivo Simples"
+          TopLeft="67,8" />
         <NodeLayout
           Size="192,42"
-          Id="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server"
-          TopLeft="84,230" />
+          Id="Package\Tarefa Fluxo de Dados\Destino do SQL Server"
+          TopLeft="77,129" />
         <EdgeLayout
-          Id="Package\Populando tabelas Cliente Produtos e Pedidos.Paths[Saída de Origem de Arquivo Simples]"
-          TopLeft="310.333333333333,83">
+          Id="Package\Tarefa Fluxo de Dados.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="173.25,50">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-130.333333333333,147"
+              EndConnector="0,79"
               Start="0,0"
-              End="-130.333333333333,139.5">
+              End="0,71.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.457595526561" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,55.457595526561"
-                    Point2="0,59.457595526561"
-                    Point3="-4,59.457595526561" />
-                  <mssgle:LineSegment
-                    End="-126.333333333333,59.457595526561" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-126.333333333333,59.457595526561"
-                    Point2="-130.333333333333,59.457595526561"
-                    Point3="-130.333333333333,63.457595526561" />
-                  <mssgle:LineSegment
-                    End="-130.333333333333,139.5" />
+                    End="0,71.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Populando tabelas Cliente Produtos e Pedidos.Paths[Saída de Erro de Origem de Arquivo Simples]"
-          TopLeft="378.666666666667,83">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="114.333333333333,150"
-              Start="0,0"
-              End="114.333333333333,142.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.6710158434297" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.6710158434297"
-                    Point2="0,60.6710158434297"
-                    Point3="4,60.6710158434297" />
-                  <mssgle:LineSegment
-                    End="110.333333333333,60.6710158434297" />
-                  <mssgle:CubicBezierSegment
-                    Point1="110.333333333333,60.6710158434297"
-                    Point2="114.333333333333,60.6710158434297"
-                    Point3="114.333333333333,64.6710158434296" />
-                  <mssgle:LineSegment
-                    End="114.333333333333,142.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-41.4415755208333,65.6710158434296,197.216484375,12.2490234375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Populando tabelas Cliente Produtos e Pedidos\Destino do SQL Server">
+    design-time-name="Package\Tarefa Fluxo de Dados\Destino do SQL Server">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

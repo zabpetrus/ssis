@@ -2,23 +2,28 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Elim_Integration_Services</Name>
-    <LastWriteTime>2024-04-05T18:44:40.6656961Z</LastWriteTime>
+    <LastWriteTime>2024-04-14T05:04:48.0815983Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>SSMYSQL.dtsx</Name>
-      <LastWriteTime>2024-04-05T18:53:34.1034847Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>ETL.dtsx</Name>
-      <LastWriteTime>2024-04-04T19:00:15.8481408Z</LastWriteTime>
+      <Name>ETL1.dtsx</Name>
+      <LastWriteTime>2024-04-14T04:36:00.3202062Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETL2.dtsx</Name>
-      <LastWriteTime>2024-04-05T19:05:36.8517778Z</LastWriteTime>
+      <LastWriteTime>2024-04-13T22:48:44.9145685Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Populando_Produtos.dtsx</Name>
+      <LastWriteTime>2024-04-14T05:04:48.0615971Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Populando_Fornecedores.dtsx</Name>
+      <LastWriteTime>2024-04-14T04:57:53.104722Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

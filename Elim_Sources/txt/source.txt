@@ -1,0 +1,10 @@
+codigoPedido;dataPedido;sku;upc;nomeProduto;qte;valor;frete;email;nomeComprador;cpf;enderecoEntrega;cep;uf;pais;
+1001;2024-04-12;SKU123;123456789012;Camiseta Preta;2;29.99;5.00;cliente1@example.com;Joao Silva;123.456.789-00;Avenida Capitao Valadares, 123;12345;SP;Brasil;
+1002;2024-04-11;SKU456;987654321098;Calca Jeans;1;59.99;7.50;cliente2@example.com;Maria Oliveira;987.654.321-00;Rua dos Girassois, 456;54321;RJ;Brasil;
+1003;2024-04-10;SKU789;456789012345;Tenis Branco;1;79.99;8.00;cliente3@example.com;Pedro Santos;456.789.012-00;Avenida das Rosas, 789;67890;MG;Brasil;
+1004;2024-04-09;SKU321;654321098765;Bone Vermelho;3;19.99;6.00;cliente4@example.com;Ana Pereira;654.321.098-00;Rua das Flores, 321;13579;RS;Brasil;
+1005;2024-04-08;SKU654;321098765432;Camisa Xadrez;2;39.99;5.00;cliente5@example.com;Lucas Oliveira;321.098.765-00;Avenida dos Ipes, 654;24680;SC;Brasil;
+1006;2024-04-07;SKU987;210987654321;Bermuda Jeans;1;49.99;6.50;cliente6@example.com;Juliana Lima;210.987.654-00;Rua das Palmeiras, 987;98765;BA;Brasil;
+1007;2024-04-06;SKU123;123456789012;Jaqueta de Couro;1;99.99;9.00;cliente7@example.com;Fernando Souza;123.456.789-00;Avenida das Acacias, 123;54321;PR;Brasil;
+1008;2024-04-05;SKU456;987654321098;Moletom Cinza;2;69.99;7.00;cliente8@example.com;Carla Martins;987.654.321-00;Rua das Violetas, 456;76543;PE;Brasil;
+1009;2024-04-04;SKU789;456789012345;Sapato Social;1;89.99;8.50;cliente9@example.com;Marcos Silva;456.789.012-00;Avenida das Hortensias, 789;01234;AM;Brasil;

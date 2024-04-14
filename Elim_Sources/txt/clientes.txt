@@ -1,5 +1,0 @@
-id;birthdate;first_name;gender;last_name;email;phone;ms_seller_promotions
-798779895;1981-06-18;Buyer;F;Blackburn 798779895;sheree.blackburn+798779895@example.co.uk;54 1199351139 ext. 261;true
-780777832;N/A;N/A;N/A;N/A;sheree.blackburn+780777832@example.co.uk;54 1199351139;false
-780777832;1981-06-18;Buyer;F;Blackburn 780777832;sheree.blackburn+780777832@example.co.uk;541199351139;true
-656454498;1981-01-12;Mark;M;Blackburn 656454498;mark.blackburn+656454498@example.co.uk;N/A;false
