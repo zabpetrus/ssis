@@ -1,0 +1,73 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/15/2024 12:29:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NSQ6C33"
+  DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
+  DTS:DTSID="{8F8F9B62-59B0-4FC6-83AD-9425A736AFA4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{9447B888-B8AC-4BD5-9275-648892FB7F83}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C553A46E-03CF-4EC6-9324-756BE973483B}"
+      DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.Utilitario">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Trust Server Certificate=True;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-Package1-{C553A46E-03CF-4EC6-9324-756BE973483B}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\inserindo os dados"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{2AFC451A-AC58-46D3-8101-65FBCB3D68FB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="inserindo os dados"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C553A46E-03CF-4EC6-9324-756BE973483B}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Use Utilitario;&#xA;&#xA;BEGIN&#xA;-- Inserindo em Produtos baseado no select de carga&#xA;INSERT INTO Produtos ( nome_Produto, sku, upc, valor ) SELECT TCarga.nomeProduto, TCarga.sku, TCarga.upc, TCarga.valor FROM TCarga LEFT JOIN Produtos ON Produtos.upc = TCarga.upc;&#xA;&#xA;&#xA;-- Inserindo o cliente&#xA;INSERT INTO Clientes (Nome, email, cpf, uf, pais ) SELECT TCarga.nomeComprador, TCarga.email, TCarga.cpf, TCarga.uf, TCarga.pais FROM dbo.TCarga LEFT JOIN Clientes ON Clientes.cpf = TCarga.cpf;&#xA;&#xA;&#xA;-- Populando Pedidos&#xA;INSERT INTO Pedidos ( codigo_Pedido, cliente_ID, data_Pedido, endereco_entrega, cep, custo_frete, status_pedido ) SELECT DISTINCT TCarga.codigoPedido, Clientes.cliente_id, TCarga.dataPedido, TCarga.enderecoEntrega, TCarga.cep, TCarga.frete, StatusPedido.Status_ID FROM TCarga &#xA;INNER JOIN Clientes ON Clientes.cpf = TCarga.cpf AND Clientes.email = TCarga.email INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente'; &#xA;&#xA;-- Populado Itens Pedidos&#xA;INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario) &#xA;SELECT DISTINCT P.pedido_id,Pr.produto_id, TCarga.qte,TCarga.valor FROM TCarga&#xA;JOIN Pedidos P ON TCarga.codigoPedido = P.codigo_Pedido&#xA;JOIN Produtos Pr ON TCarga.upc = Pr.upc AND TCarga.valor = Pr.valor;&#xA;&#xA;END&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\inserindo os dados"
+          TopLeft="175,132" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

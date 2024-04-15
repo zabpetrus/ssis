@@ -1,7 +1,7 @@
   Use Utilitario;
   GO
   BEGIN
-   DROP TABLE IF EXISTS Carga;   
+   DROP TABLE IF EXISTS TCarga;   
    CREATE TABLE TCarga
 	(
 		[codigoPedido] VARCHAR(50) NOT NULL,

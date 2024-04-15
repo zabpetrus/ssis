@@ -1,4 +1,6 @@
+Use Utilitario;
 
+BEGIN
 -- Inserindo em Produtos baseado no select de carga
 INSERT INTO Produtos ( nome_Produto, sku, upc, valor ) SELECT TCarga.nomeProduto, TCarga.sku, TCarga.upc, TCarga.valor FROM TCarga LEFT JOIN Produtos ON Produtos.upc = TCarga.upc;
 
@@ -16,5 +18,7 @@ INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario)
 SELECT DISTINCT P.pedido_id,Pr.produto_id, TCarga.qte,TCarga.valor FROM TCarga
 JOIN Pedidos P ON TCarga.codigoPedido = P.codigo_Pedido
 JOIN Produtos Pr ON TCarga.upc = Pr.upc AND TCarga.valor = Pr.valor;
+
+END
 
 

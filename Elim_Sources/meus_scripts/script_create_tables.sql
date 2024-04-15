@@ -5,6 +5,117 @@ BEGIN
 -- Começando excluindo as constraints caso elas existam
 -- Procedimento para correção do banco
 
+-- Remoção da constraint FK_RC_FORN em RequisicaoCompra
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'RequisicaoCompra' 
+    AND constraint_name = 'FK_RC_FORN'
+)
+BEGIN
+    ALTER TABLE RequisicaoCompra
+    DROP CONSTRAINT FK_RC_FORN;
+END;
+
+-- Remoção da constraint FK_RC_PROD em RequisicaoCompra
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'RequisicaoCompra' 
+    AND constraint_name = 'FK_RC_PROD'
+)
+BEGIN
+    ALTER TABLE RequisicaoCompra
+    DROP CONSTRAINT FK_RC_PROD;
+END;
+
+-- Remoção da constraint FK_PED_CLI em Pedidos
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'Pedidos' 
+    AND constraint_name = 'FK_PED_CLI'
+)
+BEGIN
+    ALTER TABLE Pedidos
+    DROP CONSTRAINT FK_PED_CLI;
+END;
+
+-- Remoção da constraint FK_IP_PE em ItensPedidos
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'ItensPedidos' 
+    AND constraint_name = 'FK_IP_PE'
+)
+BEGIN
+    ALTER TABLE ItensPedidos
+    DROP CONSTRAINT FK_IP_PE;
+END;
+
+
+-- Remoção da constraint FK_IP_PROD em ItensPedidos
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'ItensPedidos' 
+    AND constraint_name = 'FK_IP_PROD'
+)
+BEGIN
+    ALTER TABLE ItensPedidos
+    DROP CONSTRAINT FK_IP_PROD;
+END;
+
+
+-- Remoção da constraint FK_NF_PE em NotaFiscal
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'NotaFiscal' 
+    AND constraint_name = 'FK_NF_PE'
+)
+BEGIN
+    ALTER TABLE NotaFiscal
+    DROP CONSTRAINT FK_NF_PE;
+END;
+
+-- Remoção da constraint FK_SD_D em Checkout
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'Checkout' 
+    AND constraint_name = 'FK_SD_D'
+)
+BEGIN
+    ALTER TABLE Checkout
+    DROP CONSTRAINT FK_SD_D;
+END;
+
+-- Remoção da constraint FK_DM_PROD em DespachoMercadorias
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'DespachoMercadorias' 
+    AND constraint_name = 'FK_DM_PROD'
+)
+BEGIN
+    ALTER TABLE DespachoMercadorias
+    DROP CONSTRAINT FK_DM_PROD;
+END;
+
+-- Remoção da constraint FK_DM_TRANS em DespachoMercadorias
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'DespachoMercadorias' 
+    AND constraint_name = 'FK_DM_TRANS'
+)
+BEGIN
+    ALTER TABLE DespachoMercadorias
+    DROP CONSTRAINT FK_DM_TRANS;
+END;
+
+-- Remoção da constraint FK_EST_PROD em Estoque
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -16,6 +127,41 @@ BEGIN
     DROP CONSTRAINT FK_EST_PROD;
 END;
 
+
+
+
+-- Criando Tabelas Enum
+
+DROP TABLE IF EXISTS StatusDespacho;
+CREATE TABLE StatusDespacho (
+		[IDStatus] INT PRIMARY KEY,
+		[NomeStatus] VARCHAR(50) NOT NULL
+	);
+	INSERT INTO StatusDespacho ([IDStatus], [NomeStatus])
+	VALUES 
+		(1, 'Em processamento'),
+		(2, 'Enviado'),
+		(3, 'Entregue'),
+		(4, 'Cancelado');
+		
+	-- Tabela de estado de monitoramento do pedido - controle de loja
+
+DROP TABLE IF EXISTS StatusPedido;
+	CREATE TABLE StatusPedido (
+		Status_ID INT PRIMARY KEY NOT NULL,
+		Nome_Status VARCHAR(50) NOT NULL
+	);
+
+	INSERT INTO StatusPedido (Status_ID, Nome_Status) VALUES
+	(1,'Pendente'),
+	(2, 'Em processamento'),
+	(3, 'Enviado'),
+	(4, 'Entregue'),
+	(5,'Cancelado');
+
+-- Fim TAbelas Enum
+
+
 DROP TABLE IF EXISTS Clientes;
 	CREATE TABLE Clientes (
 		[cliente_id] INT PRIMARY KEY IDENTITY not null,
@@ -25,12 +171,14 @@ DROP TABLE IF EXISTS Clientes;
 		[uf] VARCHAR(50) NOT NULL,
 		[pais] VARCHAR(50) NOT NULL,
 	);
+
+
 DROP TABLE IF EXISTS Produtos;
 	CREATE TABLE Produtos (
 		[produto_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[nome_Produto] VARCHAR(150) NOT NULL,
 		[sku] VARCHAR(50) NOT NULL,
-		[upc] VARCHAR(50) UNIQUE NOT NULL,
+		[upc] VARCHAR(50) NOT NULL,
 		[valor] DECIMAL(10,2) NOT NULL	
 	);
 DROP TABLE IF EXISTS Pedidos;
@@ -49,7 +197,7 @@ DROP TABLE IF EXISTS ItensPedidos;
 	CREATE TABLE ItensPedidos(
 		[Item_ID] INT PRIMARY KEY IDENTITY NOT NULL,
 		[pedido_ID] INT NOT NULL,
-		[produto_ID] VARCHAR(50) NOT NULL,
+		[produto_ID] INT NOT NULL,
 		[quantidade] INT NOT NULL,
 		[preco_unitario] DECIMAL(10,2) NOT NULL
 	);
@@ -57,7 +205,7 @@ DROP TABLE IF EXISTS ItensPedidos;
 DROP TABLE IF EXISTS Checkout;
 	CREATE TABLE Checkout(
 		[total_pedido] DECIMAL(10,2) NOT NULL,
-		[status_despacho] VARCHAR(50) NOT NULL,
+		[status_despacho] INT NOT NULL,
 		[data_despacho] DATETIME NOT NULL,
 	);
 
@@ -107,14 +255,30 @@ DROP TABLE IF EXISTS DespachoMercadorias;
 DROP TABLE IF EXISTS Estoque;
 	CREATE TABLE Estoque (
 		[Est_Prod_ID] INT PRIMARY KEY NOT NULL,
-		[Quantidade] INT NOT NULL,
-		[Estoque_Minimo] INT NOT NULL,
+        [Prod_ID] INT NOT NULL,
+		[Quantidade] INT CHECK (Quantidade >= 0) DEFAULT 0,
+		[Estoque_Minimo] INT NOT NULL DEFAULT 0,
 	);
 
 
+ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_FORN FOREIGN KEY (Fornecedor_id) REFERENCES Fornecedores(Fornecedor_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_PROD FOREIGN KEY (Produto_id) REFERENCES Produtos(produto_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE Estoque ADD CONSTRAINT FK_EST_PROD FOREIGN KEY (Est_Prod_ID) REFERENCES Produtos(produto_id);
+ALTER TABLE Pedidos ADD CONSTRAINT FK_PED_CLI FOREIGN KEY (cliente_ID) REFERENCES Clientes (cliente_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PE FOREIGN KEY (pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PROD FOREIGN KEY (produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE NotaFiscal ADD CONSTRAINT FK_NF_PE FOREIGN KEY (Pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE Checkout ADD CONSTRAINT FK_SD_D FOREIGN KEY (status_despacho) REFERENCES StatusDespacho(IDStatus) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_PROD FOREIGN KEY (Produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_TRANS FOREIGN KEY (Transportadora_ID) REFERENCES Transportadora (Transportadora_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE Estoque ADD CONSTRAINT FK_EST_PROD FOREIGN KEY (Prod_ID) REFERENCES Produtos(produto_id)ON DELETE CASCADE ON UPDATE CASCADE;
 
 END
