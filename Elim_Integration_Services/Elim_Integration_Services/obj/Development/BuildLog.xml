@@ -2,28 +2,13 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Elim_Integration_Services</Name>
-    <LastWriteTime>2024-04-15T17:54:09.267541Z</LastWriteTime>
+    <LastWriteTime>2024-04-15T18:58:21.4343662Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ETL1.dtsx</Name>
-      <LastWriteTime>2024-04-15T18:25:04.5997869Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>ETL2.dtsx</Name>
-      <LastWriteTime>2024-04-13T22:48:44.9145685Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Populando_Produtos.dtsx</Name>
-      <LastWriteTime>2024-04-14T05:04:48.0615971Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Populando_Fornecedores.dtsx</Name>
-      <LastWriteTime>2024-04-14T04:57:53.104722Z</LastWriteTime>
+      <LastWriteTime>2024-04-15T20:48:28.6813583Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
