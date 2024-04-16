@@ -31,17 +31,17 @@
           <AssociatedConnUserName />
           <FullPath>create_table_tcarga.sql</FullPath>
         </FileNode>
-        <FileNode Name="inserts.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>inserts.sql</FullPath>
-        </FileNode>
-        <FileNode Name="limpeza_de_banco.sql">
+        <FileNode Name="excluir_trigger.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-NSQ6C33\ATLAS:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-NSQ6C33\ATLAS</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>limpeza_de_banco.sql</FullPath>
+          <FullPath>excluir_trigger.sql</FullPath>
+        </FileNode>
+        <FileNode Name="inserts.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-NSQ6C33\ATLAS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-NSQ6C33\ATLAS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>inserts.sql</FullPath>
         </FileNode>
         <FileNode Name="procedure_status_envio.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-NSQ6C33\ATLAS:True</AssociatedConnectionMoniker>
@@ -54,6 +54,12 @@
           <AssociatedConnSrvName>DESKTOP-NSQ6C33\ATLAS</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>script_create_tables.sql</FullPath>
+        </FileNode>
+        <FileNode Name="script_drop_constraints.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-NSQ6C33\ATLAS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-NSQ6C33\ATLAS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>script_drop_constraints.sql</FullPath>
         </FileNode>
         <FileNode Name="selects.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-NSQ6C33\ATLAS:True</AssociatedConnectionMoniker>

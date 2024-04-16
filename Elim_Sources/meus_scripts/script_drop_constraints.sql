@@ -125,4 +125,18 @@ BEGIN
     DROP CONSTRAINT FK_EST_PROD;
 END;
 
+
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'Checkout' 
+    AND constraint_name = 'FK_P_C'
+)
+BEGIN
+    ALTER TABLE Checkout
+    DROP CONSTRAINT FK_P_C;
+END;
+
+
+
 END;

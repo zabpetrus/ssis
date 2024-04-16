@@ -47,4 +47,13 @@ JOIN Pedidos P ON TCarga.codigoPedido = P.codigo_Pedido
 JOIN Produtos Pr ON TCarga.upc = Pr.upc AND TCarga.valor = Pr.valor;
 
 
- 
+-- Selecionando e preparando para a tabela checkout
+
+
+ SELECT 
+Pedidos.pedido_id,
+( SELECT sum( ItensPedidos.preco_unitario * ItensPedidos.quantidade ) FROM ItensPedidos WHERE Pedidos.pedido_id = ItensPedidos.pedido_ID ) AS Subtotal,
+( SELECT StatusDespacho.IDStatus FROM StatusDespacho WHERE StatusDespacho.NomeStatus = 'Em processamento' ) AS Status,
+( SELECT GETDATE() ) AS data_despacho
+
+FROM Pedidos;

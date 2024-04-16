@@ -127,7 +127,16 @@ BEGIN
     DROP CONSTRAINT FK_EST_PROD;
 END;
 
-
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'Checkout' 
+    AND constraint_name = 'FK_P_C'
+)
+BEGIN
+    ALTER TABLE Checkout
+    DROP CONSTRAINT FK_P_C;
+END;
 
 
 -- Criando Tabelas Enum
@@ -204,6 +213,7 @@ DROP TABLE IF EXISTS ItensPedidos;
 
 DROP TABLE IF EXISTS Checkout;
 	CREATE TABLE Checkout(
+		[Pedido_id] INT NOT NULL,
 		[total_pedido] DECIMAL(10,2) NOT NULL,
 		[status_despacho] INT NOT NULL,
 		[data_despacho] DATETIME NOT NULL,
@@ -254,7 +264,7 @@ DROP TABLE IF EXISTS DespachoMercadorias;
 
 DROP TABLE IF EXISTS Estoque;
 	CREATE TABLE Estoque (
-		[Est_Prod_ID] INT PRIMARY KEY NOT NULL,
+		[Est_Prod_ID] INT PRIMARY KEY IDENTITY NOT NULL,
         [Prod_ID] INT NOT NULL,
 		[Quantidade] INT CHECK (Quantidade >= 0) DEFAULT 0,
 		[Estoque_Minimo] INT NOT NULL DEFAULT 0,
@@ -272,6 +282,8 @@ ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PE FOREIGN KEY (pedido_ID) REFEREN
 ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PROD FOREIGN KEY (produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE NotaFiscal ADD CONSTRAINT FK_NF_PE FOREIGN KEY (Pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE Checkout ADD CONSTRAINT FK_P_C FOREIGN KEY (Pedido_id) REFERENCES Pedidos (Pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE Checkout ADD CONSTRAINT FK_SD_D FOREIGN KEY (status_despacho) REFERENCES StatusDespacho(IDStatus) ON DELETE CASCADE ON UPDATE CASCADE;
 

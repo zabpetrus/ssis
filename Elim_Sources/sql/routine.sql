@@ -1,5 +1,0 @@
-CREATE DATABASE IF NOT EXISTS Utilitario;
-USE Utilitario;
-CREATE TABLE IF NOT EXISTS Ordering(
-	
-);

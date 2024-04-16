@@ -19,6 +19,19 @@ SELECT DISTINCT P.pedido_id,Pr.produto_id, TCarga.qte,TCarga.valor FROM TCarga
 JOIN Pedidos P ON TCarga.codigoPedido = P.codigo_Pedido
 JOIN Produtos Pr ON TCarga.upc = Pr.upc AND TCarga.valor = Pr.valor;
 
+
+-- Populando checkout
+INSERT INTO Checkout( Pedido_id, total_pedido, status_despacho, data_despacho) 
+SELECT DISTINCT 
+Pedidos.pedido_id,
+( SELECT sum( ItensPedidos.preco_unitario * ItensPedidos.quantidade ) FROM ItensPedidos WHERE Pedidos.pedido_id = ItensPedidos.pedido_ID ) AS Subtotal,
+( SELECT StatusDespacho.IDStatus FROM StatusDespacho WHERE StatusDespacho.NomeStatus = 'Em processamento' ) AS Status,
+( SELECT GETDATE() ) AS data_despacho
+
+FROM Pedidos;
+
+
+
 END
 
 
