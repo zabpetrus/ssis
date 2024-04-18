@@ -1,0 +1,2 @@
+codigoPedido;dataPedido;sku;upc;nomeProduto;descricao;qte;valor;fornecedor;fornecedor_cnpj;frete;email;nomeComprador;cpf;enderecoEntrega;cep;uf;pais
+1001;2024-04-12;SKU123;123456789012;Camiseta Preta;Camisa de gola alta de cor preta de puro algodao;2;29.99;Aurora Produtos Texteis LTDA;000236544.9566-8;5.00;cliente1@example.com;Joao Silva;123.456.789-00;Avenida Capitao Valadares, 123;12345;SP;Brasil

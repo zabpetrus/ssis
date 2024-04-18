@@ -1,52 +1,52 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="4/15/2024 2:53:12 PM"
+  DTS:CreationDate="4/17/2024 2:15:37 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-NSQ6C33"
   DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
-  DTS:DTSID="{B3611237-CC58-487A-8AC5-A9F2F2337E80}"
+  DTS:DTSID="{054F5D5A-25C8-44F6-A4C0-0D2887116E42}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1046"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{EDE09C0B-DD58-43E9-8B76-55BBAE256D30}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{F1517063-FD64-4B61-A9DE-205DD825F035}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+      DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.ElimDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{2AAB97BB-ABD7-43ED-9F27-116D3BEB7856}"
-      DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.Utilitario">
+      DTS:DTSID="{E12B9F19-763C-476C-9F6F-1DB4570E15D5}"
+      DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.ElimDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Trust Server Certificate=True;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-Package1-{2AAB97BB-ABD7-43ED-9F27-116D3BEB7856}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;User ID=;Initial Catalog=ElimDB;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-Package-{E12B9F19-763C-476C-9F6F-1DB4570E15D5}DESKTOP-NSQ6C33\ATLAS.ElimDB;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Tarefa Executar SQL"
+      DTS:refId="Package\Criar tabela Carga"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarefa Executar SQL"
-      DTS:DTSID="{B0141529-D0A3-4DD6-AB1E-853BA9D143DF}"
+      DTS:DTSID="{CBBACBFE-6AF3-4A95-B002-B9D86DFC079D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tarefa Executar SQL"
+      DTS:ObjectName="Criar tabela Carga"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{2AAB97BB-ABD7-43ED-9F27-116D3BEB7856}"
+          SQLTask:Connection="{E12B9F19-763C-476C-9F6F-1DB4570E15D5}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="  Use Utilitario;&#xA;  GO&#xA;  BEGIN&#xA;   DROP TABLE IF EXISTS TCarga;   &#xA;   CREATE TABLE TCarga&#xA;&#x9;(&#xA;&#x9;&#x9;[codigoPedido] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[dataPedido] DATETIME NOT NULL,&#xA;&#x9;&#x9;[sku] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[upc] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[nomeProduto] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[qte] INT  NOT NULL,&#xA;&#x9;&#x9;[valor] DECIMAL(18,0) NOT NULL,&#xA;&#x9;&#x9;[frete] DECIMAL(18,0)  NOT NULL,&#xA;&#x9;&#x9;[email] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cpf] VARCHAR(30) NOT NULL,&#xA;&#x9;&#x9;[nomeComprador] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[enderecoEntrega] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[cep] VARCHAR(10) NOT NULL,&#xA;&#x9;&#x9;[uf] VARCHAR(2) NOT NULL,&#xA;&#x9;&#x9;[pais] VARCHAR(30) NOT NULL&#xA;&#x9;)&#xA;   END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="   BEGIN&#xA;   DROP TABLE IF EXISTS Carga;   &#xA;   CREATE TABLE Carga&#xA;&#x9;(&#xA;&#x9;&#x9;[codigoPedido] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[dataPedido] DATETIME2 NOT NULL,&#xA;&#x9;&#x9;[sku] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[upc] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[nomeProduto] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[descricao] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[qte] INT  NOT NULL,&#xA;&#x9;&#x9;[valor] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[fornecedor] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[fornecedor_cnpj]VARCHAR(30) NOT NULL,&#xA;&#x9;&#x9;[frete] DECIMAL(10,2)  NOT NULL,&#xA;&#x9;&#x9;[email] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cpf] VARCHAR(30) NOT NULL,&#xA;&#x9;&#x9;[nomeComprador] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[enderecoEntrega] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[cep] VARCHAR(10) NOT NULL,&#xA;&#x9;&#x9;[uf] VARCHAR(2) NOT NULL,&#xA;&#x9;&#x9;[pais] VARCHAR(30) NOT NULL&#xA;&#x9;)&#xA;   END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -63,9 +63,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="182,42"
-          Id="Package\Tarefa Executar SQL"
-          TopLeft="171.5,82.5" />
+          Size="169,42"
+          Id="Package\Criar tabela Carga"
+          TopLeft="154,99" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
