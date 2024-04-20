@@ -3,12 +3,14 @@ BEGIN
 
 
 -- Inserindo em Produtos baseado no select de carga e verificando se não está duplicado
-INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor) 
-SELECT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor FROM Carga 
+INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ) 
+SELECT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
 LEFT JOIN 
 Produtos ON Produtos.upc = Carga.upc
 WHERE NOT EXISTS(
 SELECT 1 FROM Produtos WHERE Produtos.upc = Carga.upc);
+
+
 
 
 -- Inserindo o cliente e verificando se o cpf não está cadastrado
@@ -17,6 +19,9 @@ SELECT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM db
 LEFT JOIN Clientes ON Clientes.cpf = Carga.cpf
 WHERE NOT EXISTS(
 SELECT 1 FROM Clientes WHERE Clientes.cpf = Carga.cpf);
+
+
+
 
 
 -- Populando Pedidos
@@ -60,6 +65,9 @@ WHERE NOT EXISTS(
 );
 
 
+
+
+
 -- Populando checkout
 INSERT INTO Checkout( Pedido_id, total_pedido, status_despacho, data_despacho) 
 SELECT DISTINCT 
@@ -93,6 +101,36 @@ INNER JOIN Checkout ON Checkout.Pedido_id = Pedidos.pedido_id
 WHERE NOT EXISTS(
 SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
 );
+
+
+-- Gerando o estoque
+Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
+	SELECT 
+	Produtos.produto_id AS Prod_ID,
+	COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,
+	SUM(ItensPedidos.quantidade) AS Estoque_Minimo	
+	FROM Produtos 
+	INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
+	LEFT JOIN Estoque ON Produtos.produto_id = Estoque.Prod_ID 
+	GROUP BY
+	Produtos.produto_id, ItensPedidos.quantidade;
+
+
+
+-- Inserindo Requisição de Compra
+INSERT INTO RequisicaoCompra ( Fornecedor_id, Produto_id, qte, compra_status, total, dataEmissao ) 
+	SELECT 
+	Fornecedores.fornecedor_id,
+	Produtos.produto_id,
+	ItensPedidos.quantidade,
+	StatusPedido.Nome_Status,
+	ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,
+	GETDATE() AS dataEmissao
+	FROM Produtos
+	INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ
+	INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
+	INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;
+	
 
 
 END

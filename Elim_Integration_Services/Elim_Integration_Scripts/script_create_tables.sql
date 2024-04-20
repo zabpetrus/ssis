@@ -187,7 +187,9 @@ DROP TABLE IF EXISTS Produtos;
 		[descricao] VARCHAR(150) NOT NULL,
 		[sku] VARCHAR(50) NOT NULL,
 		[upc] VARCHAR(50) NOT NULL,
-		[valor] DECIMAL(10,2) NOT NULL	
+		[valor] DECIMAL(10,2) NOT NULL,
+		[nome_fornecedor] VARCHAR(50) NOT NULL,
+		[fornecedor_CNPJ] VARCHAR(50) NOT NULL
 	);
 
 
@@ -233,7 +235,9 @@ DROP TABLE IF EXISTS RequisicaoCompra;
 		[Fornecedor_id] INT NOT NULL,
 		[Produto_id] INT NOT NULL,
 		[qte] INT NOT NULL,
-		[status] VARCHAR(50) NOT NULL
+		[compra_status] VARCHAR(50) NOT NULL,
+		[total] DECIMAL(10, 2) NOT NULL,
+		[dataEmissao] DATETIME NOT NULL
 	);
 
 DROP TABLE IF EXISTS NotaFiscal;
