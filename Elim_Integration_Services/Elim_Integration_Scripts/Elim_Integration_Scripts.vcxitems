@@ -16,9 +16,13 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)create_database_elimdb.sql" />
     <None Include="$(MSBuildThisFileDirectory)create_table_carga.sql" />
-    <None Include="$(MSBuildThisFileDirectory)inserts.sql" />
+    <None Include="$(MSBuildThisFileDirectory)em_construcao.sql" />
     <None Include="$(MSBuildThisFileDirectory)script_create_tables.sql" />
+    <None Include="$(MSBuildThisFileDirectory)script_create_tables_drop.sql" />
     <None Include="$(MSBuildThisFileDirectory)script_drop_constraints.sql" />
-    <None Include="$(MSBuildThisFileDirectory)table_selects.sql" />
+    <None Include="$(MSBuildThisFileDirectory)select_inserts.sql" />
+    <None Include="$(MSBuildThisFileDirectory)select_tabelas.sql" />
+    <None Include="$(MSBuildThisFileDirectory)table_selects_empty.sql" />
+    <None Include="$(MSBuildThisFileDirectory)trigger_adicionarprodutoestoque.sql" />
   </ItemGroup>
 </Project>

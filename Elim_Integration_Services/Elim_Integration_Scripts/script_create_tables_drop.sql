@@ -1,9 +1,9 @@
 BEGIN
 
--- Começando excluindo as constraints caso elas existam
--- Procedimento para correção do banco
+-- ComeÃ§ando excluindo as constraints caso elas existam
+-- Procedimento para correÃ§Ã£o do banco
 
--- Remoção da constraint FK_RC_FORN em RequisicaoCompra
+-- RemoÃ§Ã£o da constraint FK_RC_FORN em RequisicaoCompra
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -15,7 +15,7 @@ BEGIN
     DROP CONSTRAINT FK_RC_FORN;
 END;
 
--- Remoção da constraint FK_RC_PROD em RequisicaoCompra
+-- RemoÃ§Ã£o da constraint FK_RC_PROD em RequisicaoCompra
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -27,7 +27,7 @@ BEGIN
     DROP CONSTRAINT FK_RC_PROD;
 END;
 
--- Remoção da constraint FK_PED_CLI em Pedidos
+-- RemoÃ§Ã£o da constraint FK_PED_CLI em Pedidos
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -39,7 +39,7 @@ BEGIN
     DROP CONSTRAINT FK_PED_CLI;
 END;
 
--- Remoção da constraint FK_IP_PE em ItensPedidos
+-- RemoÃ§Ã£o da constraint FK_IP_PE em ItensPedidos
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -52,7 +52,7 @@ BEGIN
 END;
 
 
--- Remoção da constraint FK_IP_PROD em ItensPedidos
+-- RemoÃ§Ã£o da constraint FK_IP_PROD em ItensPedidos
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -65,7 +65,7 @@ BEGIN
 END;
 
 
--- Remoção da constraint FK_NF_PE em NotaFiscal
+-- RemoÃ§Ã£o da constraint FK_NF_PE em NotaFiscal
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -77,7 +77,7 @@ BEGIN
     DROP CONSTRAINT FK_NF_PE;
 END;
 
--- Remoção da constraint FK_SD_D em Checkout
+-- RemoÃ§Ã£o da constraint FK_SD_D em Checkout
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -89,7 +89,7 @@ BEGIN
     DROP CONSTRAINT FK_SD_D;
 END;
 
--- Remoção da constraint FK_DM_PROD em DespachoMercadorias
+-- RemoÃ§Ã£o da constraint FK_DM_PROD em DespachoMercadorias
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -101,7 +101,7 @@ BEGIN
     DROP CONSTRAINT FK_DM_PROD;
 END;
 
--- Remoção da constraint FK_DM_TRANS em DespachoMercadorias
+-- RemoÃ§Ã£o da constraint FK_DM_TRANS em DespachoMercadorias
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -113,7 +113,7 @@ BEGIN
     DROP CONSTRAINT FK_DM_TRANS;
 END;
 
--- Remoção da constraint FK_EST_PROD em Estoque
+-- RemoÃ§Ã£o da constraint FK_EST_PROD em Estoque
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -167,22 +167,20 @@ DROP TABLE IF EXISTS StatusPedido;
 	(5,'Cancelado');
 
 -- Fim TAbelas Enum
- IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Clientes')
- BEGIN
-	-- DROP TABLE IF EXISTS Clientes;
+
+
+DROP TABLE IF EXISTS Clientes;
 	CREATE TABLE Clientes (
 		[cliente_id] INT PRIMARY KEY IDENTITY not null,
 		[Nome] varchar(150) not null,
 		[email] VARCHAR(50) NOT NULL,
-		[cpf] VARCHAR(30) NOT NULL,
+		[cpf] VARCHAR(30) UNIQUE NOT NULL,
 		[uf] VARCHAR(50) NOT NULL,
 		[pais] VARCHAR(50) NOT NULL,
 	);
-END;
 
- IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Produtos')
- BEGIN
--- DROP TABLE IF EXISTS Produtos;
+
+DROP TABLE IF EXISTS Produtos;
 	CREATE TABLE Produtos (
 		[produto_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[nome_Produto] VARCHAR(150) NOT NULL,
@@ -193,11 +191,9 @@ END;
 		[nome_fornecedor] VARCHAR(50) NOT NULL,
 		[fornecedor_CNPJ] VARCHAR(50) NOT NULL
 	);
-END;
 
- IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Pedidos')
- BEGIN
--- DROP TABLE IF EXISTS Pedidos;
+
+DROP TABLE IF EXISTS Pedidos;
 	CREATE TABLE Pedidos(
 		[pedido_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[codigo_Pedido] VARCHAR(50) NOT NULL,
@@ -209,12 +205,7 @@ END;
 		[status_pedido] INT NOT NULL DEFAULT 1
 
 	);
-END;
-
-
- IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ItensPedidos')
- BEGIN
--- DROP TABLE IF EXISTS ItensPedidos;
+DROP TABLE IF EXISTS ItensPedidos;
 	CREATE TABLE ItensPedidos(
 		[Item_ID] INT PRIMARY KEY IDENTITY NOT NULL,
 		[pedido_ID] INT NOT NULL,
@@ -222,33 +213,23 @@ END;
 		[quantidade] INT NOT NULL,
 		[preco_unitario] DECIMAL(10,2) NOT NULL
 	);
-END;
 
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Checkout')
-BEGIN
--- DROP TABLE IF EXISTS Checkout;
+DROP TABLE IF EXISTS Checkout;
 	CREATE TABLE Checkout(
 		[Pedido_id] INT NOT NULL,
 		[total_pedido] DECIMAL(10,2) NOT NULL,
 		[status_despacho] INT NOT NULL,
 		[data_despacho] DATETIME NOT NULL,
 	);
-END;
 
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Fornecedores')
-BEGIN
--- DROP TABLE IF EXISTS Fornecedores;
+DROP TABLE IF EXISTS Fornecedores;
 	CREATE TABLE Fornecedores(
 		[fornecedor_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Nome_fornecedor] VARCHAR(50) NOT NULL,
 		[CNPJ] VARCHAR(50) NOT NULL
 	);
-END;
 
-
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'RequisicaoCompra')
-BEGIN
--- DROP TABLE IF EXISTS RequisicaoCompra;
+DROP TABLE IF EXISTS RequisicaoCompra;
 	CREATE TABLE RequisicaoCompra(
 		[Requisicao_ID] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Fornecedor_id] INT NOT NULL,
@@ -256,13 +237,10 @@ BEGIN
 		[qte] INT NOT NULL,
 		[compra_status] VARCHAR(50) NOT NULL,
 		[total] DECIMAL(10, 2) NOT NULL,
-		[dataEmissao] DATETIME2 NOT NULL
+		[dataEmissao] DATETIME NOT NULL
 	);
-END;
 
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'NotaFiscal')
-BEGIN
--- DROP TABLE IF EXISTS NotaFiscal;
+DROP TABLE IF EXISTS NotaFiscal;
 	CREATE TABLE NotaFiscal(
 		[NotaFiscal_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Pedido_ID] INT  NOT NULL,
@@ -270,11 +248,7 @@ BEGIN
 		[Data_Emissao] DATETIME NOT NULL
 	);
 
-END;
-
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Transportadora')
-BEGIN
--- DROP TABLE IF EXISTS Transportadora;
+DROP TABLE IF EXISTS Transportadora;
 	CREATE TABLE Transportadora(
 		[Transportadora_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Nome_Transportadora] VARCHAR(150) NOT NULL,
@@ -282,11 +256,8 @@ BEGIN
 		[Tipo_Servico] VARCHAR(50) NOT NULL,
 		[Custo_Frete] DECIMAL(18,0) NOT NULL
 	);
-END;
 
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DespachoMercadorias')
-BEGIN
--- DROP TABLE IF EXISTS DespachoMercadorias;
+DROP TABLE IF EXISTS DespachoMercadorias;
 	CREATE TABLE DespachoMercadorias(
 		[Despacho_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Produto_ID] INT NOT NULL,
@@ -294,18 +265,14 @@ BEGIN
 		[Status_Entrega] VARCHAR(50) NOT NULL,
 		[Data_Entrega] DATETIME NOT NULL
 	);
-END;
 
-IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Estoque')
-BEGIN
---DROP TABLE IF EXISTS Estoque;
+DROP TABLE IF EXISTS Estoque;
 	CREATE TABLE Estoque (
 		[Est_Prod_ID] INT PRIMARY KEY IDENTITY NOT NULL,
         [Prod_ID] INT NOT NULL,
 		[Quantidade] INT CHECK (Quantidade >= 0) DEFAULT 0,
 		[Estoque_Minimo] INT NOT NULL DEFAULT 0,
 	);
-END;
 
 
 ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_FORN FOREIGN KEY (Fornecedor_id) REFERENCES Fornecedores(Fornecedor_id) ON DELETE CASCADE ON UPDATE CASCADE;

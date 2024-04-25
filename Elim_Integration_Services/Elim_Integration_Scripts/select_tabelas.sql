@@ -1,8 +1,16 @@
-SELECT * FROM Checkout;
+Use Utilitario;
+
+BEGIN
+
+SELECT * FROM Carga;
 
 SELECT * FROM Clientes;
 
+SELECT * FROM Produtos;
+
 SELECT * FROM DespachoMercadorias;
+
+SELECT * From Pedidos;
 
 SELECT * FROM Estoque;
 
@@ -12,8 +20,8 @@ SELECT * FROM ItensPedidos;
 
 SELECT * From NotaFiscal;
 
-SELECT * From Pedidos;
-
-SELECT * FROM Produtos;
+SELECT * FROM Checkout;
 
 SELECT * FROM RequisicaoCompra;
+
+END;

@@ -1,6 +1,4 @@
-Use Utilitario;
 BEGIN
-
 
 -- Inserindo em Produtos baseado no select de carga e verificando se não está duplicado
 INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ) 
@@ -14,13 +12,13 @@ SELECT 1 FROM Produtos WHERE Produtos.upc = Carga.upc);
 
 
 -- Inserindo o cliente e verificando se o cpf não está cadastrado
-INSERT INTO Clientes (Nome, email, cpf, uf, pais ) 
-SELECT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM dbo.Carga 
-LEFT JOIN Clientes ON Clientes.cpf = Carga.cpf
-WHERE NOT EXISTS(
-SELECT 1 FROM Clientes WHERE Clientes.cpf = Carga.cpf);
-
-
+IF NOT EXISTS ( SELECT * FROM Clientes INNER JOIN Carga ON Clientes.cpf = Carga.cpf )
+BEGIN 
+	INSERT INTO Clientes (Nome, email, cpf, uf, pais ) 
+	SELECT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM dbo.Carga 
+	LEFT JOIN Clientes ON Clientes.cpf = Carga.cpf  
+	WHERE Clientes.cpf IS NULL;	
+END
 
 
 
@@ -107,6 +105,7 @@ SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
 Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
 	SELECT 
 	Produtos.produto_id AS Prod_ID,
+	--COALESCE retorna o primeiro valor não nulo da soma da Quantidade no estoque
 	COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,
 	SUM(ItensPedidos.quantidade) AS Estoque_Minimo	
 	FROM Produtos 
@@ -118,21 +117,28 @@ Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
 
 
 -- Inserindo Requisição de Compra
-INSERT INTO RequisicaoCompra ( Fornecedor_id, Produto_id, qte, compra_status, total, dataEmissao ) 
-	SELECT 
-	Fornecedores.fornecedor_id,
-	Produtos.produto_id,
-	ItensPedidos.quantidade,
-	StatusPedido.Nome_Status,
-	ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,
-	GETDATE() AS dataEmissao
-	FROM Produtos
-	INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ
-	INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
-	INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;
-	
+INSERT INTO [dbo].[RequisicaoCompra]
+    ([Fornecedor_id]
+    ,[Produto_id]
+    ,[qte]
+    ,[compra_status]
+    ,[total]
+    ,[dataEmissao])		     
+SELECT DISTINCT
+    Fornecedores.fornecedor_id AS Fornecedor_id,
+    Produtos.produto_id AS Produto_id,
+    ItensPedidos.quantidade AS qte,
+    StatusPedido.Nome_Status AS compra_status,
+    ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,
+    GETDATE() AS dataEmissao
+FROM Produtos
+INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ
+INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
+INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;
 
 
-END
+
+
+END;
 
 
