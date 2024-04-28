@@ -1,0 +1,1336 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/28/2024 4:51:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NSQ6C33"
+  DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
+  DTS:DTSID="{59515720-2F65-43CA-BC7F-04BF51F57A1C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{25122C25-6242-4DF4-9542-5182F85E1039}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{069A1365-7D67-4807-9829-5FC89A8B4B2C}"
+      DTS:ObjectName="(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-parteA-{6A3870D4-077C-49B5-98BD-8D7F2AC3A75F}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{460A2ABB-1999-4037-BF12-B252E59A8EC2}"
+      DTS:ObjectName="(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-PackagePart1-{7D42FAA6-A446-43A6-898E-9AD5ECE2CEB0}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{858162AD-F88E-4512-B1A7-0A9F33008B38}"
+      DTS:ObjectName="(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-PackagePart1-{E73E7F43-920F-4A72-9FC5-4090AAFF64C9}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(PackagePart)Gerenciador de Conexões de Arquivos Simples]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{128F2BA9-D77B-45F7-8EDB-FBD2731F7239}"
+      DTS:ObjectName="(PackagePart)Gerenciador de Conexões de Arquivos Simples">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="F:\vstudio2024\Elim_Integration_Services\Elim_Sources\source2.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="codigoPedido"
+              DTS:DTSID="{56A9A7A0-7560-4F87-8F9A-B1EF9C0FBBCC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="304"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dataPedido"
+              DTS:DTSID="{F379366F-FBA2-440E-BD56-BF5DF18973A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sku"
+              DTS:DTSID="{55FF7A18-764E-4908-96C3-161CF3AD5DEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="upc"
+              DTS:DTSID="{C5F104E0-EE4A-4729-83B5-44452C350E19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nomeProduto"
+              DTS:DTSID="{EC6EAEB0-62E0-487C-8546-33EB2DE22665}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="descricao"
+              DTS:DTSID="{0D341DBE-D66B-48BA-A347-4FED6418D36B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="qte"
+              DTS:DTSID="{A963E2DD-943C-47E4-8EE7-5A1FA03EAECD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="valor"
+              DTS:DTSID="{AB2EC8C8-FDB0-4739-AA2B-5BCFD59F5752}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fornecedor"
+              DTS:DTSID="{1BAD6E4C-7F07-437A-ACDD-3FA7344A54F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fornecedor_cnpj"
+              DTS:DTSID="{FDE4484C-4D2B-4115-A192-F17C39F7EAA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="frete"
+              DTS:DTSID="{A9E26E3E-9B7B-4493-B47F-C9C554019E5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="email"
+              DTS:DTSID="{8B1F6F42-E2D6-40C2-9B32-C900AC3D38C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="nomeComprador"
+              DTS:DTSID="{08FD898C-D414-43A4-8A94-E9976AA18574}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cpf"
+              DTS:DTSID="{1EED7D87-39CE-4142-BC43-77B41EE281A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="enderecoEntrega"
+              DTS:DTSID="{92F86C18-E204-44B4-ABA4-83C052F27586}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cep"
+              DTS:DTSID="{745353C5-70CB-4E31-A19C-5264B56A0041}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="uf"
+              DTS:DTSID="{34022B5B-55F8-4BC7-99A9-BA8B83BA0AD8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="pais"
+              DTS:DTSID="{4CD52C7B-3F4D-43BC-8828-E6B42574CFC3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contêiner da Sequência"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contêiner da Sequência"
+      DTS:DTSID="{4B1F1293-A3A0-479A-8677-9437607B9B4C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contêiner da Sequência">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contêiner da Sequência\excluindotabelas"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarefa Executar SQL"
+          DTS:DTSID="{886D9F26-AF24-4FCE-B161-9EE5D87B6322}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="excluindotabelas"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{460A2ABB-1999-4037-BF12-B252E59A8EC2}"
+              SQLTask:SqlStatementSource="BEGIN&#xA;&#xA;-- Começando excluindo as constraints caso elas existam&#xA;-- Procedimento para correção do banco&#xA;&#xA;-- Remoção da constraint FK_RC_FORN em RequisicaoCompra&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'RequisicaoCompra' &#xA;    AND constraint_name = 'FK_RC_FORN'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE RequisicaoCompra&#xA;    DROP CONSTRAINT FK_RC_FORN;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_RC_PROD em RequisicaoCompra&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'RequisicaoCompra' &#xA;    AND constraint_name = 'FK_RC_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE RequisicaoCompra&#xA;    DROP CONSTRAINT FK_RC_PROD;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_PED_CLI em Pedidos&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Pedidos' &#xA;    AND constraint_name = 'FK_PED_CLI'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Pedidos&#xA;    DROP CONSTRAINT FK_PED_CLI;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_IP_PE em ItensPedidos&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'ItensPedidos' &#xA;    AND constraint_name = 'FK_IP_PE'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE ItensPedidos&#xA;    DROP CONSTRAINT FK_IP_PE;&#xA;END;&#xA;&#xA;&#xA;-- Remoção da constraint FK_IP_PROD em ItensPedidos&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'ItensPedidos' &#xA;    AND constraint_name = 'FK_IP_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE ItensPedidos&#xA;    DROP CONSTRAINT FK_IP_PROD;&#xA;END;&#xA;&#xA;&#xA;-- Remoção da constraint FK_NF_PE em NotaFiscal&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'NotaFiscal' &#xA;    AND constraint_name = 'FK_NF_PE'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE NotaFiscal&#xA;    DROP CONSTRAINT FK_NF_PE;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_SD_D em Checkout&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Checkout' &#xA;    AND constraint_name = 'FK_SD_D'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Checkout&#xA;    DROP CONSTRAINT FK_SD_D;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_DM_PROD em DespachoMercadorias&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'DespachoMercadorias' &#xA;    AND constraint_name = 'FK_DM_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE DespachoMercadorias&#xA;    DROP CONSTRAINT FK_DM_PROD;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_DM_TRANS em DespachoMercadorias&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'DespachoMercadorias' &#xA;    AND constraint_name = 'FK_DM_TRANS'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE DespachoMercadorias&#xA;    DROP CONSTRAINT FK_DM_TRANS;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_EST_PROD em Estoque&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Estoque' &#xA;    AND constraint_name = 'FK_EST_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Estoque&#xA;    DROP CONSTRAINT FK_EST_PROD;&#xA;END;&#xA;&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Checkout' &#xA;    AND constraint_name = 'FK_P_C'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Checkout&#xA;    DROP CONSTRAINT FK_P_C;&#xA;END;&#xA;&#xA;&#xA;-- Criando Tabelas Enum&#xA;&#xA;DROP TABLE IF EXISTS StatusDespacho;&#xA;CREATE TABLE StatusDespacho (&#xA;&#x9;&#x9;[IDStatus] INT PRIMARY KEY,&#xA;&#x9;&#x9;[NomeStatus] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#x9;INSERT INTO StatusDespacho ([IDStatus], [NomeStatus])&#xA;&#x9;VALUES &#xA;&#x9;&#x9;(1, 'Em processamento'),&#xA;&#x9;&#x9;(2, 'Enviado'),&#xA;&#x9;&#x9;(3, 'Entregue'),&#xA;&#x9;&#x9;(4, 'Cancelado');&#xA;&#x9;&#x9;&#xA;&#x9;-- Tabela de estado de monitoramento do pedido - controle de loja&#xA;&#xA;DROP TABLE IF EXISTS StatusPedido;&#xA;&#x9;CREATE TABLE StatusPedido (&#xA;&#x9;&#x9;Status_ID INT PRIMARY KEY NOT NULL,&#xA;&#x9;&#x9;Nome_Status VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#xA;&#x9;INSERT INTO StatusPedido (Status_ID, Nome_Status) VALUES&#xA;&#x9;(1,'Pendente'),&#xA;&#x9;(2, 'Em processamento'),&#xA;&#x9;(3, 'Enviado'),&#xA;&#x9;(4, 'Entregue'),&#xA;&#x9;(5,'Cancelado');&#xA;&#xA;-- Fim TAbelas Enum&#xA;&#xA;&#xA;DROP TABLE IF EXISTS Clientes;&#xA;&#x9;CREATE TABLE Clientes (&#xA;&#x9;&#x9;[cliente_id] INT PRIMARY KEY IDENTITY not null,&#xA;&#x9;&#x9;[Nome] varchar(150) not null,&#xA;&#x9;&#x9;[email] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cpf] VARCHAR(30) UNIQUE NOT NULL,&#xA;&#x9;&#x9;[uf] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[pais] VARCHAR(50) NOT NULL,&#xA;&#x9;);&#xA;&#xA;&#xA;DROP TABLE IF EXISTS Produtos;&#xA;&#x9;CREATE TABLE Produtos (&#xA;&#x9;&#x9;[produto_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[nome_Produto] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[descricao] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[sku] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[upc] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[valor] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[nome_fornecedor] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[fornecedor_CNPJ] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#xA;&#xA;DROP TABLE IF EXISTS Pedidos;&#xA;&#x9;CREATE TABLE Pedidos(&#xA;&#x9;&#x9;[pedido_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[codigo_Pedido] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cliente_ID] INT NOT NULL,&#xA;&#x9;&#x9;[data_Pedido] DATETIME NOT NULL,&#xA;&#x9;&#x9;[endereco_entrega] VARCHAR(150) NOT NULL,&#xA;        [cep] VARCHAR(10) NOT NULL,&#x9;&#x9;&#xA;&#x9;&#x9;[custo_frete] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[status_pedido] INT NOT NULL DEFAULT 1&#xA;&#xA;&#x9;);&#xA;DROP TABLE IF EXISTS ItensPedidos;&#xA;&#x9;CREATE TABLE ItensPedidos(&#xA;&#x9;&#x9;[Item_ID] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[pedido_ID] INT NOT NULL,&#xA;&#x9;&#x9;[produto_ID] INT NOT NULL,&#xA;&#x9;&#x9;[quantidade] INT NOT NULL,&#xA;&#x9;&#x9;[preco_unitario] DECIMAL(10,2) NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Checkout;&#xA;&#x9;CREATE TABLE Checkout(&#xA;&#x9;&#x9;[Pedido_id] INT NOT NULL,&#xA;&#x9;&#x9;[total_pedido] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[status_despacho] INT NOT NULL,&#xA;&#x9;&#x9;[data_despacho] DATETIME NOT NULL,&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Fornecedores;&#xA;&#x9;CREATE TABLE Fornecedores(&#xA;&#x9;&#x9;[fornecedor_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Nome_fornecedor] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[CNPJ] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS RequisicaoCompra;&#xA;&#x9;CREATE TABLE RequisicaoCompra(&#xA;&#x9;&#x9;[Requisicao_ID] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Fornecedor_id] INT NOT NULL,&#xA;&#x9;&#x9;[Produto_id] INT NOT NULL,&#xA;&#x9;&#x9;[qte] INT NOT NULL,&#xA;&#x9;&#x9;[compra_status] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[total] DECIMAL(10, 2) NOT NULL,&#xA;&#x9;&#x9;[dataEmissao] DATETIME NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS NotaFiscal;&#xA;&#x9;CREATE TABLE NotaFiscal(&#xA;&#x9;&#x9;[NotaFiscal_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Pedido_ID] INT  NOT NULL,&#xA;&#x9;&#x9;[Valor_Total] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[Data_Emissao] DATETIME NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Transportadora;&#xA;&#x9;CREATE TABLE Transportadora(&#xA;&#x9;&#x9;[Transportadora_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Nome_Transportadora] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[CNPJ_Transportadora] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[Tipo_Servico] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[Custo_Frete] DECIMAL(18,0) NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS DespachoMercadorias;&#xA;&#x9;CREATE TABLE DespachoMercadorias(&#xA;&#x9;&#x9;[Despacho_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Produto_ID] INT NOT NULL,&#xA;&#x9;&#x9;[Transportadora_ID] INT NOT NULL,&#xA;&#x9;&#x9;[Status_Entrega] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[Data_Entrega] DATETIME NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Estoque;&#xA;&#x9;CREATE TABLE Estoque (&#xA;&#x9;&#x9;[Est_Prod_ID] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;        [Prod_ID] INT NOT NULL,&#xA;&#x9;&#x9;[Quantidade] INT CHECK (Quantidade &gt;= 0) DEFAULT 0,&#xA;&#x9;&#x9;[Estoque_Minimo] INT NOT NULL DEFAULT 0,&#xA;&#x9;);&#xA;&#xA;&#xA;ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_FORN FOREIGN KEY (Fornecedor_id) REFERENCES Fornecedores(Fornecedor_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_PROD FOREIGN KEY (Produto_id) REFERENCES Produtos(produto_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Pedidos ADD CONSTRAINT FK_PED_CLI FOREIGN KEY (cliente_ID) REFERENCES Clientes (cliente_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PE FOREIGN KEY (pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PROD FOREIGN KEY (produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE NotaFiscal ADD CONSTRAINT FK_NF_PE FOREIGN KEY (Pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Checkout ADD CONSTRAINT FK_P_C FOREIGN KEY (Pedido_id) REFERENCES Pedidos (Pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Checkout ADD CONSTRAINT FK_SD_D FOREIGN KEY (status_despacho) REFERENCES StatusDespacho(IDStatus) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_PROD FOREIGN KEY (Produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_TRANS FOREIGN KEY (Transportadora_ID) REFERENCES Transportadora (Transportadora_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Estoque ADD CONSTRAINT FK_EST_PROD FOREIGN KEY (Prod_ID) REFERENCES Produtos(produto_id)ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contêiner da Sequência\inserindo_dados"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarefa Executar SQL"
+          DTS:DTSID="{70272669-DC7C-4A29-96F7-DC62E0BC28A8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="inserindo_dados"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{858162AD-F88E-4512-B1A7-0A9F33008B38}"
+              SQLTask:SqlStatementSource="BEGIN&#xA;&#xA;-- Inserindo em Produtos baseado no select de carga e verificando se n�o est� duplicado&#xA;INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ) &#xA;SELECT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga &#xA;LEFT JOIN &#xA;Produtos ON Produtos.upc = Carga.upc&#xA;WHERE NOT EXISTS(&#xA;SELECT 1 FROM Produtos WHERE Produtos.upc = Carga.upc);&#xA;&#xA;&#xA;&#xA;&#xA;-- Inserindo o cliente e verificando se o cpf n�o est� cadastrado&#xA;IF NOT EXISTS ( SELECT * FROM Clientes INNER JOIN Carga ON Clientes.cpf = Carga.cpf )&#xA;BEGIN &#xA;&#x9;INSERT INTO Clientes (Nome, email, cpf, uf, pais ) &#xA;&#x9;SELECT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM dbo.Carga &#xA;&#x9;LEFT JOIN Clientes ON Clientes.cpf = Carga.cpf  &#xA;&#x9;WHERE Clientes.cpf IS NULL;&#x9;&#xA;END&#xA;&#xA;&#xA;&#xA;-- Populando Pedidos&#xA;INSERT INTO Pedidos &#xA;( codigo_Pedido, cliente_ID, data_Pedido, endereco_entrega, cep, custo_frete, status_pedido ) &#xA;SELECT DISTINCT &#xA;Carga.codigoPedido, &#xA;Clientes.cliente_id, &#xA;Carga.dataPedido, &#xA;Carga.enderecoEntrega, &#xA;Carga.cep, &#xA;Carga.frete, &#xA;StatusPedido.Status_ID FROM Carga &#xA;INNER JOIN Clientes ON &#xA;Clientes.cpf = Carga.cpf AND Clientes.email = Carga.email &#xA;INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente'&#xA;WHERE NOT EXISTS(&#xA;&#x9;SELECT 1 FROM Pedidos WHERE Carga.codigoPedido  = Pedidos.codigo_Pedido&#xA;&#x9;AND Carga.cep = Pedidos.cep AND Carga.dataPedido = Pedidos.data_Pedido&#xA;);&#xA;&#xA;&#xA;&#xA;-- Populado Itens Pedidos&#xA;INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario) &#xA;SELECT DISTINCT &#xA;&#x9;P.pedido_id,&#xA;&#x9;Pr.produto_id, &#xA;&#x9;Carga.qte,&#xA;&#x9;Carga.valor &#xA;FROM Carga&#xA;JOIN Pedidos P ON Carga.codigoPedido = P.codigo_Pedido&#xA;JOIN Produtos Pr ON Carga.upc = Pr.upc AND Carga.valor = Pr.valor&#xA;WHERE NOT EXISTS(&#xA;&#x9;SELECT 1 FROM ItensPedidos ipe WHERE &#xA;&#x9;ipe.pedido_ID = P.pedido_id AND&#xA;&#x9;ipe.produto_ID = Pr.produto_id AND&#xA;&#x9;ipe.quantidade = Carga.qte AND&#xA;&#x9;ipe.preco_unitario = Carga.valor&#xA;&#xA;);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;-- Populando checkout&#xA;INSERT INTO Checkout( Pedido_id, total_pedido, status_despacho, data_despacho) &#xA;SELECT DISTINCT &#xA;Pedidos.pedido_id,&#xA;( SELECT sum( ItensPedidos.preco_unitario * ItensPedidos.quantidade ) FROM ItensPedidos WHERE Pedidos.pedido_id = ItensPedidos.pedido_ID ) AS Subtotal,&#xA;( SELECT StatusDespacho.IDStatus FROM StatusDespacho WHERE StatusDespacho.NomeStatus = 'Em processamento' ) AS Status,&#xA;( SELECT GETDATE() ) AS data_despacho&#xA;FROM Pedidos&#xA;WHERE NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM Checkout&#xA;    WHERE Checkout.Pedido_id = Pedidos.pedido_id&#xA;);&#xA;&#xA;-- Inserindo Fornecedores&#xA;INSERT INTO Fornecedores (Nome_fornecedor, CNPJ ) &#xA;SELECT Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga &#xA; LEFT JOIN &#xA; Fornecedores ON Fornecedores.CNPJ = Carga.fornecedor_cnpj&#xA; WHERE NOT EXISTS(&#xA; SELECT 1 FROM Fornecedores Fr WHERE Fr.CNPJ = Carga.fornecedor_cnpj&#xA; );&#xA;&#xA;&#xA;&#xA;-- GErando Nota Fiscal&#xA;INSERT INTO NotaFiscal&#xA;( Pedido_ID, Valor_Total, Data_Emissao)&#xA;SELECT Pedidos.pedido_id, Checkout.total_pedido, Checkout.data_despacho FROM Pedidos&#xA;INNER JOIN Checkout ON Checkout.Pedido_id = Pedidos.pedido_id &#xA;WHERE NOT EXISTS(&#xA;SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id&#xA;);&#xA;&#xA;&#xA;-- Gerando o estoque&#xA;Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)&#xA;&#x9;SELECT &#xA;&#x9;Produtos.produto_id AS Prod_ID,&#xA;&#x9;--COALESCE retorna o primeiro valor n�o nulo da soma da Quantidade no estoque&#xA;&#x9;COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,&#xA;&#x9;SUM(ItensPedidos.quantidade) AS Estoque_Minimo&#x9;&#xA;&#x9;FROM Produtos &#xA;&#x9;INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id&#xA;&#x9;LEFT JOIN Estoque ON Produtos.produto_id = Estoque.Prod_ID &#xA;&#x9;GROUP BY&#xA;&#x9;Produtos.produto_id, ItensPedidos.quantidade;&#xA;&#xA;&#xA;&#xA;-- Inserindo Requisi��o de Compra&#xA;INSERT INTO [dbo].[RequisicaoCompra]&#xA;    ([Fornecedor_id]&#xA;    ,[Produto_id]&#xA;    ,[qte]&#xA;    ,[compra_status]&#xA;    ,[total]&#xA;    ,[dataEmissao])&#x9;&#x9;     &#xA;SELECT DISTINCT&#xA;    Fornecedores.fornecedor_id AS Fornecedor_id,&#xA;    Produtos.produto_id AS Produto_id,&#xA;    ItensPedidos.quantidade AS qte,&#xA;    StatusPedido.Nome_Status AS compra_status,&#xA;    ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,&#xA;    GETDATE() AS dataEmissao&#xA;FROM Produtos&#xA;INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ&#xA;INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id&#xA;INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;&#xA;&#xA;&#xA;&#xA;&#xA;END;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contêiner da Sequência\lerarquivo_source2"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tarefa Fluxo de Dados"
+          DTS:DTSID="{1E8B58B7-8030-4857-870F-51018A0D2946}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="lerarquivo_source2"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server"
+                  componentClassID="Microsoft.SQLServerDestination"
+                  contactInfo="Destino do SQL Server;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;5"
+                  description="Destino do SQL Server"
+                  name="Destino do SQL Server"
+                  version="5">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.String"
+                      description="O nome do objeto de banco de dados no qual copiar dados."
+                      expressionType="Notify"
+                      name="BulkInsertTableName">[dbo].[Carga]</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica que qualquer restrição no objeto de destino será verificada durante a operação de cópia de dados. Corresponde a opção de inserção em massa CHECK_CONSTRAINTS."
+                      name="BulkInsertCheckConstraints">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica o número da primeira linha a ser copiada. Corresponde à opção de inserção em massa FIRSTROW."
+                      expressionType="Notify"
+                      name="BulkInsertFirstRow">-1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica que qualquer disparador de inserção definido no objeto de destino será executado durante a cópia de dados. Corresponde à opção de inserção em massa FIRE_TRIGGERS."
+                      name="BulkInsertFireTriggers">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Corresponde à opção de inserção em massa KEEPIDENTITY."
+                      name="BulkInsertKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica se as colunas que contêm null terão null copiado no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável somente se o carregamento rápido estiver ativado."
+                      name="BulkInsertKeepNulls">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica o número da última linha a ser copiada. Corresponde à opção de inserção em massa LASTROW."
+                      expressionType="Notify"
+                      name="BulkInsertLastRow">-1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica o número máximo de erros de sintaxe e erros de compilação que podem ocorrer antes do cancelamento da operação de cópia de dados. Cada linha que não puder ser copiada será ignorada e contada como um erro. Corresponde à opção de inserção em massa MAXERRORS."
+                      name="BulkInsertMaxErrors">65536</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica como os dados a serem copiados estão classificados. Corresponde à opção de inserção em massa ORDER."
+                      expressionType="Notify"
+                      name="BulkInsertOrder"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica que um bloqueio de nível de tabela é adquirido para a duração da operação de cópia de dados. Corresponde à opção de inserção em massa TABLOCK."
+                      name="BulkInsertTablock">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a quantidade de tempo em segundos que o adaptador de Destino SQL aguardará antes de encerrar se não houver dados disponíveis para inserção. Um valor de tempo limite de 0 significa que o adaptador de Destino SQL não terá tempo limite."
+                      expressionType="Notify"
+                      name="Timeout">30</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção dos dados."
+                      name="MaxInsertCommitSize">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+                      connectionManagerRefId="Package.ConnectionManagers[(PackagePart)DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+                      description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+                      hasSideEffects="true"
+                      name="Entrada de Destino do SQL Server">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[codigoPedido]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="codigoPedido"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[dataPedido]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="dataPedido"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[sku]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="sku"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[upc]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="upc"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeProduto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="nomeProduto"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[descricao]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="descricao"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[descricao]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[qte]"
+                          cachedDataType="i4"
+                          cachedName="qte"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[valor]"
+                          cachedDataType="decimal"
+                          cachedName="valor"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fornecedor]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="fornecedor"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fornecedor_cnpj]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="fornecedor_cnpj"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor_cnpj]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[frete]"
+                          cachedDataType="decimal"
+                          cachedName="frete"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="email"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeComprador]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="nomeComprador"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cpf]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="cpf"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[enderecoEntrega]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="150"
+                          cachedName="enderecoEntrega"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cep]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="cep"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[uf]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="uf"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]" />
+                        <inputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[pais]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="pais"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="codigoPedido" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
+                          dataType="dbTimeStamp2"
+                          name="dataPedido"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sku" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="upc" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="nomeProduto" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="descricao" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
+                          dataType="i4"
+                          name="qte" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
+                          dataType="numeric"
+                          name="valor"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="fornecedor" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor_cnpj]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="fornecedor_cnpj" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
+                          dataType="numeric"
+                          name="frete"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="cpf" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="nomeComprador" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="enderecoEntrega" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="cep" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="uf" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="pais" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
+                  description="Origem de Arquivo Simples"
+                  localeId="1046"
+                  name="Origem de Arquivo Simples"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica se colunas de comprimento zero são tratadas como nulas."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica o nome de uma coluna de saída que contém o nome do arquivo. Se nenhum nome for especificado, nenhuma coluna de saída contendo o nome de arquivo será gerada."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(PackagePart)Gerenciador de Conexões de Arquivos Simples]"
+                      connectionManagerRefId="Package.ConnectionManagers[(PackagePart)Gerenciador de Conexões de Arquivos Simples]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
+                      name="Saída de Origem de Arquivo Simples">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
+                          length="50"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
+                          name="codigoPedido"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
+                          name="dataPedido"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
+                          length="50"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
+                          name="sku"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
+                          length="50"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
+                          name="upc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
+                          length="150"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
+                          name="nomeProduto"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[descricao]"
+                          length="150"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]"
+                          name="descricao"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
+                          name="qte"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
+                          dataType="decimal"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
+                          name="valor"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor]"
+                          length="50"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]"
+                          name="fornecedor"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor_cnpj]"
+                          length="30"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]"
+                          name="fornecedor_cnpj"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
+                          dataType="decimal"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
+                          name="frete"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
+                          length="50"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
+                          name="email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
+                          length="150"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
+                          name="nomeComprador"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cpf]"
+                          length="30"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]"
+                          name="cpf"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[enderecoEntrega]"
+                          length="150"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]"
+                          name="enderecoEntrega"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
+                          length="10"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
+                          name="cep"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
+                          length="2"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
+                          name="uf"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversão"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
+                          length="30"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
+                          name="pais"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se a coluna usa as rotinas de análise de localidade neutro mais rápidas."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica se os dados estão em formato binário."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="codigoPedido" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
+                          dataType="dbTimeStamp2"
+                          name="dataPedido" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sku" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="upc" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="nomeProduto" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="descricao" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
+                          dataType="i4"
+                          name="qte" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
+                          dataType="decimal"
+                          name="valor"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="fornecedor" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor_cnpj]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="fornecedor_cnpj" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
+                          dataType="decimal"
+                          name="frete"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="email" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="nomeComprador" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cpf]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="cpf" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[enderecoEntrega]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="enderecoEntrega" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="cep" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="uf" />
+                        <externalMetadataColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="pais" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                      isErrorOut="true"
+                      name="Saída de Erro de Origem de Arquivo Simples">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Coluna de Saída de Erro de Origem de Arquivo Simples"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                          name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Contêiner da Sequência\lerarquivo_source2.Paths[Saída de Origem de Arquivo Simples]"
+                  endId="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+                  name="Saída de Origem de Arquivo Simples"
+                  startId="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contêiner da Sequência.PrecedenceConstraints[Restrição]"
+          DTS:CreationName=""
+          DTS:DTSID="{CA17D26C-B1EE-4FD1-9F2A-8E42F2051874}"
+          DTS:From="Package\Contêiner da Sequência\lerarquivo_source2"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restrição"
+          DTS:To="Package\Contêiner da Sequência\excluindotabelas" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contêiner da Sequência.PrecedenceConstraints[Restrição 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{0E86FCB9-9B44-4352-AE57-C6D00828B957}"
+          DTS:From="Package\Contêiner da Sequência\excluindotabelas"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restrição 1"
+          DTS:To="Package\Contêiner da Sequência\inserindo_dados" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Contêiner da Sequência\lerarquivo_source2"
+          TopLeft="40,23" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Contêiner da Sequência\excluindotabelas"
+          TopLeft="50,101" />
+        <EdgeLayout
+          Id="Package\Contêiner da Sequência.PrecedenceConstraints[Restrição]"
+          TopLeft="128.5,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Contêiner da Sequência\inserindo_dados"
+          TopLeft="50,189" />
+        <EdgeLayout
+          Id="Package\Contêiner da Sequência.PrecedenceConstraints[Restrição 1]"
+          TopLeft="130.25,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="269,281"
+          Size="269,324"
+          Id="Package\Contêiner da Sequência"
+          TopLeft="167,25" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Contêiner da Sequência\lerarquivo_source2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Contêiner da Sequência\lerarquivo_source2\Origem de Arquivo Simples"
+          TopLeft="145.5,29.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Contêiner da Sequência\lerarquivo_source2\Destino do SQL Server"
+          TopLeft="154,141" />
+        <EdgeLayout
+          Id="Package\Contêiner da Sequência\lerarquivo_source2.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="251,71.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.5"
+              Start="0,0"
+              End="0,62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

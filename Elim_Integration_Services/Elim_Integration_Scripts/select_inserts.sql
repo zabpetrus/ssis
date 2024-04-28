@@ -1,8 +1,10 @@
+USE Utilitario;
+
 BEGIN
 
 -- Inserindo em Produtos baseado no select de carga e verificando se não está duplicado
 INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ) 
-SELECT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
+SELECT DISTINCT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
 LEFT JOIN 
 Produtos ON Produtos.upc = Carga.upc
 WHERE NOT EXISTS(
@@ -15,7 +17,7 @@ SELECT 1 FROM Produtos WHERE Produtos.upc = Carga.upc);
 IF NOT EXISTS ( SELECT * FROM Clientes INNER JOIN Carga ON Clientes.cpf = Carga.cpf )
 BEGIN 
 	INSERT INTO Clientes (Nome, email, cpf, uf, pais ) 
-	SELECT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM dbo.Carga 
+	SELECT DISTINCT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM dbo.Carga 
 	LEFT JOIN Clientes ON Clientes.cpf = Carga.cpf  
 	WHERE Clientes.cpf IS NULL;	
 END
@@ -94,7 +96,7 @@ SELECT Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga
 -- GErando Nota Fiscal
 INSERT INTO NotaFiscal
 ( Pedido_ID, Valor_Total, Data_Emissao)
-SELECT Pedidos.pedido_id, Checkout.total_pedido, Checkout.data_despacho FROM Pedidos
+SELECT DISTINCT Pedidos.pedido_id, Checkout.total_pedido, Checkout.data_despacho FROM Pedidos
 INNER JOIN Checkout ON Checkout.Pedido_id = Pedidos.pedido_id 
 WHERE NOT EXISTS(
 SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
@@ -103,7 +105,7 @@ SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
 
 -- Gerando o estoque
 Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
-	SELECT 
+	SELECT DISTINCT
 	Produtos.produto_id AS Prod_ID,
 	--COALESCE retorna o primeiro valor não nulo da soma da Quantidade no estoque
 	COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,

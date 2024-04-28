@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="PackagePart"
+  DTS:CreationDate="4/28/2024 5:14:02 PM"
+  DTS:CreationName="Microsoft.DTSPackagePart"
+  DTS:CreatorComputerName="DESKTOP-NSQ6C33"
+  DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
+  DTS:DTSID="{B5E0B958-71A9-44AB-A46C-D47C3B188E0B}"
+  DTS:ExecutableType="Microsoft.DTSPackagePart"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="inserindo_dados"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{F5C39709-F8B5-4A7F-964B-225960C714EA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="PackagePart.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E73E7F43-920F-4A72-9FC5-4090AAFF64C9}"
+      DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.Utilitario">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-PackagePart1-{E73E7F43-920F-4A72-9FC5-4090AAFF64C9}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="PackagePart\Tarefa Executar SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{CC72AF8C-CFFF-427F-B1C6-C3E2067D8CDA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarefa Executar SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E73E7F43-920F-4A72-9FC5-4090AAFF64C9}"
+          SQLTask:SqlStatementSource="USE Utilitario;&#xA;&#xA;-- Populando Produtos&#xA;&#xA;MERGE INTO Produtos AS target&#xA;USING (&#xA;SELECT DISTINCT &#xA;Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga &#xA;) AS source ON target.upc = source.upc&#xA;WHEN NOT MATCHED THEN &#xA;INSERT ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ)&#xA;VALUES (source.nomeProduto, source.descricao, source.sku, source.upc, source.valor, source.fornecedor, source.fornecedor_cnpj);&#xA;&#xA;&#xA;&#xA;-- Populando Clientes&#xA;&#xA;MERGE INTO Clientes AS target&#xA;USING (&#xA;    SELECT DISTINCT nomeComprador, email, cpf, uf, pais&#xA;    FROM dbo.Carga&#xA;) AS source&#xA;ON target.cpf = source.cpf&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT (Nome, email, cpf, uf, pais)&#xA;    VALUES (source.nomeComprador, source.email, source.cpf, source.uf, source.pais);&#xA;&#xA;&#xA;-- Populando Pedidos&#xA;MERGE INTO Pedidos AS target&#xA;USING (&#xA;    SELECT DISTINCT &#xA;        Carga.codigoPedido, &#xA;        Clientes.cliente_id, &#xA;        Carga.dataPedido, &#xA;        Carga.enderecoEntrega, &#xA;        Carga.cep, &#xA;        Carga.frete, &#xA;        StatusPedido.Status_ID &#xA;    FROM Carga &#xA;    INNER JOIN Clientes ON Clientes.cpf = Carga.cpf AND Clientes.email = Carga.email &#xA;    INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente'&#xA;) AS source&#xA;ON &#xA;    target.codigo_Pedido = source.codigoPedido&#xA;    AND target.cep = source.cep &#xA;    AND target.data_Pedido = source.dataPedido&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT &#xA;    (&#xA;        codigo_Pedido, &#xA;        cliente_ID, &#xA;        data_Pedido, &#xA;        endereco_entrega, &#xA;        cep, &#xA;        custo_frete, &#xA;        status_pedido&#xA;    )&#xA;    VALUES &#xA;    (&#xA;        source.codigoPedido, &#xA;        source.cliente_id, &#xA;        source.dataPedido, &#xA;        source.enderecoEntrega, &#xA;        source.cep, &#xA;        source.frete, &#xA;        source.Status_ID&#xA;    );&#xA;&#xA;&#xA;-- Populando ItensPedidos&#xA;&#xA;MERGE INTO ItensPedidos AS target&#xA;USING (&#xA;    SELECT DISTINCT &#xA;        P.pedido_id,&#xA;        Pr.produto_id, &#xA;        Carga.qte,&#xA;        Carga.valor &#xA;    FROM Carga&#xA;    JOIN Pedidos P ON Carga.codigoPedido = P.codigo_Pedido&#xA;    JOIN Produtos Pr ON Carga.upc = Pr.upc AND Carga.valor = Pr.valor&#xA;) AS source&#xA;ON &#xA;    target.pedido_ID = source.pedido_id&#xA;    AND target.produto_ID = source.produto_id&#xA;    AND target.quantidade = source.qte&#xA;    AND target.preco_unitario = source.valor&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT &#xA;    (&#xA;        pedido_ID, &#xA;        produto_ID, &#xA;        quantidade,&#xA;        preco_unitario&#xA;    )&#xA;    VALUES &#xA;    (&#xA;        source.pedido_id,&#xA;        source.produto_id, &#xA;        source.qte,&#xA;        source.valor &#xA;    );&#xA;&#xA;&#xA;MERGE INTO Checkout AS target&#xA;USING (&#xA;    SELECT DISTINCT &#xA;        Pedidos.pedido_id,&#xA;        (&#xA;            SELECT SUM(ItensPedidos.preco_unitario * ItensPedidos.quantidade) &#xA;            FROM ItensPedidos &#xA;            WHERE Pedidos.pedido_id = ItensPedidos.pedido_ID&#xA;        ) AS Subtotal,&#xA;        (&#xA;            SELECT IDStatus &#xA;            FROM StatusDespacho &#xA;            WHERE NomeStatus = 'Em processamento'&#xA;        ) AS Status,&#xA;        GETDATE() AS data_despacho&#xA;    FROM Pedidos&#xA;) AS source&#xA;ON target.Pedido_id = source.pedido_id&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT &#xA;    (&#xA;        Pedido_id, &#xA;        total_pedido, &#xA;        status_despacho, &#xA;        data_despacho&#xA;    )&#xA;    VALUES &#xA;    (&#xA;        source.pedido_id,&#xA;        source.Subtotal,&#xA;        source.Status,&#xA;        source.data_despacho&#xA;    );&#xA;&#xA;&#xA;-- Populando checkout&#xA;&#xA;MERGE INTO Checkout AS target&#xA;USING (&#xA;    SELECT DISTINCT &#xA;        Pedidos.pedido_id,&#xA;        SUM(ItensPedidos.preco_unitario * ItensPedidos.quantidade) AS Subtotal,&#xA;        StatusDespacho.IDStatus AS Status,&#xA;        GETDATE() AS data_despacho&#xA;    FROM Pedidos&#xA;    JOIN ItensPedidos ON Pedidos.pedido_id = ItensPedidos.pedido_ID&#xA;    JOIN StatusDespacho ON StatusDespacho.NomeStatus = 'Em processamento'&#xA;    GROUP BY Pedidos.pedido_id, StatusDespacho.IDStatus&#xA;) AS source&#xA;ON target.Pedido_id = source.pedido_id&#xA;WHEN NOT MATCHED THEN&#xA;INSERT &#xA;(&#xA;    Pedido_id, &#xA;    total_pedido, &#xA;    status_despacho, &#xA;    data_despacho&#xA;)&#xA;VALUES &#xA;(&#xA;    source.pedido_id,&#xA;    source.Subtotal,&#xA;    source.Status,&#xA;    source.data_despacho&#xA;);&#xA;&#xA;-- Populando forncedores&#xA;&#xA;MERGE INTO Fornecedores AS target&#xA;USING (&#xA;    SELECT DISTINCT &#xA;        Carga.fornecedor AS Nome_fornecedor, &#xA;        Carga.fornecedor_cnpj AS CNPJ &#xA;    FROM Carga&#xA;) AS source&#xA;ON target.CNPJ = source.CNPJ&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT ( Nome_fornecedor, CNPJ ) VALUES ( source.Nome_fornecedor, source.CNPJ );&#xA;&#xA;&#xA;-- Nota Fiscal&#xA;&#xA;MERGE INTO NotaFiscal AS target&#xA;USING (&#xA;    SELECT Pedidos.pedido_id, Checkout.total_pedido, Checkout.data_despacho&#xA;    FROM Pedidos&#xA;    INNER JOIN Checkout ON Checkout.Pedido_id = Pedidos.pedido_id&#xA;) AS source&#xA;ON target.Pedido_ID = source.pedido_id&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT  ( Pedido_ID, Valor_Total, Data_Emissao )&#xA;    VALUES ( source.pedido_id, source.total_pedido, source.data_despacho );&#xA;&#xA; &#xA;&#xA;-- Estoque&#xA;&#xA;MERGE INTO Estoque AS target&#xA;USING (&#xA;    SELECT &#xA;        Produtos.produto_id AS Prod_ID,&#xA;        COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,&#xA;        SUM(ItensPedidos.quantidade) AS Estoque_Minimo&#xA;    FROM Produtos &#xA;    INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id&#xA;    LEFT JOIN Estoque ON Produtos.produto_id = Estoque.Prod_ID &#xA;    GROUP BY Produtos.produto_id&#xA;) AS source&#xA;ON target.Prod_ID = source.Prod_ID&#xA;WHEN MATCHED THEN&#xA;    UPDATE SET &#xA;        target.Quantidade = source.Quantidade,&#xA;        target.Estoque_Minimo = source.Estoque_Minimo&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT (  Prod_ID, Quantidade, Estoque_Minimo )&#xA;    VALUES ( source.Prod_ID, source.Quantidade, source.Estoque_Minimo    );&#xA;&#xA;&#xA;&#xA;-- requisicao compra&#xA;&#xA;MERGE INTO RequisicaoCompra AS target&#xA;USING (&#xA;    SELECT DISTINCT&#xA;        Fornecedores.fornecedor_id AS Fornecedor_id,&#xA;        Produtos.produto_id AS Produto_id,&#xA;        ItensPedidos.quantidade AS qte,&#xA;        StatusPedido.Nome_Status AS compra_status,&#xA;        ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,&#xA;        GETDATE() AS dataEmissao&#xA;    FROM Produtos&#xA;    INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ&#xA;    INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id&#xA;    INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1&#xA;) AS source&#xA;ON &#xA;    target.Fornecedor_id = source.Fornecedor_id&#xA;    AND target.Produto_id = source.Produto_id&#xA;    AND target.qte = source.qte&#xA;    AND target.compra_status = source.compra_status&#xA;    AND target.total = source.total&#xA;    AND target.dataEmissao = source.dataEmissao&#xA;WHEN NOT MATCHED THEN&#xA;    INSERT &#xA;    (&#xA;        Fornecedor_id,&#xA;        Produto_id,&#xA;        qte,&#xA;        compra_status,&#xA;        total,&#xA;        dataEmissao&#xA;    )&#xA;    VALUES &#xA;    (&#xA;        source.Fornecedor_id,&#xA;        source.Produto_id,&#xA;        source.qte,&#xA;        source.compra_status,&#xA;        source.total,&#xA;        source.dataEmissao&#xA;    );&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <PackagePart
+    design-time-name="PackagePart">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="182,42"
+          Id="PackagePart\Tarefa Executar SQL"
+          TopLeft="162,58" />
+      </GraphLayout>
+    </LayoutInfo>
+  </PackagePart>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
