@@ -3,8 +3,8 @@ USE Utilitario;
 BEGIN
 
 -- Inserindo em Produtos baseado no select de carga e verificando se não está duplicado
-INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ) 
-SELECT DISTINCT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
+INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor,frete_produto, Nome_fornecedor, fornecedor_CNPJ) 
+SELECT DISTINCT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor,Carga.frete, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
 LEFT JOIN 
 Produtos ON Produtos.upc = Carga.upc
 WHERE NOT EXISTS(
@@ -23,49 +23,39 @@ BEGIN
 END
 
 
-
--- Populando Pedidos
-INSERT INTO Pedidos 
-( codigo_Pedido, cliente_ID, data_Pedido, endereco_entrega, cep, custo_frete, status_pedido ) 
-SELECT DISTINCT 
-Carga.codigoPedido, 
-Clientes.cliente_id, 
-Carga.dataPedido, 
-Carga.enderecoEntrega, 
-Carga.cep, 
-Carga.frete, 
-StatusPedido.Status_ID FROM Carga 
-INNER JOIN Clientes ON 
-Clientes.cpf = Carga.cpf AND Clientes.email = Carga.email 
-INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente'
-WHERE NOT EXISTS(
-	SELECT 1 FROM Pedidos WHERE Carga.codigoPedido  = Pedidos.codigo_Pedido
-	AND Carga.cep = Pedidos.cep AND Carga.dataPedido = Pedidos.data_Pedido
-);
+-- Populando pedidos
+INSERT INTO [dbo].[Pedidos]
+           ([codigo_Pedido]
+           ,[cliente_ID]
+           ,[data_Pedido]
+           ,[endereco_entrega]
+           ,[cep]
+           ,[status_pedido])
+     
+        SELECT DISTINCT 
+		Carga.codigoPedido, 
+		Clientes.cliente_id, 
+		Carga.dataPedido, 
+		Carga.enderecoEntrega, 
+		Carga.cep,
+		SP.Status_ID 
+		FROM Carga
+		INNER JOIN Clientes ON Clientes.cpf = Carga.cpf
+		INNER JOIN StatusPedido AS SP ON SP.Nome_Status = 'Pendente' ORDER BY Carga.dataPedido;  
 
 
 
 -- Populado Itens Pedidos
 INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario) 
 SELECT DISTINCT 
-	P.pedido_id,
-	Pr.produto_id, 
-	Carga.qte,
+    Pedidos.pedido_id,
+	Produtos.produto_id, 
+	Carga.qte, 
 	Carga.valor 
-FROM Carga
-JOIN Pedidos P ON Carga.codigoPedido = P.codigo_Pedido
-JOIN Produtos Pr ON Carga.upc = Pr.upc AND Carga.valor = Pr.valor
-WHERE NOT EXISTS(
-	SELECT 1 FROM ItensPedidos ipe WHERE 
-	ipe.pedido_ID = P.pedido_id AND
-	ipe.produto_ID = Pr.produto_id AND
-	ipe.quantidade = Carga.qte AND
-	ipe.preco_unitario = Carga.valor
-
-);
-
-
-
+	FROM Carga 
+	LEFT JOIN Produtos ON Carga.upc = Produtos.upc AND Carga.sku = Produtos.sku
+	LEFT JOIN Pedidos ON Pedidos.codigo_Pedido = Carga.codigoPedido;
+;
 
 
 -- Populando checkout
@@ -130,13 +120,13 @@ SELECT DISTINCT
     Fornecedores.fornecedor_id AS Fornecedor_id,
     Produtos.produto_id AS Produto_id,
     ItensPedidos.quantidade AS qte,
-    StatusPedido.Nome_Status AS compra_status,
+    StatusPedido.Status_ID AS compra_status,
     ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,
     GETDATE() AS dataEmissao
 FROM Produtos
 INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ
 INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
-INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;
+INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente';
 
 
 

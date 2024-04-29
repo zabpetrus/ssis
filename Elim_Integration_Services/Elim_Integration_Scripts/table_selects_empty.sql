@@ -20,20 +20,15 @@ Produtos ON Produtos.upc = Carga.upc
 -- Selecionando os dados dos pedidos 
 
 SELECT DISTINCT 
-    TC.codigoPedido,
-    C.cliente_id,
-    TC.dataPedido,
-    TC.enderecoEntrega,
-    TC.cep,
-    TC.frete,
-    SP.Status_ID 
-FROM 
-    Carga AS TC
-INNER JOIN 
-    Clientes AS C ON C.cpf = TC.cpf AND C.email = TC.email
-INNER JOIN 
-    StatusPedido AS SP ON SP.Nome_Status = 'Pendente';
-
+Carga.codigoPedido, 
+Clientes.cliente_id, 
+Carga.dataPedido, 
+Carga.enderecoEntrega, 
+Carga.cep,
+SP.Status_ID 
+FROM Carga
+INNER JOIN Clientes ON Clientes.cpf = Carga.cpf
+INNER JOIN StatusPedido AS SP ON SP.Nome_Status = 'Pendente';
 
 
  -- Populando Fornecedor
@@ -42,7 +37,7 @@ INNER JOIN
  Fornecedores ON Fornecedores.CNPJ = Carga.fornecedor_cnpj;
 
 
--- Selecionando os dados para itens_pedidos
+-- Selecionando os dados para itens_pedidos * errado
 
 SELECT DISTINCT
     P.pedido_id,
@@ -95,3 +90,15 @@ INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ
 INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
 INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;
 	
+
+-- Select para a criação da view de Estoque
+SELECT Estoque.Est_Prod_ID,
+	   Pr.nome_Produto,
+	   Estoque.Quantidade,
+	   Estoque.Estoque_Minimo,
+	   Fornecedores.fornecedor_id,
+	   Pr.nome_fornecedor
+	   
+	   FROM Estoque 
+	   INNER JOIN Produtos Pr ON Estoque.Prod_ID = Pr.produto_id
+	   INNER JOIN Fornecedores ON Fornecedores.CNPJ = Pr.fornecedor_CNPJ;

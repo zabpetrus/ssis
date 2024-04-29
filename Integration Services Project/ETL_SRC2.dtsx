@@ -1,37 +1,37 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="4/25/2024 2:24:12 AM"
+  DTS:CreationDate="4/29/2024 5:11:06 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-NSQ6C33"
   DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
-  DTS:DTSID="{59042A03-47DF-4624-88D1-7FE01CB25324}"
+  DTS:DTSID="{F5700BBE-C39E-4949-A251-4A21C430BB32}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1046"
-  DTS:ObjectName="ETL3"
+  DTS:ObjectName="ETL_SRC2"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{3B584D98-E583-48A4-B85D-5AF2794F722D}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{F5682C3B-53C2-4C5C-9FED-FD733CF0E471}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D8256324-22C0-4307-9ACC-01E79D04BAC6}"
+      DTS:DTSID="{DD2982CC-4355-41E5-9A9A-200CC08A9DEA}"
       DTS:ObjectName="DESKTOP-NSQ6C33\ATLAS.Utilitario">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ETL3-{D8256324-22C0-4307-9ACC-01E79D04BAC6}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ETL_SRC2-{DD2982CC-4355-41E5-9A9A-200CC08A9DEA}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Gerenciador de Conexões de Arquivos Simples]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{68504F36-9871-4999-9A12-8D3A77048F4C}"
+      DTS:DTSID="{C93746DC-B7DB-4763-BA42-5B25DBE35754}"
       DTS:ObjectName="Gerenciador de Conexões de Arquivos Simples">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -42,7 +42,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="F:\vstudio2024\Elim_Integration_Services\Elim_Sources\source3.txt">
+          DTS:ConnectionString="F:\vstudio2024\Elim_Integration_Services\Elim_Sources\source2.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -51,7 +51,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="codigoPedido"
-              DTS:DTSID="{F570B08E-FB11-484F-A364-4D2C1ED8581B}"
+              DTS:DTSID="{17E61942-4806-4B85-8673-2C37FD506809}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -59,7 +59,7 @@
               DTS:DataType="304"
               DTS:TextQualified="True"
               DTS:ObjectName="dataPedido"
-              DTS:DTSID="{FD62D6E6-D936-4DA9-8E9C-8A99C3D1EC8A}"
+              DTS:DTSID="{02BD5800-F6CE-46D9-8924-6369DACA4DF1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,7 +68,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="sku"
-              DTS:DTSID="{90BAF222-A398-4485-A05D-2DD5880DCE71}"
+              DTS:DTSID="{717D6AFC-5519-46E7-A3D0-6F3529D76496}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,7 +77,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="upc"
-              DTS:DTSID="{0ECE88EC-0375-4DD7-B77A-F0AA566F7612}"
+              DTS:DTSID="{21A4F6A9-D99D-4B28-8FAC-9AB84DC1EDDE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -86,7 +86,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="nomeProduto"
-              DTS:DTSID="{EAA98F21-05C4-4CFF-9A4E-9A56639892CE}"
+              DTS:DTSID="{CF708398-6504-4AF9-BE70-20BED9290509}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -95,7 +95,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="descricao"
-              DTS:DTSID="{C8CBFE9B-57EA-47D8-9D39-BBEE24405E27}"
+              DTS:DTSID="{4BF3DE79-3CA0-4122-A43D-529CC3CC2FDA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,7 +103,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="qte"
-              DTS:DTSID="{1320565D-8724-4814-AC74-43BEDE2913F8}"
+              DTS:DTSID="{5F068818-C91C-4B25-BD6D-51A1C3AFDF6C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,7 +112,7 @@
               DTS:DataScale="2"
               DTS:TextQualified="True"
               DTS:ObjectName="valor"
-              DTS:DTSID="{5AFC7D1C-E670-454B-848B-105BC790034B}"
+              DTS:DTSID="{11296323-6984-4184-B09F-2D27C4C559B7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -121,7 +121,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="fornecedor"
-              DTS:DTSID="{8CF2C6F2-C45A-4BC3-BE8B-572FD843E301}"
+              DTS:DTSID="{B64E8DBE-EE59-4FF1-B000-60BC3A8DA082}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -130,7 +130,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="fornecedor_cnpj"
-              DTS:DTSID="{E72A2395-DA6D-49B5-B5B8-3633CFF3EC56}"
+              DTS:DTSID="{6DF86D89-8C98-4AB1-B6F3-BC534AF48913}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -139,7 +139,7 @@
               DTS:DataScale="2"
               DTS:TextQualified="True"
               DTS:ObjectName="frete"
-              DTS:DTSID="{8CA16604-6E0B-4A29-AE44-68433FEC9FE9}"
+              DTS:DTSID="{6C9763D6-B78F-47A7-8759-9A377E1800B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -148,7 +148,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="email"
-              DTS:DTSID="{F1FC0228-D149-4712-9AB9-FB4B0C6DDD81}"
+              DTS:DTSID="{7F358265-6A7E-4216-BB69-23209EF4840B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -157,7 +157,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="nomeComprador"
-              DTS:DTSID="{B64B4021-2A1F-4CE0-A219-FABE2E5F5E1F}"
+              DTS:DTSID="{7A5702FF-D019-4305-9A39-1E5C65373E78}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -166,7 +166,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="cpf"
-              DTS:DTSID="{4C2C4B03-E2C5-41E1-88B7-47B65726FE7B}"
+              DTS:DTSID="{1A93B84F-BFBA-4946-A148-10824DA60BC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -175,7 +175,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="enderecoEntrega"
-              DTS:DTSID="{37326C17-B248-4266-AA67-6C8F91A93393}"
+              DTS:DTSID="{0B77EA9E-9C10-47C1-B7C9-9A391E61FBD0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -184,7 +184,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="cep"
-              DTS:DTSID="{D57F9FEE-8FED-4E2E-8F31-A9CAABDC82CB}"
+              DTS:DTSID="{9A924246-5C89-4C1B-812C-03CA7F6557BF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,7 +193,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="uf"
-              DTS:DTSID="{837DCECB-6BB9-4064-B9A8-DFB29DF7A15B}"
+              DTS:DTSID="{6919E84B-DC69-44D2-9C93-493E79D2B238}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -202,7 +202,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="pais"
-              DTS:DTSID="{C4A12E42-8438-4ABB-AD43-94BD3F9CBE35}"
+              DTS:DTSID="{70993F79-1082-4E29-B85C-47ED66BD34FB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -212,30 +212,31 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Inserir"
+      DTS:refId="Package\Excluindo tabelas e constraints e recriando-as"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarefa Executar SQL"
-      DTS:DTSID="{F915DD6B-E81F-43D2-BA22-AF6CE964C496}"
+      DTS:DTSID="{30EFB9FE-9A14-42FE-9A4F-011FC8C9D879}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Inserir"
+      DTS:ObjectName="Excluindo tabelas e constraints e recriando-as"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D8256324-22C0-4307-9ACC-01E79D04BAC6}"
-          SQLTask:SqlStatementSource="BEGIN&#xA;&#xA;-- Inserindo em Produtos baseado no select de carga e verificando se n�o est� duplicado&#xA;INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor, Nome_fornecedor, fornecedor_CNPJ) &#xA;SELECT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga &#xA;LEFT JOIN &#xA;Produtos ON Produtos.upc = Carga.upc&#xA;WHERE NOT EXISTS(&#xA;SELECT 1 FROM Produtos WHERE Produtos.upc = Carga.upc);&#xA;&#xA;&#xA;&#xA;&#xA;-- Inserindo o cliente e verificando se o cpf n�o est� cadastrado&#xA;INSERT INTO Clientes (Nome, email, cpf, uf, pais ) &#xA;SELECT Carga.nomeComprador, Carga.email, Carga.cpf, Carga.uf, Carga.pais FROM dbo.Carga &#xA;LEFT JOIN Clientes ON Clientes.cpf = Carga.cpf&#xA;WHERE NOT EXISTS(&#xA;SELECT 1 FROM Clientes WHERE Clientes.cpf = Carga.cpf);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;-- Populando Pedidos&#xA;INSERT INTO Pedidos &#xA;( codigo_Pedido, cliente_ID, data_Pedido, endereco_entrega, cep, custo_frete, status_pedido ) &#xA;SELECT DISTINCT &#xA;Carga.codigoPedido, &#xA;Clientes.cliente_id, &#xA;Carga.dataPedido, &#xA;Carga.enderecoEntrega, &#xA;Carga.cep, &#xA;Carga.frete, &#xA;StatusPedido.Status_ID FROM Carga &#xA;INNER JOIN Clientes ON &#xA;Clientes.cpf = Carga.cpf AND Clientes.email = Carga.email &#xA;INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente'&#xA;WHERE NOT EXISTS(&#xA;&#x9;SELECT 1 FROM Pedidos WHERE Carga.codigoPedido  = Pedidos.codigo_Pedido&#xA;&#x9;AND Carga.cep = Pedidos.cep AND Carga.dataPedido = Pedidos.data_Pedido&#xA;);&#xA;&#xA;&#xA;&#xA;-- Populado Itens Pedidos&#xA;INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario) &#xA;SELECT DISTINCT &#xA;&#x9;P.pedido_id,&#xA;&#x9;Pr.produto_id, &#xA;&#x9;Carga.qte,&#xA;&#x9;Carga.valor &#xA;FROM Carga&#xA;JOIN Pedidos P ON Carga.codigoPedido = P.codigo_Pedido&#xA;JOIN Produtos Pr ON Carga.upc = Pr.upc AND Carga.valor = Pr.valor&#xA;WHERE NOT EXISTS(&#xA;&#x9;SELECT 1 FROM ItensPedidos ipe WHERE &#xA;&#x9;ipe.pedido_ID = P.pedido_id AND&#xA;&#x9;ipe.produto_ID = Pr.produto_id AND&#xA;&#x9;ipe.quantidade = Carga.qte AND&#xA;&#x9;ipe.preco_unitario = Carga.valor&#xA;&#xA;);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;-- Populando checkout&#xA;INSERT INTO Checkout( Pedido_id, total_pedido, status_despacho, data_despacho) &#xA;SELECT DISTINCT &#xA;Pedidos.pedido_id,&#xA;( SELECT sum( ItensPedidos.preco_unitario * ItensPedidos.quantidade ) FROM ItensPedidos WHERE Pedidos.pedido_id = ItensPedidos.pedido_ID ) AS Subtotal,&#xA;( SELECT StatusDespacho.IDStatus FROM StatusDespacho WHERE StatusDespacho.NomeStatus = 'Em processamento' ) AS Status,&#xA;( SELECT GETDATE() ) AS data_despacho&#xA;FROM Pedidos&#xA;WHERE NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM Checkout&#xA;    WHERE Checkout.Pedido_id = Pedidos.pedido_id&#xA;);&#xA;&#xA;-- Inserindo Fornecedores&#xA;INSERT INTO Fornecedores (Nome_fornecedor, CNPJ ) &#xA;SELECT Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga &#xA; LEFT JOIN &#xA; Fornecedores ON Fornecedores.CNPJ = Carga.fornecedor_cnpj&#xA; WHERE NOT EXISTS(&#xA; SELECT 1 FROM Fornecedores Fr WHERE Fr.CNPJ = Carga.fornecedor_cnpj&#xA; );&#xA;&#xA;&#xA;&#xA;-- GErando Nota Fiscal&#xA;INSERT INTO NotaFiscal&#xA;( Pedido_ID, Valor_Total, Data_Emissao)&#xA;SELECT Pedidos.pedido_id, Checkout.total_pedido, Checkout.data_despacho FROM Pedidos&#xA;INNER JOIN Checkout ON Checkout.Pedido_id = Pedidos.pedido_id &#xA;WHERE NOT EXISTS(&#xA;SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id&#xA;);&#xA;&#xA;&#xA;-- Gerando o estoque&#xA;Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)&#xA;&#x9;SELECT &#xA;&#x9;Produtos.produto_id AS Prod_ID,&#xA;&#x9;--COALESCE retorna o primeiro valor n�o nulo da soma da Quantidade no estoque&#xA;&#x9;COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,&#xA;&#x9;SUM(ItensPedidos.quantidade) AS Estoque_Minimo&#x9;&#xA;&#x9;FROM Produtos &#xA;&#x9;INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id&#xA;&#x9;LEFT JOIN Estoque ON Produtos.produto_id = Estoque.Prod_ID &#xA;&#x9;GROUP BY&#xA;&#x9;Produtos.produto_id, ItensPedidos.quantidade;&#xA;&#xA;&#xA;&#xA;-- Inserindo Requisi��o de Compra&#xA;INSERT INTO [dbo].[RequisicaoCompra]&#xA;    ([Fornecedor_id]&#xA;    ,[Produto_id]&#xA;    ,[qte]&#xA;    ,[compra_status]&#xA;    ,[total]&#xA;    ,[dataEmissao])&#x9;&#x9;     &#xA;SELECT DISTINCT&#xA;    Fornecedores.fornecedor_id AS Fornecedor_id,&#xA;    Produtos.produto_id AS Produto_id,&#xA;    ItensPedidos.quantidade AS qte,&#xA;    StatusPedido.Nome_Status AS compra_status,&#xA;    ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,&#xA;    GETDATE() AS dataEmissao&#xA;FROM Produtos&#xA;INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ&#xA;INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id&#xA;INNER JOIN StatusPedido ON StatusPedido.Status_ID = 1;&#xA;&#xA;&#xA;&#xA;&#xA;END;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{DD2982CC-4355-41E5-9A9A-200CC08A9DEA}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="BEGIN&#xA;&#xA;-- Começando excluindo as constraints caso elas existam&#xA;-- Procedimento para correção do banco&#xA;&#xA;-- Remoção da constraint FK_RC_FORN em RequisicaoCompra&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'RequisicaoCompra' &#xA;    AND constraint_name = 'FK_RC_FORN'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE RequisicaoCompra&#xA;    DROP CONSTRAINT FK_RC_FORN;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_RC_PROD em RequisicaoCompra&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'RequisicaoCompra' &#xA;    AND constraint_name = 'FK_RC_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE RequisicaoCompra&#xA;    DROP CONSTRAINT FK_RC_PROD;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_PED_CLI em Pedidos&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Pedidos' &#xA;    AND constraint_name = 'FK_PED_CLI'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Pedidos&#xA;    DROP CONSTRAINT FK_PED_CLI;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_IP_PE em ItensPedidos&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'ItensPedidos' &#xA;    AND constraint_name = 'FK_IP_PE'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE ItensPedidos&#xA;    DROP CONSTRAINT FK_IP_PE;&#xA;END;&#xA;&#xA;&#xA;-- Remoção da constraint FK_IP_PROD em ItensPedidos&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'ItensPedidos' &#xA;    AND constraint_name = 'FK_IP_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE ItensPedidos&#xA;    DROP CONSTRAINT FK_IP_PROD;&#xA;END;&#xA;&#xA;&#xA;-- Remoção da constraint FK_NF_PE em NotaFiscal&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'NotaFiscal' &#xA;    AND constraint_name = 'FK_NF_PE'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE NotaFiscal&#xA;    DROP CONSTRAINT FK_NF_PE;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_SD_D em Checkout&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Checkout' &#xA;    AND constraint_name = 'FK_SD_D'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Checkout&#xA;    DROP CONSTRAINT FK_SD_D;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_DM_PROD em DespachoMercadorias&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'DespachoMercadorias' &#xA;    AND constraint_name = 'FK_DM_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE DespachoMercadorias&#xA;    DROP CONSTRAINT FK_DM_PROD;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_DM_TRANS em DespachoMercadorias&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'DespachoMercadorias' &#xA;    AND constraint_name = 'FK_DM_TRANS'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE DespachoMercadorias&#xA;    DROP CONSTRAINT FK_DM_TRANS;&#xA;END;&#xA;&#xA;-- Remoção da constraint FK_EST_PROD em Estoque&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Estoque' &#xA;    AND constraint_name = 'FK_EST_PROD'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Estoque&#xA;    DROP CONSTRAINT FK_EST_PROD;&#xA;END;&#xA;&#xA;IF EXISTS (&#xA;    SELECT 1&#xA;    FROM information_schema.table_constraints&#xA;    WHERE table_name = 'Checkout' &#xA;    AND constraint_name = 'FK_P_C'&#xA;)&#xA;BEGIN&#xA;    ALTER TABLE Checkout&#xA;    DROP CONSTRAINT FK_P_C;&#xA;END;&#xA;&#xA;&#xA;-- Criando Tabelas Enum&#xA;&#xA;DROP TABLE IF EXISTS StatusDespacho;&#xA;CREATE TABLE StatusDespacho (&#xA;&#x9;&#x9;[IDStatus] INT PRIMARY KEY,&#xA;&#x9;&#x9;[NomeStatus] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#x9;INSERT INTO StatusDespacho ([IDStatus], [NomeStatus])&#xA;&#x9;VALUES &#xA;&#x9;&#x9;(1, 'Em processamento'),&#xA;&#x9;&#x9;(2, 'Enviado'),&#xA;&#x9;&#x9;(3, 'Entregue'),&#xA;&#x9;&#x9;(4, 'Cancelado');&#xA;&#x9;&#x9;&#xA;&#x9;-- Tabela de estado de monitoramento do pedido - controle de loja&#xA;&#xA;DROP TABLE IF EXISTS StatusPedido;&#xA;&#x9;CREATE TABLE StatusPedido (&#xA;&#x9;&#x9;Status_ID INT PRIMARY KEY NOT NULL,&#xA;&#x9;&#x9;Nome_Status VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#xA;&#x9;INSERT INTO StatusPedido (Status_ID, Nome_Status) VALUES&#xA;&#x9;(1,'Pendente'),&#xA;&#x9;(2, 'Em processamento'),&#xA;&#x9;(3, 'Enviado'),&#xA;&#x9;(4, 'Entregue'),&#xA;&#x9;(5,'Cancelado');&#xA;&#xA;-- Fim TAbelas Enum&#xA;&#xA;&#xA;DROP TABLE IF EXISTS Clientes;&#xA;&#x9;CREATE TABLE Clientes (&#xA;&#x9;&#x9;[cliente_id] INT PRIMARY KEY IDENTITY not null,&#xA;&#x9;&#x9;[Nome] varchar(150) not null,&#xA;&#x9;&#x9;[email] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cpf] VARCHAR(30) UNIQUE NOT NULL,&#xA;&#x9;&#x9;[uf] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[pais] VARCHAR(50) NOT NULL,&#xA;&#x9;);&#xA;&#xA;&#xA;DROP TABLE IF EXISTS Produtos;&#xA;&#x9;CREATE TABLE Produtos (&#xA;&#x9;&#x9;[produto_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[nome_Produto] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[descricao] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[sku] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[upc] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[valor] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[nome_fornecedor] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[fornecedor_CNPJ] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#xA;&#xA;DROP TABLE IF EXISTS Pedidos;&#xA;&#x9;CREATE TABLE Pedidos(&#xA;&#x9;&#x9;[pedido_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[codigo_Pedido] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[cliente_ID] INT NOT NULL,&#xA;&#x9;&#x9;[data_Pedido] DATETIME NOT NULL,&#xA;&#x9;&#x9;[endereco_entrega] VARCHAR(150) NOT NULL,&#xA;        [cep] VARCHAR(10) NOT NULL,&#x9;&#x9;&#xA;&#x9;&#x9;[custo_frete] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[status_pedido] INT NOT NULL DEFAULT 1&#xA;&#xA;&#x9;);&#xA;DROP TABLE IF EXISTS ItensPedidos;&#xA;&#x9;CREATE TABLE ItensPedidos(&#xA;&#x9;&#x9;[Item_ID] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[pedido_ID] INT NOT NULL,&#xA;&#x9;&#x9;[produto_ID] INT NOT NULL,&#xA;&#x9;&#x9;[quantidade] INT NOT NULL,&#xA;&#x9;&#x9;[preco_unitario] DECIMAL(10,2) NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Checkout;&#xA;&#x9;CREATE TABLE Checkout(&#xA;&#x9;&#x9;[Pedido_id] INT NOT NULL,&#xA;&#x9;&#x9;[total_pedido] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[status_despacho] INT NOT NULL,&#xA;&#x9;&#x9;[data_despacho] DATETIME NOT NULL,&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Fornecedores;&#xA;&#x9;CREATE TABLE Fornecedores(&#xA;&#x9;&#x9;[fornecedor_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Nome_fornecedor] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[CNPJ] VARCHAR(50) NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS RequisicaoCompra;&#xA;&#x9;CREATE TABLE RequisicaoCompra(&#xA;&#x9;&#x9;[Requisicao_ID] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Fornecedor_id] INT NOT NULL,&#xA;&#x9;&#x9;[Produto_id] INT NOT NULL,&#xA;&#x9;&#x9;[qte] INT NOT NULL,&#xA;&#x9;&#x9;[compra_status] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[total] DECIMAL(10, 2) NOT NULL,&#xA;&#x9;&#x9;[dataEmissao] DATETIME NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS NotaFiscal;&#xA;&#x9;CREATE TABLE NotaFiscal(&#xA;&#x9;&#x9;[NotaFiscal_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Pedido_ID] INT  NOT NULL,&#xA;&#x9;&#x9;[Valor_Total] DECIMAL(10,2) NOT NULL,&#xA;&#x9;&#x9;[Data_Emissao] DATETIME NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Transportadora;&#xA;&#x9;CREATE TABLE Transportadora(&#xA;&#x9;&#x9;[Transportadora_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Nome_Transportadora] VARCHAR(150) NOT NULL,&#xA;&#x9;&#x9;[CNPJ_Transportadora] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[Tipo_Servico] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[Custo_Frete] DECIMAL(18,0) NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS DespachoMercadorias;&#xA;&#x9;CREATE TABLE DespachoMercadorias(&#xA;&#x9;&#x9;[Despacho_id] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;&#x9;&#x9;[Produto_ID] INT NOT NULL,&#xA;&#x9;&#x9;[Transportadora_ID] INT NOT NULL,&#xA;&#x9;&#x9;[Status_Entrega] VARCHAR(50) NOT NULL,&#xA;&#x9;&#x9;[Data_Entrega] DATETIME NOT NULL&#xA;&#x9;);&#xA;&#xA;DROP TABLE IF EXISTS Estoque;&#xA;&#x9;CREATE TABLE Estoque (&#xA;&#x9;&#x9;[Est_Prod_ID] INT PRIMARY KEY IDENTITY NOT NULL,&#xA;        [Prod_ID] INT NOT NULL,&#xA;&#x9;&#x9;[Quantidade] INT CHECK (Quantidade &gt;= 0) DEFAULT 0,&#xA;&#x9;&#x9;[Estoque_Minimo] INT NOT NULL DEFAULT 0,&#xA;&#x9;);&#xA;&#xA;&#xA;ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_FORN FOREIGN KEY (Fornecedor_id) REFERENCES Fornecedores(Fornecedor_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_PROD FOREIGN KEY (Produto_id) REFERENCES Produtos(produto_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Pedidos ADD CONSTRAINT FK_PED_CLI FOREIGN KEY (cliente_ID) REFERENCES Clientes (cliente_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PE FOREIGN KEY (pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE ItensPedidos ADD CONSTRAINT FK_IP_PROD FOREIGN KEY (produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE NotaFiscal ADD CONSTRAINT FK_NF_PE FOREIGN KEY (Pedido_ID) REFERENCES Pedidos (pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Checkout ADD CONSTRAINT FK_P_C FOREIGN KEY (Pedido_id) REFERENCES Pedidos (Pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Checkout ADD CONSTRAINT FK_SD_D FOREIGN KEY (status_despacho) REFERENCES StatusDespacho(IDStatus) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_PROD FOREIGN KEY (Produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_TRANS FOREIGN KEY (Transportadora_ID) REFERENCES Transportadora (Transportadora_id) ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;ALTER TABLE Estoque ADD CONSTRAINT FK_EST_PROD FOREIGN KEY (Prod_ID) REFERENCES Produtos(produto_id)ON DELETE CASCADE ON UPDATE CASCADE;&#xA;&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Popular carga"
+      DTS:refId="Package\Populando carga"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarefa Fluxo de Dados"
-      DTS:DTSID="{07F6931C-FCED-46E9-9EED-405E58B09A6C}"
+      DTS:DTSID="{5C8292D6-B28A-4DE0-808A-D9BB4A360FD9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Popular carga"
+      DTS:ObjectName="Populando carga"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -243,7 +244,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Popular carga\Destino do SQL Server"
+              refId="Package\Populando carga\Destino do SQL Server"
               componentClassID="Microsoft.SQLServerDestination"
               contactInfo="Destino do SQL Server;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;5"
               description="Destino do SQL Server"
@@ -314,7 +315,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Popular carga\Destino do SQL Server.Connections[OleDbConnection]"
+                  refId="Package\Populando carga\Destino do SQL Server.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-NSQ6C33\ATLAS.Utilitario]"
                   description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
@@ -322,252 +323,252 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+                  refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
                   hasSideEffects="true"
                   name="Entrada de Destino do SQL Server">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[codigoPedido]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[codigoPedido]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="codigoPedido"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[dataPedido]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[dataPedido]"
                       cachedDataType="dbTimeStamp2"
                       cachedName="dataPedido"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[sku]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[sku]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="sku"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[upc]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[upc]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="upc"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeProduto]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeProduto]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
                       cachedName="nomeProduto"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[descricao]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[descricao]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
                       cachedName="descricao"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[descricao]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[descricao]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[qte]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[qte]"
                       cachedDataType="i4"
                       cachedName="qte"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[valor]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[valor]"
                       cachedDataType="decimal"
                       cachedName="valor"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fornecedor]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fornecedor]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="fornecedor"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fornecedor_cnpj]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[fornecedor_cnpj]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="fornecedor_cnpj"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor_cnpj]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor_cnpj]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[frete]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[frete]"
                       cachedDataType="decimal"
                       cachedName="frete"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[email]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="email"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeComprador]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[nomeComprador]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
                       cachedName="nomeComprador"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cpf]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cpf]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="cpf"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[enderecoEntrega]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[enderecoEntrega]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
                       cachedName="enderecoEntrega"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cep]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[cep]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="cep"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[uf]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[uf]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="2"
                       cachedName="uf"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]" />
                     <inputColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[pais]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].Columns[pais]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="30"
                       cachedName="pais"
-                      externalMetadataColumnId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]" />
+                      externalMetadataColumnId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[codigoPedido]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="codigoPedido" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[dataPedido]"
                       dataType="dbTimeStamp2"
                       name="dataPedido"
                       scale="7" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[sku]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="sku" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[upc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="upc" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeProduto]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="nomeProduto" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[descricao]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[descricao]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="descricao" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[qte]"
                       dataType="i4"
                       name="qte" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[valor]"
                       dataType="numeric"
                       name="valor"
                       precision="10"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="fornecedor" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor_cnpj]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[fornecedor_cnpj]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="fornecedor_cnpj" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[frete]"
                       dataType="numeric"
                       name="frete"
                       precision="10"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="email" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cpf]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="cpf" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[nomeComprador]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="nomeComprador" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[enderecoEntrega]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="enderecoEntrega" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[cep]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="cep" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[uf]"
                       codePage="1252"
                       dataType="str"
                       length="2"
                       name="uf" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
+                      refId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server].ExternalColumns[pais]"
                       codePage="1252"
                       dataType="str"
                       length="30"
@@ -577,7 +578,7 @@
               </inputs>
             </component>
             <component
-              refId="Package\Popular carga\Origem de Arquivo Simples"
+              refId="Package\Populando carga\Origem de Arquivo Simples"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Origem de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;1"
               description="Origem de Arquivo Simples"
@@ -597,25 +598,25 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Popular carga\Origem de Arquivo Simples.Connections[FlatFileConnection]"
+                  refId="Package\Populando carga\Origem de Arquivo Simples.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[Gerenciador de Conexões de Arquivos Simples]"
                   connectionManagerRefId="Package.ConnectionManagers[Gerenciador de Conexões de Arquivos Simples]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
+                  refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]"
                   name="Saída de Origem de Arquivo Simples">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
                       length="50"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[codigoPedido]"
                       name="codigoPedido"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -630,12 +631,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
                       dataType="dbTimeStamp2"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[dataPedido]"
                       name="dataPedido"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -650,14 +651,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
                       length="50"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[sku]"
                       name="sku"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -672,14 +673,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
                       length="50"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[upc]"
                       name="upc"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -694,14 +695,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
                       length="150"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeProduto]"
                       name="nomeProduto"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -716,14 +717,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[descricao]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[descricao]"
                       length="150"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[descricao]"
                       name="descricao"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -738,12 +739,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[qte]"
                       name="qte"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -758,12 +759,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
                       dataType="decimal"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[valor]"
                       name="valor"
                       scale="2"
                       truncationRowDisposition="FailComponent">
@@ -779,14 +780,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor]"
                       length="50"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor]"
                       name="fornecedor"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -801,14 +802,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor_cnpj]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor_cnpj]"
                       length="30"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[fornecedor_cnpj]"
                       name="fornecedor_cnpj"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -823,12 +824,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
                       dataType="decimal"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[frete]"
                       name="frete"
                       scale="2"
                       truncationRowDisposition="FailComponent">
@@ -844,14 +845,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
                       length="50"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[email]"
                       name="email"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -866,14 +867,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
                       length="150"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[nomeComprador]"
                       name="nomeComprador"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -888,14 +889,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cpf]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cpf]"
                       length="30"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cpf]"
                       name="cpf"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -910,14 +911,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[enderecoEntrega]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[enderecoEntrega]"
                       length="150"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[enderecoEntrega]"
                       name="enderecoEntrega"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -932,14 +933,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
                       length="10"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[cep]"
                       name="cep"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -954,14 +955,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
                       length="2"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[uf]"
                       name="uf"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -976,14 +977,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversão"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
+                      externalMetadataColumnId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
                       length="30"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].Columns[pais]"
                       name="pais"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1001,103 +1002,103 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[codigoPedido]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="codigoPedido" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[dataPedido]"
                       dataType="dbTimeStamp2"
                       name="dataPedido" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[sku]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="sku" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[upc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="upc" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeProduto]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="nomeProduto" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[descricao]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[descricao]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="descricao" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[qte]"
                       dataType="i4"
                       name="qte" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[valor]"
                       dataType="decimal"
                       name="valor"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="fornecedor" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor_cnpj]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[fornecedor_cnpj]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="fornecedor_cnpj" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[frete]"
                       dataType="decimal"
                       name="frete"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="email" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[nomeComprador]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="nomeComprador" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cpf]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cpf]"
                       codePage="1252"
                       dataType="str"
                       length="30"
                       name="cpf" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[enderecoEntrega]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[enderecoEntrega]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="enderecoEntrega" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[cep]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="cep" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[uf]"
                       codePage="1252"
                       dataType="str"
                       length="2"
                       name="uf" />
                     <externalMetadataColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples].ExternalColumns[pais]"
                       codePage="1252"
                       dataType="str"
                       length="30"
@@ -1105,27 +1106,27 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
+                  refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples]"
                   isErrorOut="true"
                   name="Saída de Erro de Origem de Arquivo Simples">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
                       codePage="1252"
                       dataType="text"
                       description="Coluna de Saída de Erro de Origem de Arquivo Simples"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[Coluna de Saída de Erro de Origem de Arquivo Simples]"
                       name="Coluna de Saída de Erro de Origem de Arquivo Simples" />
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      refId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
+                      lineageId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Erro de Origem de Arquivo Simples].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1136,29 +1137,29 @@
           </components>
           <paths>
             <path
-              refId="Package\Popular carga.Paths[Saída de Origem de Arquivo Simples]"
-              endId="Package\Popular carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
+              refId="Package\Populando carga.Paths[Saída de Origem de Arquivo Simples]"
+              endId="Package\Populando carga\Destino do SQL Server.Inputs[Entrada de Destino do SQL Server]"
               name="Saída de Origem de Arquivo Simples"
-              startId="Package\Popular carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
+              startId="Package\Populando carga\Origem de Arquivo Simples.Outputs[Saída de Origem de Arquivo Simples]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncar tabela carga"
+      DTS:refId="Package\Truncar Carga"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarefa Executar SQL"
-      DTS:DTSID="{8651F097-4B88-47F6-867E-6250412615C9}"
+      DTS:DTSID="{0EF51A33-1A01-4703-B4B7-7C48448C94CA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncar tabela carga"
+      DTS:ObjectName="Truncar Carga"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D8256324-22C0-4307-9ACC-01E79D04BAC6}"
-          SQLTask:SqlStatementSource="IF OBJECT_ID('Carga', 'U') IS NOT NULL&#xA;BEGIN&#xA;    EXEC('TRUNCATE TABLE Carga;');&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{DD2982CC-4355-41E5-9A9A-200CC08A9DEA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Carga;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1166,19 +1167,19 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restrição]"
       DTS:CreationName=""
-      DTS:DTSID="{029596AE-8BA1-4AF9-B5EE-8516C7BE445A}"
-      DTS:From="Package\Truncar tabela carga"
+      DTS:DTSID="{7C4411BB-6C71-4DEB-9A55-D1EEB6CDF5CD}"
+      DTS:From="Package\Truncar Carga"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restrição"
-      DTS:To="Package\Popular carga" />
+      DTS:To="Package\Populando carga" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restrição 1]"
       DTS:CreationName=""
-      DTS:DTSID="{07F56059-F283-4870-BAE7-D58A0D239629}"
-      DTS:From="Package\Popular carga"
+      DTS:DTSID="{BE62B022-12B0-415B-98EB-508C39EF500C}"
+      DTS:From="Package\Populando carga"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restrição 1"
-      DTS:To="Package\Inserir" />
+      DTS:To="Package\Excluindo tabelas e constraints e recriando-as" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
@@ -1193,27 +1194,27 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="147,42"
-          Id="Package\Popular carga"
-          TopLeft="166,92" />
+          Size="150,42"
+          Id="Package\Truncar Carga"
+          TopLeft="188,44" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Truncar tabela carga"
-          TopLeft="157,19" />
+          Size="162,42"
+          Id="Package\Populando carga"
+          TopLeft="179,126" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição]"
-          TopLeft="243.25,61">
+          TopLeft="261.5,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31"
+              EndConnector="0,40"
               Start="0,0"
-              End="0,23.5">
+              End="0,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5" />
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1223,23 +1224,35 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="110,42"
-          Id="Package\Inserir"
-          TopLeft="189,179" />
+          Size="304,42"
+          Id="Package\Excluindo tabelas e constraints e recriando-as"
+          TopLeft="117,219" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição 1]"
-          TopLeft="241.75,134">
+          TopLeft="260,168">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="9,51"
               Start="0,0"
-              End="0,37.5">
+              End="9,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,25.5"
+                    Point2="9,25.5"
+                    Point3="9,29.5" />
+                  <mssgle:LineSegment
+                    End="9,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1252,32 +1265,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Popular carga">
+    design-time-name="Package\Populando carga">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="213,42"
-          Id="Package\Popular carga\Origem de Arquivo Simples"
-          TopLeft="141,46" />
+          Id="Package\Populando carga\Origem de Arquivo Simples"
+          TopLeft="172,27" />
         <NodeLayout
           Size="192,42"
-          Id="Package\Popular carga\Destino do SQL Server"
-          TopLeft="158,153" />
+          Id="Package\Populando carga\Destino do SQL Server"
+          TopLeft="179.5,146.5" />
         <EdgeLayout
-          Id="Package\Popular carga.Paths[Saída de Origem de Arquivo Simples]"
-          TopLeft="250.75,88">
+          Id="Package\Populando carga.Paths[Saída de Origem de Arquivo Simples]"
+          TopLeft="277,69">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="0,77.5"
               Start="0,0"
-              End="0,57.5">
+              End="0,70">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="0,70" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1290,7 +1303,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Popular carga\Destino do SQL Server">
+    design-time-name="Package\Populando carga\Destino do SQL Server">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -27,6 +27,19 @@ BEGIN
     DROP CONSTRAINT FK_RC_PROD;
 END;
 
+-- Remoção da Constrante FK_RC_STAT em RequisicaoCompra
+IF EXISTS (
+	SELECT 1
+	FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+	WHERE TABLE_NAME = 'RequisicaoCompra'
+	AND CONSTRAINT_NAME = 'FK_RC_STAT'
+)
+BEGIN
+	ALTER TABLE RequisicaoCompra
+	DROP CONSTRAINT FK_RC_STAT;
+END;
+
+
 -- Remoção da constraint FK_PED_CLI em Pedidos
 IF EXISTS (
     SELECT 1
@@ -188,6 +201,7 @@ DROP TABLE IF EXISTS Produtos;
 		[sku] VARCHAR(50) NOT NULL,
 		[upc] VARCHAR(50) NOT NULL,
 		[valor] DECIMAL(10,2) NOT NULL,
+		[frete_produto] DECIMAL(10,2) NOT NULL,
 		[nome_fornecedor] VARCHAR(50) NOT NULL,
 		[fornecedor_CNPJ] VARCHAR(50) NOT NULL
 	);
@@ -201,7 +215,6 @@ DROP TABLE IF EXISTS Pedidos;
 		[data_Pedido] DATETIME NOT NULL,
 		[endereco_entrega] VARCHAR(150) NOT NULL,
         [cep] VARCHAR(10) NOT NULL,		
-		[custo_frete] DECIMAL(10,2) NOT NULL,
 		[status_pedido] INT NOT NULL DEFAULT 1
 
 	);
@@ -235,7 +248,7 @@ DROP TABLE IF EXISTS RequisicaoCompra;
 		[Fornecedor_id] INT NOT NULL,
 		[Produto_id] INT NOT NULL,
 		[qte] INT NOT NULL,
-		[compra_status] VARCHAR(50) NOT NULL,
+		[compra_status] INT NOT NULL,
 		[total] DECIMAL(10, 2) NOT NULL,
 		[dataEmissao] DATETIME NOT NULL
 	);
@@ -262,7 +275,7 @@ DROP TABLE IF EXISTS DespachoMercadorias;
 		[Despacho_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Produto_ID] INT NOT NULL,
 		[Transportadora_ID] INT NOT NULL,
-		[Status_Entrega] VARCHAR(50) NOT NULL,
+		[Status_Entrega] INT NOT NULL,
 		[Data_Entrega] DATETIME NOT NULL
 	);
 
@@ -278,6 +291,8 @@ DROP TABLE IF EXISTS Estoque;
 ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_FORN FOREIGN KEY (Fornecedor_id) REFERENCES Fornecedores(Fornecedor_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_PROD FOREIGN KEY (Produto_id) REFERENCES Produtos(produto_id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_STAT FOREIGN KEY (compra_status) REFERENCES StatusPedido (Status_ID) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE Pedidos ADD CONSTRAINT FK_PED_CLI FOREIGN KEY (cliente_ID) REFERENCES Clientes (cliente_id) ON DELETE CASCADE ON UPDATE CASCADE;
 

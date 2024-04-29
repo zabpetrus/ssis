@@ -190,6 +190,7 @@ END;
 		[sku] VARCHAR(50) NOT NULL,
 		[upc] VARCHAR(50) NOT NULL,
 		[valor] DECIMAL(10,2) NOT NULL,
+		[frete_produto] DECIMAL(10,2) NOT NULL,
 		[nome_fornecedor] VARCHAR(50) NOT NULL,
 		[fornecedor_CNPJ] VARCHAR(50) NOT NULL
 	);
@@ -205,9 +206,7 @@ END;
 		[data_Pedido] DATETIME NOT NULL,
 		[endereco_entrega] VARCHAR(150) NOT NULL,
         [cep] VARCHAR(10) NOT NULL,		
-		[custo_frete] DECIMAL(10,2) NOT NULL,
 		[status_pedido] INT NOT NULL DEFAULT 1
-
 	);
 END;
 
