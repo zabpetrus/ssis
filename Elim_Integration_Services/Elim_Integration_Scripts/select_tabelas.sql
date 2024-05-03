@@ -24,4 +24,6 @@ SELECT * FROM Checkout;
 
 SELECT * FROM RequisicaoCompra;
 
+SELECT * FROM AcompanhamentoPedidos;
+
 END;

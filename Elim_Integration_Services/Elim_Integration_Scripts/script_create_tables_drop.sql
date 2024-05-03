@@ -150,6 +150,19 @@ BEGIN
 END;
 
 
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'AcompanhamentoPedidos' 
+    AND constraint_name = 'FK_AP_IP'
+)
+BEGIN
+    ALTER TABLE AcompanhamentoPedidos
+    DROP CONSTRAINT FK_AP_IP;
+END;
+
+
+
 -- Criando Tabelas Enum
 
 DROP TABLE IF EXISTS StatusDespacho;
@@ -287,6 +300,14 @@ DROP TABLE IF EXISTS Estoque;
 		[Estoque_Minimo] INT NOT NULL DEFAULT 0,
 	);
 
+DROP TABLE IF EXISTS AcompanhamentoPedidos;
+	CREATE TABLE AcompanhamentoPedidos (
+		[ItensPedidos_ID] INT PRIMARY KEY NOT NULL,
+        [ItensPedidos_status] BIT NOT NULL		
+	);
+
+
+ALTER TABLE AcompanhamentoPedidos ADD CONSTRAINT FK_AP_IP FOREIGN KEY (ItensPedidos_ID) REFERENCES ItensPedidos(Item_ID) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE RequisicaoCompra ADD CONSTRAINT FK_RC_FORN FOREIGN KEY (Fornecedor_id) REFERENCES Fornecedores(Fornecedor_id) ON DELETE CASCADE ON UPDATE CASCADE;
 

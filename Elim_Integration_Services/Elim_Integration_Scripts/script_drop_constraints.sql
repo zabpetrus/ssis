@@ -4,6 +4,7 @@ BEGIN
 -- Procedimento para correção do banco
 
 -- Remoção da constraint FK_RC_FORN em RequisicaoCompra
+-- Remoção da constraint FK_RC_FORN em RequisicaoCompra
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -26,6 +27,19 @@ BEGIN
     ALTER TABLE RequisicaoCompra
     DROP CONSTRAINT FK_RC_PROD;
 END;
+
+-- Remoção da Constrante FK_RC_STAT em RequisicaoCompra
+IF EXISTS (
+	SELECT 1
+	FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+	WHERE TABLE_NAME = 'RequisicaoCompra'
+	AND CONSTRAINT_NAME = 'FK_RC_STAT'
+)
+BEGIN
+	ALTER TABLE RequisicaoCompra
+	DROP CONSTRAINT FK_RC_STAT;
+END;
+
 
 -- Remoção da constraint FK_PED_CLI em Pedidos
 IF EXISTS (
@@ -125,7 +139,6 @@ BEGIN
     DROP CONSTRAINT FK_EST_PROD;
 END;
 
-
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
@@ -136,6 +149,19 @@ BEGIN
     ALTER TABLE Checkout
     DROP CONSTRAINT FK_P_C;
 END;
+
+
+IF EXISTS (
+    SELECT 1
+    FROM information_schema.table_constraints
+    WHERE table_name = 'AcompanhamentoPedidos' 
+    AND constraint_name = 'FK_AP_IP'
+)
+BEGIN
+    ALTER TABLE AcompanhamentoPedidos
+    DROP CONSTRAINT FK_AP_IP;
+END;
+
 
 
 

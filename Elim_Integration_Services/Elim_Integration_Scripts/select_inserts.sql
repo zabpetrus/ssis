@@ -2,6 +2,8 @@ USE Utilitario;
 
 BEGIN
 
+-- PRIMEIRAS INSERCOES EM CLIENTES E PRODUTOS
+
 -- Inserindo em Produtos baseado no select de carga e verificando se não está duplicado
 INSERT INTO Produtos ( nome_Produto, descricao, sku, upc, valor,frete_produto, Nome_fornecedor, fornecedor_CNPJ) 
 SELECT DISTINCT Carga.nomeProduto,Carga.descricao, Carga.sku, Carga.upc, Carga.valor,Carga.frete, Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
@@ -55,26 +57,35 @@ SELECT DISTINCT
 	FROM Carga 
 	LEFT JOIN Produtos ON Carga.upc = Produtos.upc AND Carga.sku = Produtos.sku
 	LEFT JOIN Pedidos ON Pedidos.codigo_Pedido = Carga.codigoPedido;
-;
+
+
 
 
 -- Populando checkout
 INSERT INTO Checkout( Pedido_id, total_pedido, status_despacho, data_despacho) 
-SELECT DISTINCT 
-Pedidos.pedido_id,
-( SELECT sum( ItensPedidos.preco_unitario * ItensPedidos.quantidade ) FROM ItensPedidos WHERE Pedidos.pedido_id = ItensPedidos.pedido_ID ) AS Subtotal,
-( SELECT StatusDespacho.IDStatus FROM StatusDespacho WHERE StatusDespacho.NomeStatus = 'Em processamento' ) AS Status,
-( SELECT GETDATE() ) AS data_despacho
-FROM Pedidos
+
+SELECT DISTINCT Pr.pedido_id, 
+SUM((Itr.quantidade * Itr.preco_unitario) + Pd.frete_produto) AS total_pedido, 
+(SELECT StatusDespacho.IDStatus FROM StatusDespacho WHERE StatusDespacho.NomeStatus = 'Em processamento' ) AS status_despacho,
+(SELECT GETDATE() ) AS data_despacho
+FROM 
+Pedidos Pr 
+INNER JOIN ItensPedidos Itr ON Pr.pedido_id = Itr.pedido_ID 
+INNER JOIN Produtos Pd ON Pd.produto_id = Itr.produto_ID
 WHERE NOT EXISTS (
     SELECT 1
-    FROM Checkout
-    WHERE Checkout.Pedido_id = Pedidos.pedido_id
-);
+    FROM Checkout ck
+    WHERE ck.Pedido_id = Pr.pedido_id
+)
+GROUP BY  Pr.pedido_id, Pr.codigo_Pedido;
+
+	
+
+
 
 -- Inserindo Fornecedores
 INSERT INTO Fornecedores (Nome_fornecedor, CNPJ ) 
-SELECT Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
+SELECT DISTINCT Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga 
  LEFT JOIN 
  Fornecedores ON Fornecedores.CNPJ = Carga.fornecedor_cnpj
  WHERE NOT EXISTS(
@@ -94,17 +105,17 @@ SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
 
 
 -- Gerando o estoque
-Insert into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
-	SELECT DISTINCT
-	Produtos.produto_id AS Prod_ID,
-	--COALESCE retorna o primeiro valor não nulo da soma da Quantidade no estoque
-	COALESCE(SUM(Estoque.quantidade), 0) AS Quantidade,
-	SUM(ItensPedidos.quantidade) AS Estoque_Minimo	
-	FROM Produtos 
-	INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
-	LEFT JOIN Estoque ON Produtos.produto_id = Estoque.Prod_ID 
-	GROUP BY
-	Produtos.produto_id, ItensPedidos.quantidade;
+INSERT into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
+SELECT 
+Pr.produto_id AS Produto_id,
+COALESCE(SUM(Es.quantidade), 0) AS Quantidade,
+COALESCE ( SUM (Ipr.quantidade), 0) AS Estoque_Minimo
+FROM Produtos Pr
+LEFT JOIN ItensPedidos IPr ON Pr.produto_id = Ipr.produto_ID
+LEFT JOIN Estoque Es ON Es.Prod_ID = Pr.produto_id
+GROUP BY Pr.produto_id;
+
+
 
 
 
@@ -119,15 +130,15 @@ INSERT INTO [dbo].[RequisicaoCompra]
 SELECT DISTINCT
     Fornecedores.fornecedor_id AS Fornecedor_id,
     Produtos.produto_id AS Produto_id,
-    ItensPedidos.quantidade AS qte,
-    StatusPedido.Status_ID AS compra_status,
-    ItensPedidos.preco_unitario * ItensPedidos.quantidade AS total,
+    (SELECT SUM(quantidade) FROM ItensPedidos WHERE ItensPedidos.produto_ID = Produtos.produto_id) AS total_quantidade,
+    (SELECT Status_ID FROM StatusPedido WHERE StatusPedido.Nome_Status = 'Pendente') AS compra_status,
+    (SELECT SUM(preco_unitario * quantidade) FROM ItensPedidos WHERE ItensPedidos.produto_ID = Produtos.produto_id) AS total,
     GETDATE() AS dataEmissao
 FROM Produtos
-INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ
-INNER JOIN ItensPedidos ON ItensPedidos.produto_ID = Produtos.produto_id
-INNER JOIN StatusPedido ON StatusPedido.Nome_Status = 'Pendente';
+INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ ORDER BY total;
 
+
+-- Inserindo em Acompanhamento de Pedidos
 
 
 
