@@ -139,7 +139,13 @@ INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ ORDER BY
 
 
 -- Inserindo em Acompanhamento de Pedidos
-
+INSERT INTO [dbo].[AcompanhamentoPedidos]
+([ItensPedidos_ID],
+[ItensPedidos_status])
+SELECT  
+ItensPedidos.Item_ID AS ItemPedidoID,
+CAST(0 AS BIT) AS Liberado
+FROM ItensPedidos;
 
 
 END;

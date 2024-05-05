@@ -1,66 +1,78 @@
-Use Utilitario;
+USE Utilitario;
+GO
+
+IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'AtualizarEstoqueAposChegadaProduto')
 BEGIN
+    DROP PROCEDURE AtualizarEstoqueAposChegadaProduto;
+END
+GO
 
-DECLARE @produto_id INT
-DECLARE @estoque_disponivel INT;
+CREATE PROCEDURE AtualizarEstoqueAposChegadaProduto
+AS
+BEGIN
+	-- Excluindo o cursor se ele existe
+	IF CURSOR_STATUS('global', 'atualiza_estoque') >= 0
+	BEGIN
+		CLOSE atualiza_estoque;
+		DEALLOCATE atualiza_estoque;
+	END
 
--- Obtendo quantidade disponível em estoque para o produto
-SELECT @estoque_disponivel = Es.Quantidade FROM Estoque Es WHERE Es.Prod_ID = @produto_id;
+	-- Declarando as variáveis
+	DECLARE @ItensPedidos_ID INT;
+	DECLARE @ItensPedidos_status BIT; 
+	DECLARE @qte INT;
+	DECLARE @id INT;
+	DECLARE @habl INT;
 
--- Obtendo pedidos pendentes que contêm o produto
-DECLARE pedidos_pendentes CURSOR FOR
-        SELECT pc.pedido_id, pc.quantidade
-        FROM ProdutosChegados pc
-        WHERE pc.produto_ID = @produto_id
-          AND pc.checked = false
-          AND pc.despacho = false
-        ORDER BY pc.data_despacho;
+	-- Quando chega o produto, quantidade muda, logo essa sentença será válida
+	SELECT TOP 1 @id = Es.Prod_ID 
+	FROM Estoque Es 
+	WHERE Es.Quantidade >= Es.Estoque_Minimo;
 
-    -- Iterar sobre os pedidos pendentes
-    OPEN pedidos_pendentes;
-    DECLARE @pedido_id INT, @quantidade_restante INT;
+	IF @id IS NOT NULL
 
-    FETCH NEXT FROM pedidos_pendentes INTO @pedido_id, @quantidade_restante;
+	BEGIN
+		SELECT @habl = COUNT(*) 
+		FROM Estoque Es 
+		WHERE Es.Quantidade >= Es.Estoque_Minimo;
 
-    WHILE @@FETCH_STATUS = 0 AND @estoque_disponivel > 0
-    BEGIN
-        -- Calcular quantidade a subtrair do estoque
-        DECLARE @quantidade_a_subtrair INT;
-        IF @estoque_disponivel >= @quantidade_restante
-            SET @quantidade_a_subtrair = @quantidade_restante;
-        ELSE
-            SET @quantidade_a_subtrair = @estoque_disponivel;
+		-- Verificar os produtos
+		SELECT @qte = IPx.quantidade 
+		FROM ItensPedidos IPx 
+		WHERE IPx.produto_ID = @id;
 
-        -- Atualizar estoque
-        UPDATE Estoque
-        SET Quantidade = Quantidade - @quantidade_a_subtrair
-        WHERE Prod_ID = @produto_id;
+		-- Declarando o cursor para o select em AcompanhamentoPedidos
+		DECLARE atualiza_estoque CURSOR FOR 
+		SELECT ItensPedidos_ID, ItensPedidos_status 
+		FROM AcompanhamentoPedidos;
 
-        -- Atualizar quantidade restante do pedido
-        UPDATE ProdutosChegados
-        SET quantidade = quantidade - @quantidade_a_subtrair
-        WHERE pedido_id = @pedido_id AND produto_ID = @produto_id;
+		-- Abrindo o cursor atualiza_estoque
+		OPEN atualiza_estoque;
 
-        -- Atualizar quantidade disponível em estoque
-        SET @estoque_disponivel = @estoque_disponivel - @quantidade_a_subtrair;
+		-- Instrução em SQL que busca a próxima linha de dados do cursor e armazena os valores nas variáveis 
+		FETCH NEXT FROM atualiza_estoque INTO @ItensPedidos_ID, @ItensPedidos_status;
 
-        -- Verificar se o pedido foi totalmente atendido
-        IF @quantidade_restante - @quantidade_a_subtrair <= 0
-        BEGIN
-            -- Marcar o pedido como despachado
-            UPDATE ProdutosChegados
-            SET despacho = true
-            WHERE pedido_id = @pedido_id;
-        END;
+		-- enquanto tiver resultados faça
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			IF @ItensPedidos_ID = @id AND @habl > 0
+			BEGIN
+				UPDATE AcompanhamentoPedidos 
+				SET ItensPedidos_status = 1 
+				WHERE ItensPedidos_ID = @ItensPedidos_ID;
 
-        -- Obter próximo pedido
-        FETCH NEXT FROM pedidos_pendentes INTO @pedido_id, @quantidade_restante;
-    END;
+				UPDATE Estoque 
+				SET Quantidade = Quantidade - @qte 
+				WHERE Prod_ID = @id;
+            
+				SET @habl = @habl - 1;
+			END
 
-    CLOSE pedidos_pendentes;
-    DEALLOCATE pedidos_pendentes;
+			FETCH NEXT FROM atualiza_estoque INTO @ItensPedidos_ID, @ItensPedidos_status;
+		END
 
+		CLOSE atualiza_estoque;
+		DEALLOCATE atualiza_estoque; 
+	END
 
-
-	
 END

@@ -151,16 +151,6 @@ BEGIN
 END;
 
 
-IF EXISTS (
-    SELECT 1
-    FROM information_schema.table_constraints
-    WHERE table_name = 'AcompanhamentoPedidos' 
-    AND constraint_name = 'FK_AP_IP'
-)
-BEGIN
-    ALTER TABLE AcompanhamentoPedidos
-    DROP CONSTRAINT FK_AP_IP;
-END;
 
 
 
