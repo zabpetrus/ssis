@@ -148,6 +148,19 @@ CAST(0 AS BIT) AS Liberado
 FROM ItensPedidos;
 
 
+-- Inserindo em Despacho de Mercadorias
+
+INSERT INTO [dbo].[DespachoMercadorias]
+           ([Pedido_ID],[Transportadora_ID],[Status_Entrega],[Data_Liberacao])
+    
+	SELECT DISTINCT 
+    Pe.pedido_id AS Pedido_ID,
+	( SELECT TOP(1) Tr.Transportadora_id FROM Transportadora Tr WHERE Tr.Tipo_Servico = 'Padrao' ORDER BY tr.Custo_Frete ASC ) As Transportadora_ID,
+	( SELECT St.IDStatus FROM StatusDespacho St WHERE St.NomeStatus = 'Em processamento' ) AS Status_Entrega,
+	( SELECT CONVERT(date, GETDATE())) AS Data_Liberacao
+	FROM Pedidos Pe;
+	
+
 END;
 
 

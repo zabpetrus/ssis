@@ -108,11 +108,11 @@ IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
     WHERE table_name = 'DespachoMercadorias' 
-    AND constraint_name = 'FK_DM_PROD'
+    AND constraint_name = 'FK_DM_PED'
 )
 BEGIN
     ALTER TABLE DespachoMercadorias
-    DROP CONSTRAINT FK_DM_PROD;
+    DROP CONSTRAINT FK_DM_PED;
 END;
 
 -- Remoção da constraint FK_DM_TRANS em DespachoMercadorias

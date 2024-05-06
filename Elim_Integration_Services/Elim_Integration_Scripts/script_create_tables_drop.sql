@@ -102,16 +102,16 @@ BEGIN
     DROP CONSTRAINT FK_SD_D;
 END;
 
--- Remoção da constraint FK_DM_PROD em DespachoMercadorias
+-- Remoção da constraint FK_DM_PED em DespachoMercadorias
 IF EXISTS (
     SELECT 1
     FROM information_schema.table_constraints
     WHERE table_name = 'DespachoMercadorias' 
-    AND constraint_name = 'FK_DM_PROD'
+    AND constraint_name = 'FK_DM_PED'
 )
 BEGIN
     ALTER TABLE DespachoMercadorias
-    DROP CONSTRAINT FK_DM_PROD;
+    DROP CONSTRAINT FK_DM_PED;
 END;
 
 -- Remoção da constraint FK_DM_TRANS em DespachoMercadorias
@@ -161,7 +161,7 @@ CREATE TABLE StatusDespacho (
 	INSERT INTO StatusDespacho ([IDStatus], [NomeStatus])
 	VALUES 
 		(1, 'Em processamento'),
-		(2, 'Enviado'),
+		(2, 'Pronto para Envio'),
 		(3, 'Entregue'),
 		(4, 'Cancelado');
 		
@@ -274,10 +274,10 @@ DROP TABLE IF EXISTS Transportadora;
 DROP TABLE IF EXISTS DespachoMercadorias;
 	CREATE TABLE DespachoMercadorias(
 		[Despacho_id] INT PRIMARY KEY IDENTITY NOT NULL,
-		[Produto_ID] INT NOT NULL,
+		[Pedido_ID] INT NOT NULL,
 		[Transportadora_ID] INT NOT NULL,
 		[Status_Entrega] INT NOT NULL,
-		[Data_Entrega] DATETIME NOT NULL
+		[Data_Liberacao] DATETIME NOT NULL
 	);
 
 DROP TABLE IF EXISTS Estoque;
@@ -314,7 +314,7 @@ ALTER TABLE Checkout ADD CONSTRAINT FK_P_C FOREIGN KEY (Pedido_id) REFERENCES Pe
 
 ALTER TABLE Checkout ADD CONSTRAINT FK_SD_D FOREIGN KEY (status_despacho) REFERENCES StatusDespacho(IDStatus) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_PROD FOREIGN KEY (Produto_ID) REFERENCES Produtos (produto_id) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_PED FOREIGN KEY (Pedido_ID) REFERENCES Pedidos (Pedido_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE DespachoMercadorias ADD CONSTRAINT FK_DM_TRANS FOREIGN KEY (Transportadora_ID) REFERENCES Transportadora (Transportadora_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
