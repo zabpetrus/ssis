@@ -1,4 +1,5 @@
-IF OBJECT_ID('ProcControleEstoqueLiberacao', 'PR') IS NOT NULL
+
+IF OBJECT_ID('ProcControleEstoqueLiberacao', 'P') IS NOT NULL
    DROP PROCEDURE ProcControleEstoqueLiberacao;
 GO
 

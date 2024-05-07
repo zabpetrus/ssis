@@ -1,6 +1,4 @@
-USE [Utilitario]
-GO
-
+BEGIN
 
 INSERT INTO [dbo].[Transportadora]
            ([Nome_Transportadora]
@@ -13,6 +11,6 @@ INSERT INTO [dbo].[Transportadora]
 		   ('Calango Express', '46.458.091/0001-04', 'Expressa', 55.99),
 		   ('Guanabara Fretes e Entregas LTDA', '17.342.627/0001-23', 'Expressa', 45.99),
 		   ('Ronaldo Entregas Express', '49.623.352/0001-92', 'Expressa', 60.99);
-GO
 
+END
 

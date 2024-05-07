@@ -193,3 +193,22 @@ SELECT DISTINCT
 	( SELECT St.IDStatus FROM StatusDespacho St WHERE St.NomeStatus = 'Em processamento' ) AS Status_Entrega,
 	( SELECT CONVERT(date, GETDATE())) AS Data_Entrega
 	FROM Pedidos Pe;
+
+
+
+SELECT 
+    (SELECT COUNT(*) 
+     FROM ItensPedidos ipe 
+     INNER JOIN AcompanhamentoPedidos ap ON ap.ItensPedidos_ID = ipe.Item_ID
+     WHERE pedido_ID = 3 AND ap.ItensPedidos_status = 0) -
+    (SELECT COUNT(*) 
+     FROM ItensPedidos ipe 
+     INNER JOIN AcompanhamentoPedidos ap ON ap.ItensPedidos_ID = ipe.Item_ID
+     WHERE pedido_ID = 3 AND ap.ItensPedidos_status = 1) AS diff;
+
+
+SELECT ip.pedido_ID
+FROM ItensPedidos ip
+LEFT JOIN AcompanhamentoPedidos ap ON ip.Item_ID = ap.ItensPedidos_ID
+GROUP BY ip.pedido_ID
+HAVING COUNT(ap.ItensPedidos_ID) = COUNT(CASE WHEN ap.ItensPedidos_status = 1 THEN 1 END)
