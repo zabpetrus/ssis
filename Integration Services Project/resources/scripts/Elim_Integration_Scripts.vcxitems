@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{5bdd4de3-9160-463d-8f8a-dbce788d0d0f}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)create_database_elimdb.sql" />
+    <None Include="$(MSBuildThisFileDirectory)create_table_carga.sql" />
+    <None Include="$(MSBuildThisFileDirectory)em_construcao.sql" />
+    <None Include="$(MSBuildThisFileDirectory)script_create_tables.sql" />
+    <None Include="$(MSBuildThisFileDirectory)script_create_tables_drop.sql" />
+    <None Include="$(MSBuildThisFileDirectory)script_drop_constraints.sql" />
+    <None Include="$(MSBuildThisFileDirectory)select_inserts.sql" />
+    <None Include="$(MSBuildThisFileDirectory)select_tabelas.sql" />
+    <None Include="$(MSBuildThisFileDirectory)table_selects_empty.sql" />
+    <None Include="$(MSBuildThisFileDirectory)trigger_adicionarprodutoestoque.sql" />
+  </ItemGroup>
+</Project>

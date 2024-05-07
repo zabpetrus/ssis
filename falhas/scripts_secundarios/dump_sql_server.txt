@@ -1,3 +1,0 @@
-sqlcmd -S DESKTOP-NSQ6C33\ATLAS -Q "BACKUP DATABASE ElimDB TO DISK='F:\atlas\atlas_resources\database.mdf'"
-
-sqlcmd -S DESKTOP-NSQ6C33\ATLAS -Q "BACKUP DATABASE Utilitario TO DISK='F:\vstudio2024\Elim_Integration_Services\Elim_Utilitario'"

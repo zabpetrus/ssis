@@ -2,23 +2,13 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Elim_Integration_Services</Name>
-    <LastWriteTime>2024-04-29T20:16:50.1088672Z</LastWriteTime>
+    <LastWriteTime>2024-05-07T03:30:06.8235388Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>ETL0.dtsx</Name>
-      <LastWriteTime>2024-04-29T20:10:33.2495847Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>ETL1.dtsx</Name>
-      <LastWriteTime>2024-04-29T20:10:33.2515845Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>ETL_SRC2.dtsx</Name>
-      <LastWriteTime>2024-04-29T20:18:46.7015516Z</LastWriteTime>
+      <Name>ETL.dtsx</Name>
+      <LastWriteTime>2024-05-07T03:31:05.0860146Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
