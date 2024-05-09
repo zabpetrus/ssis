@@ -212,3 +212,18 @@ FROM ItensPedidos ip
 LEFT JOIN AcompanhamentoPedidos ap ON ip.Item_ID = ap.ItensPedidos_ID
 GROUP BY ip.pedido_ID
 HAVING COUNT(ap.ItensPedidos_ID) = COUNT(CASE WHEN ap.ItensPedidos_status = 1 THEN 1 END)
+
+
+DECLARE @ok INT;
+
+SELECT TOP 1 @ok = ip.pedido_ID FROM ItensPedidos ip
+	INNER JOIN AcompanhamentoPedidos ac ON ac.ItensPedidos_ID = ip.Item_ID 
+	GROUP BY pedido_ID
+	HAVING COUNT(*) = SUM(CASE WHEN ItensPedidos_status = 1 THEN 1 ELSE 0 END);
+
+-- UPDATE ItensPedidos SET disponivel = 1 WHERE Item_ID IN (1,3,5,8);
+
+SELECT pedido_ID
+FROM ItensPedidos
+GROUP BY pedido_ID
+HAVING SUM(CASE WHEN disponivel = 0 THEN 1 ELSE 0 END) = 0;

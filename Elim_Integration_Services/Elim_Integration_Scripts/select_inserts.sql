@@ -48,12 +48,13 @@ INSERT INTO [dbo].[Pedidos]
 
 
 -- Populado Itens Pedidos
-INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario) 
+INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario, disponivel) 
 SELECT DISTINCT 
     Pedidos.pedido_id,
 	Produtos.produto_id, 
 	Carga.qte, 
-	Carga.valor 
+	Carga.valor,
+	0
 	FROM Carga 
 	LEFT JOIN Produtos ON Carga.upc = Produtos.upc AND Carga.sku = Produtos.sku
 	LEFT JOIN Pedidos ON Pedidos.codigo_Pedido = Carga.codigoPedido;

@@ -225,7 +225,8 @@ DROP TABLE IF EXISTS ItensPedidos;
 		[pedido_ID] INT NOT NULL,
 		[produto_ID] INT NOT NULL,
 		[quantidade] INT NOT NULL,
-		[preco_unitario] DECIMAL(10,2) NOT NULL
+		[preco_unitario] DECIMAL(10,2) NOT NULL,
+		[disponivel] BIT DEFAULT 0 
 	);
 
 DROP TABLE IF EXISTS Checkout;

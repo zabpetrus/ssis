@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SSISConnector"
+  DTS:DTSID="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-NSQ6C33\ATLAS;Initial Catalog=Utilitario;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Elim_Integration_Services-{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}DESKTOP-NSQ6C33\ATLAS.Utilitario;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

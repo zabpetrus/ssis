@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-NSQ6C33</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhwxHyTa1ukOwa2Ekrss8SgAAAAACAAAAAAAQZgAAAAEAACAAAABpBJCr+Dzdx2/GJlRuSkhXWNVW55whcT2f/A5N0iwYRQAAAAAOgAAAAAIAACAAAADEY6seNCCP1xL05HlZaPOn2GooVijMvfpe053oYVFLzJAAAACuEAYZhaFcHqSUM0Q6GtpiviTLNflajZc9F9A0b1Bx14efxdBUcLHRgs6482IVidOe7aRGL2COqUAnF0rNxgJvemQGDELHjTloOrO47x7O3EztQDv6RmVxfZBfBzySftGiiiyMQaMIzeC7RhOocDw2wyLEHWL3AWWtGXSVMSUVIREDR+NkXt03BU6DWbQYxSxAAAAAVOiJAczPlkZcIbIywUgsnHVJhIBk8MiI62SJWFuM3eeiem2/Y7uTrkRn/cbFuQKN5Pas5hQghLYcNIcKHwEQCg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhwxHyTa1ukOwa2Ekrss8SgAAAAACAAAAAAAQZgAAAAEAACAAAAApw21WWhugF9i9BQnyJkmIQVE2x/pxo5W0mZHQOB7hQgAAAAAOgAAAAAIAACAAAADLZhdQFxw48W3Y4TrDLHzGqYW3tMdL2TkN/gzWLSH/p5AAAABaf+d6WbM4wUm4AWTroTmhjxrqtExAkzG3rVS3dycDG1grkLXOU1wRHxijD+zWWXEyZM9BCFWkTerl6AvESnSGGbp1gVrNOFqUJQv0/ucvQ9TK+5fYzaDLtFpO2N+TWJGzRcO7NVrTRSywaD0wOgcVMkPCst9u4cs3Rt91pQYRD0npY3hjVGNWLm9G9yGu54hAAAAAkK8x1UIRYecg/NSX7XffLt4nVEZNBnH5DERUGbzAjNphgSVMiZe2rRbdA83LBImj0MYQMpshlSA8H+H1aFXg/w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,16 +42,31 @@
                 <SSIS:Property SSIS:Name="Name">ETL4</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">47</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">50</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C65CEBD3-F51E-4506-B796-A85538A0CC54}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EC9D4850-B58F-43D7-9A1E-08BB4CFBF33C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="Parâmetro">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{E1097DDB-AA3A-4E64-BB68-13C7DBA1113C}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.DESKTOP-NSQ6C33\ATLAS.Utilitario.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">

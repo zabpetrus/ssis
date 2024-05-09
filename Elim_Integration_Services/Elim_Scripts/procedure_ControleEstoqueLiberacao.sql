@@ -1,3 +1,5 @@
+USE [Utilitario];
+GO
 
 IF OBJECT_ID('ProcControleEstoqueLiberacao', 'P') IS NOT NULL
    DROP PROCEDURE ProcControleEstoqueLiberacao;
@@ -9,27 +11,33 @@ BEGIN
     
     BEGIN TRY
 
-		-- Inicia a começa a transação
-        BEGIN TRANSACTION;
+        -- Transaction begins
+        BEGIN TRANSACTION ProcControleEstoqueLiberacao;
 
-		-- Atualizando o estoque com os produtos que chegaram
-        UPDATE E
-        SET E.Quantidade = RC.qte
-        FROM Estoque E
-        INNER JOIN RequisicaoCompra RC ON E.Prod_ID = RC.Produto_id
-        WHERE RC.compra_status = 2;
-
-
-		-- Declarando variáveis
-
+        -- Declarando variaveis
         DECLARE @Item_ID INT;
         DECLARE @Produto_ID INT;
         DECLARE @CursorItens CURSOR;
         DECLARE @qtetemp INT;
         DECLARE @currentqte INT;
 
-        -- Cursor para obter os ItensPedidos_ID a serem atualizados
+        -- Updating the storage
+        UPDATE Estoque
+        SET Quantidade = RC.qte
+        FROM Estoque Es
+        INNER JOIN RequisicaoCompra RC ON Es.Prod_ID = RC.Produto_id
+        WHERE RC.compra_status = 2;
+        
+        IF @@ROWCOUNT > 0
+            PRINT 'Estoque Atualizado com sucesso! Recarregue para visualizar';
+        ELSE
+        BEGIN
+            PRINT 'Estoque Inalterado';
+            ROLLBACK;
+            RETURN;
+        END
 
+        -- Cursor to get ItensPedidos_ID to be updated
         SET @CursorItens = CURSOR FOR
             SELECT AP.ItensPedidos_ID, IP.produto_ID
             FROM AcompanhamentoPedidos AP
@@ -41,36 +49,32 @@ BEGIN
                 WHERE RC.compra_status = 2
             );
 
-		-- Abrindo o cursor para um fetch
-
+        -- Open cursor to fetch
         OPEN @CursorItens;
 
-		-- Adquirindo o item id e os id de produtos
-
+        -- getting the product id and item id
         FETCH NEXT FROM @CursorItens INTO @Item_ID,  @Produto_ID;
 
-		-- Enquanto se faz o update, outras operações são feitas de acordo
-
+        -- while update, other works are running
         WHILE @@FETCH_STATUS = 0
         BEGIN
-            -- Atualiza o status dos pedidos
-
+            -- Update AcompanhamentoPedidos
             UPDATE AcompanhamentoPedidos 
             SET ItensPedidos_status = 1 
             WHERE ItensPedidos_ID = @Item_ID;
 
-			-- Pegando a quantidade de itensPedidos
-
+            -- get quantidade
             SELECT @qtetemp = Quantidade FROM ItensPedidos 
             WHERE produto_ID = @Produto_ID AND Item_ID = @Item_ID;
 
-			-- Pegando a quantidade corrente no estoque
-
+            -- get current storage number of itenspedidos
             SELECT @currentqte = Quantidade FROM Estoque WHERE Estoque.Prod_ID = @Produto_ID;
 
-			-- Atualizando o valor do Estoque de acordo
-
-            UPDATE Estoque SET Quantidade = (@currentqte - @qtetemp)  WHERE Prod_ID =  @Produto_ID;
+            -- updating storage... again
+            UPDATE Estoque 
+            SET Quantidade = (@currentqte - @qtetemp)  
+            WHERE Prod_ID =  @Produto_ID;
+            PRINT 'Estoque = ' + CAST((@currentqte - @qtetemp) AS VARCHAR);
 
             FETCH NEXT FROM @CursorItens INTO @Item_ID, @Produto_ID;
         END
@@ -78,18 +82,15 @@ BEGIN
         CLOSE @CursorItens;
         DEALLOCATE @CursorItens;
 
-        COMMIT TRANSACTION; -- Confirma a transação se tudo estiver bem
+        COMMIT TRANSACTION ProcControleEstoqueLiberacao; -- Confirma a transação se tudo estiver bem
     END TRY
     BEGIN CATCH
         IF @@TRANCOUNT > 0
-
-		-- Rollback se ocorrer um erro
-
-            ROLLBACK TRANSACTION;
+        -- Rollback se ocorrer um erro
+            ROLLBACK TRANSACTION ProcControleEstoqueLiberacao;
 
         -- Manipulação de erros aqui
-
-        PRINT 'Ocorreu um erro no gatilho: ' + ERROR_MESSAGE();
+        PRINT 'Ocorreu um erro no procedimento: ' + ERROR_MESSAGE();
     END CATCH;
    
 END
