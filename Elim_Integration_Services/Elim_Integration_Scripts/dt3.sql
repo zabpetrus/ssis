@@ -1,7 +1,7 @@
 USE [Utilitario];
 
 IF OBJECT_ID ('DT3','TR') IS NOT NULL
-   DROP TRIGGER dt3;
+   DROP TRIGGER DT3;
 GO
 
 

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/11/2024 3:28:35 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NSQ6C33"
+  DTS:CreatorName="DESKTOP-NSQ6C33\zsant"
+  DTS:DTSID="{4AE79C44-BDF6-499B-947E-754289CA5251}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Procedimentos"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{39DBB0DC-9715-4D3A-8F26-BC4A98C0EAA1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Procedimento 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{689c2883-705f-4621-9c8a-3468659ec082}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procedimento 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+          SQLTask:SqlStatementSource="USE [Utilitario];&#xA;GO&#xA;&#xA;IF OBJECT_ID('DP1', 'P') IS NOT NULL&#xA;   DROP PROCEDURE DP1;&#xA;GO&#xA;&#xA;CREATE PROCEDURE DP1&#xA;AS&#xA;BEGIN&#xA; -- Em requisicao compra vemos os produtos que chegaram&#xA;&#xA; DECLARE @id INT;&#xA; DECLARE @qte INT;&#xA;&#xA; SELECT @id = rc.Produto_id, @qte = rc.qte FROM RequisicaoCompra rc WHERE rc.compra_status = 2;&#xA;&#xA; UPDATE Estoque SET Quantidade = @qte WHERE Prod_ID = @id;&#xA;&#xA; PRINT 'Atualizacao do Produto de ID ' + CONVERT(VARCHAR, @id )  + ' no Estoque, inseridas ' + CONVERT(VARCHAR, @qte )  + ' unidades';&#xA;&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procedimento 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{2cf5f59d-2084-4e0c-a496-198ff63cce4b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procedimento 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+          SQLTask:SqlStatementSource="USE [Utilitario];&#xA;GO&#xA;&#xA;IF OBJECT_ID('DP2', 'P') IS NOT NULL&#xA;   DROP PROCEDURE DP2;&#xA;GO&#xA;&#xA;CREATE PROCEDURE DP2&#xA;AS&#xA;BEGIN &#xA;        -- Transaction begins&#xA;&#xA;        -- Declarando vari�veis&#xA;        DECLARE @Item_ID INT;&#xA;        DECLARE @Produto_ID INT;&#xA;        DECLARE @CursorItens CURSOR;&#xA;        DECLARE @qtetemp INT;&#xA;        DECLARE @currentqte INT;&#xA;&#xA;     &#xA;        -- Cursor to get ItensPedidos_ID to be updated&#xA;        SET @CursorItens = CURSOR FOR&#xA;&#xA;        SELECT &#xA;  ItensPedidos.Item_ID, &#xA;  ItensPedidos.produto_ID &#xA;  FROM ItensPedidos INNER JOIN Estoque&#xA;  ON Estoque.Prod_ID = ItensPedidos.produto_ID&#xA;  WHERE Estoque.Quantidade &gt; 0;&#xA;&#xA;&#xA;        -- Open cursor to fetch&#xA;        OPEN @CursorItens;&#xA;&#xA;        -- getting the product id and item id&#xA;        FETCH NEXT FROM @CursorItens INTO @Item_ID,  @Produto_ID;&#xA;&#xA;        -- while update, other works are running&#xA;        WHILE @@FETCH_STATUS = 0&#xA;        BEGIN&#xA;            -- Update ItensPedidos - disponibilidade, atribuindo&#xA;            UPDATE ItensPedidos &#xA;            SET disponivel = 1 &#xA;            WHERE ItensPedidos.produto_ID = @Produto_ID;&#xA;&#xA;   PRINT 'Atualiza��o em itensPedidos. Produto id ' + CONVERT(VARCHAR, @Produto_ID )  + ' liberado ';&#xA;&#xA;            -- get quantidade&#xA;            SELECT @qtetemp = Quantidade FROM ItensPedidos &#xA;            WHERE produto_ID = @Produto_ID AND Item_ID = @Item_ID;&#xA;&#xA;            -- get current storage number of itenspedidos&#xA;            SELECT @currentqte = Quantidade FROM Estoque WHERE Estoque.Prod_ID = @Produto_ID;&#xA;&#xA;            -- updating storage... again&#xA;            UPDATE Estoque &#xA;            SET Quantidade = (@currentqte - @qtetemp)  &#xA;            WHERE Prod_ID =  @Produto_ID;&#xA;            PRINT 'Estoque atualizado = ' + CAST((@currentqte - @qtetemp) AS VARCHAR);&#xA;   &#xA;&#xA;            FETCH NEXT FROM @CursorItens INTO @Item_ID, @Produto_ID;&#xA;        END&#xA;&#xA;        CLOSE @CursorItens;&#xA;        DEALLOCATE @CursorItens;&#xA;&#xA;    END &#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procedimento 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{25171fd7-f5c4-4dfe-b12c-b7a2a7036392}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procedimento 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+          SQLTask:SqlStatementSource="-- Percorrendo os itenspedidos e vendo quais est�o prontos&#xA;IF OBJECT_ID('DP3', 'P') IS NOT NULL&#xA;   DROP PROCEDURE DP3;&#xA;GO&#xA;&#xA;CREATE PROCEDURE DP3&#xA;AS&#xA;BEGIN&#xA;&#xA;   DECLARE @pedidoID INT;&#xA;   DECLARE @PedidoPronto CURSOR;&#xA;&#xA;   SET @PedidoPronto = CURSOR FOR&#xA;&#xA;   SELECT pedido_ID&#xA;   FROM ItensPedidos&#xA;   GROUP BY pedido_ID&#xA;   HAVING SUM(CASE WHEN disponivel = 0 THEN 1 ELSE 0 END) = 0;&#xA;&#xA;   OPEN @PedidoPronto;&#xA;&#xA;   FETCH NEXT FROM @PedidoPronto INTO @pedidoID;&#xA;&#xA;   WHILE @@FETCH_STATUS = 0&#xA;      BEGIN&#xA;&#xA;    UPDATE Pedidos SET status_pedido = 2 WHERE Pedidos.pedido_id = @pedidoID;&#xA;&#xA;    PRINT 'Pedidos id ' + CONVERT(VARCHAR, @pedidoID )  + 'atualizado ';&#xA;&#xA;    UPDATE DespachoMercadorias SET Status_Entrega = 2 WHERE DespachoMercadorias.Pedido_ID = @pedidoID;&#xA;  &#xA;    PRINT 'Despacho do pedido ' + CONVERT(VARCHAR, @pedidoID ) ;&#xA;&#xA;    UPDATE Checkout SET status_despacho = 2, data_despacho = GETDATE() WHERE Checkout.Pedido_id = @pedidoID;&#xA;&#xA;    PRINT 'Checkout atualizado para o do pedido ' + CONVERT(VARCHAR, @pedidoID ) ;&#xA;&#xA;    FETCH NEXT FROM @PedidoPronto INTO @pedidoID;&#xA;&#xA;   END&#xA;&#xA;    CLOSE @PedidoPronto;&#xA;       DEALLOCATE @PedidoPronto;&#xA;&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trigger 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{611b0b31-fe67-4b06-91f5-6013dc7248db}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trigger 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+          SQLTask:SqlStatementSource="USE [Utilitario];&#xA;&#xA;IF OBJECT_ID ('dt1','TR') IS NOT NULL&#xA;   DROP TRIGGER dt1;&#xA;GO&#xA;&#xA;&#xA;CREATE TRIGGER dt1&#xA;ON RequisicaoCompra&#xA;AFTER UPDATE&#xA;AS&#xA;BEGIN&#xA; /*&#xA; Ao atualizar a coluna compra_status, ser� disparado o seguinte gatilho: &#xA; Contar-se-� os elementos que foram alterados e verificar� se mudou para o valor 2, que � o&#xA; indicativo que o produto chegou&#xA; */&#xA; IF UPDATE(compra_status)&#xA; BEGIN&#xA;  EXEC DP1;&#xA; END&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trigger 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{07815ea3-3859-4276-bbf6-d5b395086e21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trigger 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+          SQLTask:SqlStatementSource="USE [Utilitario];&#xA;&#xA;IF OBJECT_ID ('DT2','TR') IS NOT NULL&#xA;   DROP TRIGGER DT2;&#xA;GO&#xA;&#xA;&#xA;CREATE TRIGGER DT2&#xA;ON Estoque&#xA;AFTER UPDATE&#xA;AS&#xA;BEGIN&#xA; /*&#xA; Quando atualiza o estoque, verifica se algum pedido pode ser atendido e &#xA; ,ao ser atendido, � subtraido do estoque.&#xA; */&#xA; IF UPDATE(Quantidade)&#xA; BEGIN&#xA;  EXEC DP2;&#xA; END&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trigger 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{837a7d73-2811-4cdd-acaf-36ff93501265}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trigger 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9BFE257-AF6E-4AAE-A4FF-0860682499C5}"
+          SQLTask:SqlStatementSource="USE [Utilitario];&#xA;&#xA;IF OBJECT_ID ('DT3','TR') IS NOT NULL&#xA;   DROP TRIGGER DT3;&#xA;GO&#xA;&#xA;&#xA;CREATE TRIGGER DT3&#xA;ON ItensPedidos&#xA;AFTER UPDATE&#xA;AS&#xA;BEGIN&#xA; /*&#xA; Quando atualiza a coluna disponivel em Itenspedidos, verifica se algum pedido pode ser atendido e &#xA; ,ao ser atendido, � subtraido do estoque.&#xA; */&#xA; IF UPDATE(disponivel)&#xA; BEGIN&#xA;  EXEC DP3;&#xA; END&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{7e6bf850-1a58-4449-b193-823e3cf07124}"
+      DTS:From="Package\Procedimento 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 4"
+      DTS:To="Package\Procedimento 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{0db76540-4c8d-463d-8394-528828fb7a62}"
+      DTS:From="Package\Procedimento 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 5"
+      DTS:To="Package\Procedimento 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{bf34428c-41b3-4d6d-a7e6-565a601251a2}"
+      DTS:From="Package\Procedimento 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 6"
+      DTS:To="Package\Trigger 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{e1ff172f-f029-492b-8629-65d68bc14eb8}"
+      DTS:From="Package\Trigger 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 7"
+      DTS:To="Package\Trigger 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{aa630510-c239-48e9-bb2b-7c388e77eb1c}"
+      DTS:From="Package\Trigger 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 8"
+      DTS:To="Package\Trigger 3" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Procedimento 1"
+          TopLeft="169,115" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Procedimento 2"
+          TopLeft="172.75,187.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Procedimento 3"
+          TopLeft="179.25,260.25" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Trigger 1"
+          TopLeft="195,344.75" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Trigger 2"
+          TopLeft="192.75,422.75" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Trigger 3"
+          TopLeft="197.75,498" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 4]"
+          TopLeft="248.875,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.5000000000001"
+              Start="0,0"
+              End="0,23.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 5]"
+          TopLeft="254,229.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7499999999999"
+              Start="0,0"
+              End="0,23.2499999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2499999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 6]"
+          TopLeft="256.875,302.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5"
+              Start="0,0"
+              End="0,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 7]"
+          TopLeft="255.375,386.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 8]"
+          TopLeft="256.75,464.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.25"
+              Start="0,0"
+              End="0,25.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

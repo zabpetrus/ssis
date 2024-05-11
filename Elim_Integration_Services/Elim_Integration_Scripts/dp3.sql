@@ -24,15 +24,19 @@ BEGIN
 	  WHILE @@FETCH_STATUS = 0
       BEGIN
 
-	  UPDATE Pedidos SET status_pedido = 2 WHERE Pedidos.pedido_id = @pedidoID;
+		  UPDATE Pedidos SET status_pedido = 2 WHERE Pedidos.pedido_id = @pedidoID;
 
-	  PRINT 'Pedidos id ' + CONVERT(VARCHAR, @pedidoID )  + 'atualizado ';
+		  PRINT 'Pedidos id ' + CONVERT(VARCHAR, @pedidoID )  + 'atualizado ';
 
-	  UPDATE DespachoMercadorias SET Status_Entrega = 2 WHERE DespachoMercadorias.Pedido_ID = @pedidoID;
+		  UPDATE DespachoMercadorias SET Status_Entrega = 2 WHERE DespachoMercadorias.Pedido_ID = @pedidoID;
 	 
-	  PRINT 'Despacho do pedido ' + CONVERT(VARCHAR, @pedidoID ) ;
+		  PRINT 'Despacho do pedido ' + CONVERT(VARCHAR, @pedidoID ) ;
 
-	 FETCH NEXT FROM @PedidoPronto INTO @pedidoID;
+		  UPDATE Checkout SET status_despacho = 2, data_despacho = GETDATE() WHERE Checkout.Pedido_id = @pedidoID;
+
+		  PRINT 'Checkout atualizado para o do pedido ' + CONVERT(VARCHAR, @pedidoID ) ;
+
+		  FETCH NEXT FROM @PedidoPronto INTO @pedidoID;
 
 	  END
 

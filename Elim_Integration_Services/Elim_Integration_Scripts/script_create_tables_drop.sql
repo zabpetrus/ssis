@@ -276,7 +276,7 @@ DROP TABLE IF EXISTS DespachoMercadorias;
 	CREATE TABLE DespachoMercadorias(
 		[Despacho_id] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Pedido_ID] INT NOT NULL,
-		[Transportadora_ID] INT NOT NULL,
+		[Transportadora_ID] INT  NOT NULL,
 		[Status_Entrega] INT NOT NULL,
 		[Data_Liberacao] DATETIME NOT NULL
 	);

@@ -43,7 +43,7 @@ BEGIN
             SET disponivel = 1 
             WHERE ItensPedidos.produto_ID = @Produto_ID;
 
-			PRINT 'Atualização em itensPedidos. Produto id ' + CONVERT(VARCHAR, @Produto_ID )  + ' disponivel ';
+			PRINT 'Atualização em itensPedidos. Produto id ' + CONVERT(VARCHAR, @Produto_ID )  + ' liberado ';
 
             -- get quantidade
             SELECT @qtetemp = Quantidade FROM ItensPedidos 
@@ -57,8 +57,7 @@ BEGIN
             SET Quantidade = (@currentqte - @qtetemp)  
             WHERE Prod_ID =  @Produto_ID;
             PRINT 'Estoque atualizado = ' + CAST((@currentqte - @qtetemp) AS VARCHAR);
-
-
+			
 
             FETCH NEXT FROM @CursorItens INTO @Item_ID, @Produto_ID;
         END

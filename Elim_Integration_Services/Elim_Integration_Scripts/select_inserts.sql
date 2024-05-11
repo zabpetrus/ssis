@@ -2,6 +2,21 @@ USE Utilitario;
 
 BEGIN
 
+-- INSERINDO TRANSPORTADORAS!!!
+
+INSERT INTO [dbo].[Transportadora]
+           ([Nome_Transportadora]
+           ,[CNPJ_Transportadora]
+           ,[Tipo_Servico]
+           ,[Custo_Frete])
+     VALUES
+		   ('Rupiao Entregas Brasil LTDA', '01.503.315/0001-14', 'Padrao',19.99 ),
+           ('America Transportes', '97.064.519/0001-75', 'Padrao', 25.99),           
+		   ('Calango Express', '46.458.091/0001-04', 'Expressa', 55.99),
+		   ('Guanabara Fretes e Entregas LTDA', '17.342.627/0001-23', 'Expressa', 45.99),
+		   ('Ronaldo Entregas Express', '49.623.352/0001-92', 'Expressa', 60.99);
+
+
 -- PRIMEIRAS INSERCOES EM CLIENTES E PRODUTOS
 
 -- Inserindo em Produtos baseado no select de carga e verificando se não está duplicado
@@ -109,7 +124,7 @@ SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
 INSERT into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
 SELECT 
 Pr.produto_id AS Produto_id,
-COALESCE(SUM(Es.quantidade), 0) AS Quantidade,
+COALESCE( SUM( Es.quantidade ), 0) AS Quantidade,
 COALESCE ( SUM (Ipr.quantidade), 0) AS Estoque_Minimo
 FROM Produtos Pr
 LEFT JOIN ItensPedidos IPr ON Pr.produto_id = Ipr.produto_ID
@@ -131,7 +146,7 @@ INSERT INTO [dbo].[RequisicaoCompra]
 SELECT DISTINCT
     Fornecedores.fornecedor_id AS Fornecedor_id,
     Produtos.produto_id AS Produto_id,
-    (SELECT SUM(quantidade) FROM ItensPedidos WHERE ItensPedidos.produto_ID = Produtos.produto_id) AS total_quantidade,
+    (SELECT SUM(quantidade) * 10 FROM ItensPedidos WHERE ItensPedidos.produto_ID = Produtos.produto_id) AS total_quantidade,
     (SELECT Status_ID FROM StatusPedido WHERE StatusPedido.Nome_Status = 'Pendente') AS compra_status,
     (SELECT SUM(preco_unitario * quantidade) FROM ItensPedidos WHERE ItensPedidos.produto_ID = Produtos.produto_id) AS total,
     GETDATE() AS dataEmissao
