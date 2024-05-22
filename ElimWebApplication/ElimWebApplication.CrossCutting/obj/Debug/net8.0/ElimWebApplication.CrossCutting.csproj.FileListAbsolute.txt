@@ -1,0 +1,15 @@
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\bin\Debug\net8.0\ElimWebApplication.CrossCutting.deps.json
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\bin\Debug\net8.0\ElimWebApplication.CrossCutting.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\bin\Debug\net8.0\ElimWebApplication.CrossCutting.pdb
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.csproj.AssemblyReference.cache
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.AssemblyInfoInputs.cache
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.AssemblyInfo.cs
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.csproj.CoreCompileInputs.cache
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.sourcelink.json
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\refint\ElimWebApplication.CrossCutting.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.pdb
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ref\ElimWebApplication.CrossCutting.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\bin\Debug\net8.0\ElimWebApplication.CrossCutting.runtimeconfig.json
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.CrossCutting\obj\Debug\net8.0\ElimWebApplication.CrossCutting.genruntimeconfig.cache

@@ -1,0 +1,15 @@
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\bin\Debug\net8.0\ElimWebApplication.Domain.deps.json
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\bin\Debug\net8.0\ElimWebApplication.Domain.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\bin\Debug\net8.0\ElimWebApplication.Domain.pdb
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.AssemblyInfoInputs.cache
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.AssemblyInfo.cs
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.csproj.CoreCompileInputs.cache
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.sourcelink.json
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\refint\ElimWebApplication.Domain.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.pdb
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ref\ElimWebApplication.Domain.dll
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.csproj.AssemblyReference.cache
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\bin\Debug\net8.0\ElimWebApplication.Domain.runtimeconfig.json
+F:\vstudio2024\ElimWebApplication\ElimWebApplication.Domain\obj\Debug\net8.0\ElimWebApplication.Domain.genruntimeconfig.cache

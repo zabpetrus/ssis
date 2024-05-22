@@ -231,6 +231,7 @@ DROP TABLE IF EXISTS ItensPedidos;
 
 DROP TABLE IF EXISTS Checkout;
 	CREATE TABLE Checkout(
+		[Checkout_ID] INT PRIMARY KEY IDENTITY NOT NULL,
 		[Pedido_id] INT NOT NULL,
 		[total_pedido] DECIMAL(10,2) NOT NULL,
 		[status_despacho] INT NOT NULL,
@@ -287,12 +288,6 @@ DROP TABLE IF EXISTS Estoque;
         [Prod_ID] INT NOT NULL,
 		[Quantidade] INT CHECK (Quantidade >= 0) DEFAULT 0,
 		[Estoque_Minimo] INT NOT NULL DEFAULT 0,
-	);
-
-DROP TABLE IF EXISTS AcompanhamentoPedidos;
-	CREATE TABLE AcompanhamentoPedidos (		
-		[ItensPedidos_ID] INT NOT NULL,
-        [ItensPedidos_status] BIT NOT NULL		
 	);
 
 

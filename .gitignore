@@ -3,3 +3,5 @@
 ################################################################################
 
 /Elim_Integration_Services/.vs/Elim_Integration_Services/FileContentIndex/005f5917-9b77-4277-b927-e919fd5d46ce.vsidx
+
+Provider=SQLNCLIRDA11;Data Source=DESKTOP-NSQ6C33\ATLAS;Integrated Security=SSPI;Initial Catalog=Utilitario

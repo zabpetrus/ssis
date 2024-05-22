@@ -27,6 +27,7 @@ Produtos ON Produtos.upc = Carga.upc
 WHERE NOT EXISTS(
 SELECT 1 FROM Produtos WHERE Produtos.upc = Carga.upc);
 
+PRINT 'INSERINDO EM PRODUTOS';
 
 
 
@@ -39,6 +40,7 @@ BEGIN
 	WHERE Clientes.cpf IS NULL;	
 END
 
+PRINT 'INSERINDO EM CLIENTES';
 
 -- Populando pedidos
 INSERT INTO [dbo].[Pedidos]
@@ -61,6 +63,7 @@ INSERT INTO [dbo].[Pedidos]
 		INNER JOIN StatusPedido AS SP ON SP.Nome_Status = 'Pendente' ORDER BY Carga.dataPedido;  
 
 
+PRINT 'INSERINDO EM PEDIDOS';
 
 -- Populado Itens Pedidos
 INSERT INTO ItensPedidos( pedido_ID, produto_ID, quantidade,preco_unitario, disponivel) 
@@ -75,6 +78,7 @@ SELECT DISTINCT
 	LEFT JOIN Pedidos ON Pedidos.codigo_Pedido = Carga.codigoPedido;
 
 
+PRINT 'INSERINDO EM ITENS PEDIDOS';
 
 
 -- Populando checkout
@@ -95,7 +99,8 @@ WHERE NOT EXISTS (
 )
 GROUP BY  Pr.pedido_id, Pr.codigo_Pedido;
 
-	
+
+PRINT 'INSERINDO EM CHECKOUT';
 
 
 
@@ -108,6 +113,7 @@ SELECT DISTINCT Carga.fornecedor, Carga.fornecedor_cnpj FROM Carga
  SELECT 1 FROM Fornecedores Fr WHERE Fr.CNPJ = Carga.fornecedor_cnpj
  );
 
+PRINT 'INSERINDO EM FORNECEDORES';
 
 
 -- GErando Nota Fiscal
@@ -119,6 +125,7 @@ WHERE NOT EXISTS(
 SELECT 1 FROM NotaFiscal nf WHERE nf.Pedido_ID = Checkout.Pedido_id
 );
 
+PRINT 'INSERINDO EM NOTA FISCAL';
 
 -- Gerando o estoque
 INSERT into Estoque (Prod_ID, Quantidade, Estoque_Minimo)
@@ -132,7 +139,7 @@ LEFT JOIN Estoque Es ON Es.Prod_ID = Pr.produto_id
 GROUP BY Pr.produto_id;
 
 
-
+PRINT 'INSERINDO EM ESTOQUE';
 
 
 -- Inserindo Requisição de Compra
@@ -153,15 +160,7 @@ SELECT DISTINCT
 FROM Produtos
 INNER JOIN Fornecedores ON Fornecedores.CNPJ = Produtos.fornecedor_CNPJ ORDER BY total;
 
-
--- Inserindo em Acompanhamento de Pedidos
-INSERT INTO [dbo].[AcompanhamentoPedidos]
-([ItensPedidos_ID],
-[ItensPedidos_status])
-SELECT  
-ItensPedidos.Item_ID AS ItemPedidoID,
-CAST(0 AS BIT) AS Liberado
-FROM ItensPedidos;
+PRINT 'INSERINDO EM REQUISICAO DE COMPRAS';
 
 
 -- Inserindo em Despacho de Mercadorias
@@ -175,6 +174,8 @@ INSERT INTO [dbo].[DespachoMercadorias]
 	( SELECT St.IDStatus FROM StatusDespacho St WHERE St.NomeStatus = 'Em processamento' ) AS Status_Entrega,
 	( SELECT CONVERT(date, GETDATE())) AS Data_Liberacao
 	FROM Pedidos Pe;
+
+	PRINT 'INSERINDO EM DESPACHO DE MERCADORIAS';
 	
 
 END;
